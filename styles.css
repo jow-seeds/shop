@@ -134,7 +134,7 @@ footer p {
 
 .hero {
     position: relative; /* Für das Pseudo-Element */
-    background-image: url("icons/plants_Background.jpeg"); /* Pfad zu deinem Hintergrundbild */
+    background-image: url("/shop/icons/plants_Background.jpeg"); /* Pfad zu deinem Hintergrundbild */
     background-size: cover; /* Bild vollständig skalieren */
     background-position: center; /* Bild zentrieren */
     height: 100vh; /* Höhe des Hero-Sections */
