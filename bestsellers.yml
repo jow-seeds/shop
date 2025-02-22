@@ -1,0 +1,9 @@
+automatic:
+  - name: "Auto Sleep Walker"
+    price: 10
+    image: "Produkte/Automatic/AutoSleepWalker.jpg"
+
+regular:
+  - name: "Auto Sleep Walker"
+    price: 10
+    image: "Produkte/Automatic/AutoSleepWalker.jpg"

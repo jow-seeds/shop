@@ -3,30 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JoW Seeds</title>
+    <title>Justice of Weed - Cannabis Samen Zuchtverband</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script> <!-- js-yaml CDN -->
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Produkte</a></li>
-                <li><a href="#about">Über uns</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-                <li><a href="#cart">Warenkorb</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section class="hero">
-        <img src="/shop/samen_background.png" alt="Seeds">
-        <div class="info-box">
-            <p>Willkommen in unserem Shop! Entdecken Sie unsere besten Angebote.</p>
+        <div class="container1">
+            <img src="icons/Logo.png" alt="Logo" class="logo">
+            <h1>Justice of Weed<br>Cannabis Samen Zuchtverband</h1>
         </div>
-    </section>
-    <section class="best-sellers">
-        <h2>Best Sellers</h2>
-        <!-- Hier kommen die Best Sellers Produkte -->
-    </section>
+        <div class="container2">
+            <button class="active">HOME</button>
+            <button>SHOP</button>
+            <button>KONTAKT</button>
+            <button>IMPRESSUM</button>
+            <button class="cart-button" id="cartButton">
+                <img src="icons/shopping-cart.png" alt="Einkaufswagen">
+            </button>
+        </div>
+    </header>
+	
+	 <!-- Hauptinhalt der Seite (kommt später) -->
+    <main>
+        <section class="hero">
+            <h2>Willkommen bei Justice of Weed.</h2>
+            <h3>Dein lokaler Seed-Breeder!</h3>
+			<button class="shop-button">Zum Shop</button>
+        </section>
+        
+        <!-- Infofeld -->
+        <div class="info-box">
+            <h4>Info</h4>
+            <p>Wir vom Justice of Weed sind stolz darauf, nun das CanG zu nutzen, um in den europäischen Breeder-Markt einzusteigen!<br>Jede unserer Sorten ist das Ergebnis sorgfältiger Selektionen und Leidenschaft für Qualität.</p>
+			<p>Unser Katalog wird Schritt für Schritt wachsen – schaut euch gerne um, vielleicht ist bereits die passende Sorte für euch dabei!</p>
+        </div>
+		
+		<!-- Bestseller -->
+		<div class="bestseller-field">
+			<h2>Bestseller</h2>
+            <div class="bestseller-container">
+                <div class="category">
+                    <h3>Automatic</h3>
+                    <div class="bestseller-items">
+                        <!-- Bestseller-Items für Automatic werden hier geladen -->
+                    </div>
+                </div>
+                <div class="category">
+                    <h3>Regulär</h3>
+                    <div class="bestseller-items">
+                        <!-- Bestseller-Items für Regulär werden hier geladen -->
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+    </main>
+
+    <!-- Footer bleibt auf jeder Seite gleich -->
+    <footer>
+        <p>Justice of Weed - Cannabis Samen Zuchtverband &copy; | Seed Company 2024</p>
+    </footer>
+
+    <!-- Modales Fenster für den Warenkorb -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Warenkorb</h2>
+            <p id="cartMessage">Dein Warenkorb ist leer.</p>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+    <script src="loadBestsellers.js"></script>
 </body>
 </html>
