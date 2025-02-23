@@ -106,16 +106,6 @@ function updateCartDisplay() {
     }
 }
 
-// CSS for modal to ensure it doesn't exceed the viewport height
-const style = document.createElement('style');
-style.textContent = `
-    .modal-content {
-        max-height: 80vh; /* Maximum height of the modal */
-        overflow-y: auto; /* Enable vertical scrolling if needed */
-    }
-`;
-document.head.appendChild(style);
-
 // CSS for consistent alignment using grid layout
 const style = document.createElement('style');
 style.textContent = `
