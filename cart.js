@@ -33,7 +33,7 @@ function updateCartDisplay() {
     headerLine.style.border = "2px solid black";
     modalContent.appendChild(headerLine);
 
-    let gesamtPreis = 0;
+    let zwischenPreis = 0;
 
     if (cartItems.length === 0) {
         let emptyMessage = document.createElement("p");
@@ -56,7 +56,7 @@ function updateCartDisplay() {
             let preisSpan = document.createElement("span");
             preisSpan.textContent = `Preis: ${item.preis.toFixed(2)}€`;
 
-            gesamtPreis += item.preis;
+            zwischenPreis += item.preis;
 
             itemElement.appendChild(nameSpan);
             itemElement.appendChild(quantitySpan);
@@ -76,9 +76,21 @@ function updateCartDisplay() {
         totalLine.style.border = "2px solid black";
         modalContent.appendChild(totalLine);
 
+        let zwischenPreisElement = document.createElement("p");
+        zwischenPreisElement.textContent = `Zwischenpreis: ${zwischenPreis.toFixed(2)}€`;
+        modalContent.appendChild(zwischenPreisElement);
+
+        let lieferkosten = 6;
+        let lieferkostenElement = document.createElement("p");
+        lieferkostenElement.textContent = `Lieferkosten: ${lieferkosten}€`;
+        modalContent.appendChild(lieferkostenElement);
+
+        let gesamtPreis = zwischenPreis.toFixed(2) + lieferkosten.toFixed(2);
         let gesamtPreisElement = document.createElement("p");
-        gesamtPreisElement.textContent = `Gesamtpreis: ${gesamtPreis.toFixed(2)}€`;
+        gesamtPreisElement.textContent = `Gesamtpreis: ${gesamtPreis.toFixed(2)}`;
         modalContent.appendChild(gesamtPreisElement);
+        
+        modalContent.appendChild(totalLine);
     }
 }
 
