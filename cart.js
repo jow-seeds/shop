@@ -1,3 +1,4 @@
+let header = document.getElementById("überschrift");
 let cartButton = document.getElementById("cartButton");
 let cart = document.getElementById("cartModal");
 let closeButton = document.querySelector(".close");
@@ -25,6 +26,7 @@ window.addEventListener("click", function(event) {
 // Funktion zum Aktualisieren der Anzeige des Warenkorbs
 function updateCartDisplay() {
     modalContent.innerHTML = ''; // Inhalt des Modals leeren
+    modalContent.appendChild(header);
 
     if (cartItems.length === 0) {
         let emptyMessage = document.createElement("p");
@@ -33,7 +35,7 @@ function updateCartDisplay() {
     } else {
         cartItems.forEach(item => {
             let itemElement = document.createElement("div");
-            itemElement.textContent = `${item.name}   Menge: ${item.quantity}   Anzahl: ${item.anzahl}   Preis: ${item.preis}`;
+            itemElement.textContent = `${item.name}      Samen: ${item.quantity}      Anzahl: ${item.anzahl}      Preis: ${item.preis}€`;
             modalContent.appendChild(itemElement);
         });
     }
@@ -46,4 +48,4 @@ function addItemToCart(name, quantity, anzahl, preis) {
 }
 
 // Beispielaufruf zum Hinzufügen eines Elements
-addItemToCart("Beispielartikel", 2);
+addItemToCart("Auto Sleep Walker", 3, 1, 12.50);
