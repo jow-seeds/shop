@@ -27,7 +27,11 @@ window.addEventListener("click", function(event) {
 function updateCartDisplay() {
     modalContent.innerHTML = ''; // Clear the modal content
 
+    // Add header with a bold line below
     modalContent.appendChild(header);
+    const headerLine = document.createElement("hr");
+    headerLine.style.border = "2px solid black";
+    modalContent.appendChild(headerLine);
 
     let gesamtPreis = 0;
 
@@ -60,7 +64,17 @@ function updateCartDisplay() {
             itemElement.appendChild(preisSpan);
 
             modalContent.appendChild(itemElement);
+
+            // Add a thin line between cart items
+            const itemLine = document.createElement("hr");
+            itemLine.style.border = "1px solid #ccc";
+            modalContent.appendChild(itemLine);
         });
+
+        // Add a bold line above the total price
+        const totalLine = document.createElement("hr");
+        totalLine.style.border = "2px solid black";
+        modalContent.appendChild(totalLine);
 
         let gesamtPreisElement = document.createElement("p");
         gesamtPreisElement.textContent = `Gesamtpreis: ${gesamtPreis.toFixed(2)}€`;
