@@ -1,293 +1,342 @@
 /* Grundstruktur für das Header-Element */
 header {
-	display: flex; /* Layout als Flexbox */
-    justify-content: space-between; /* Verteilung von container1 und container2 links/rechts */
-    align-items: center; /* Zentriert die Inhalte vertikal innerhalb des Headers */
-    padding: 20px; /* Abstand um den Header herum */
-    background-color: #f5f5f5; /* Hintergrundfarbe des Headers */
-    gap: 50px; /* Abstand zwischen den beiden Containern verringern (hier auf 50px gesetzt) */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    gap: 50px;
 }
 
 /* Styling für den ersten Container (Logo + Text) */
 .container1 {
-    display: flex; /* Flexbox zur horizontalen Anordnung von Bild und Text */
-    align-items: center; /* Zentriert das Logo und den Text vertikal */
-    justify-content: center; /* Zentriert den gesamten Inhalt horizontal */
-	margin-left: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 120px;
 }
 
 /* Bild im ersten Container */
 .logo {
-    max-width: 100px; /* Maximale Breite des Logos */
-    height: auto; /* Beibehaltung des Seitenverhältnisses */
-    margin-right: 15px; /* Abstand zwischen Logo und Text */
+    max-width: 100px;
+    height: auto;
+    margin-right: 15px;
 }
 
 /* Text im ersten Container */
 h1 {
-    margin: 0; /* Entfernt den Standardabstand um das H1-Element */
-    text-align: left; /* Text linksbündig */
+    margin: 0;
+    text-align: left;
 }
 
 /* Styling für den zweiten Container (Buttons) */
 .container2 {
-    display: flex; /* Flexbox für die Buttons */
-    gap: 10px; /* Abstand zwischen den Buttons */
-    align-items: center; /* Vertikale Zentrierung der Buttons */
-	margin-right: 120px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-right: 120px;
 }
-
-
 
 /* Styling für die Navigations-Buttons */
 button {
-    padding: 10px 20px; /* Innenabstand der Buttons */
-    background-color: transparent; /* Kein Hintergrund */
-    color: black; /* Textfarbe */
-    border: none; /* Kein Rahmen */
-    cursor: pointer; /* Zeigt einen Zeiger beim Hovern */
-    position: relative; /* Für die Platzierung der Linie */
-    font-size: 16px; /* Größe der Schrift */
+    padding: 10px 20px;
+    background-color: transparent;
+    color: black;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    font-size: 16px;
 }
 
 /* Unterer Strich, der beim Hover sichtbar wird */
 button::after {
-    content: ''; /* Leerer Inhalt für den Strich */
-    display: block; /* Blockelement */
-    width: 0; /* Startbreite: 0 */
-    height: 2px; /* Höhe des Strichs */
-    background: black; /* Farbe des Strichs */
-    position: absolute; /* Absolute Positionierung */
-    bottom: -5px; /* Positionierung knapp unterhalb des Buttons */
-    left: 0; /* Start von der linken Seite */
-    transition: width 0.3s ease; /* Animationseffekt beim Hover */
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: black;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
 }
 
 /* Hover-Effekt für den Strich */
 button:hover::after {
-    width: 100%; /* Vollständige Breite beim Hover */
+    width: 100%;
 }
 
 /* Styling für den aktiven Button (z. B. HOME als Standardseite) */
 button.active::after {
-    width: 100%; /* Der Strich ist permanent sichtbar */
+    width: 100%;
 }
 
-
-
 .bestseller-field {
-    border: 10px solid black; /* Schwarze Umrandung für den Container */
-    padding: 20px; /* Innenabstand */
-    margin: 20px 0; /* Außenabstand */
-    text-align: center; /* Zentrierte Ausrichtung für Text und Buttons */
+    border: 10px solid black;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
 }
 
 .bestseller-container {
-    display: flex; /* Flexbox für Nebeneinanderstellung */
-    justify-content: space-around; /* Platz zwischen den Kategorien */
+    display: flex;
+    justify-content: space-around;
 }
 
 .category {
-    flex: 1; /* Jede Kategorie nimmt gleich viel Platz ein */
-    margin: 0 10px; /* Außenabstand zwischen den Kategorien */
+    flex: 1;
+    margin: 0 10px;
 }
 
 .bestseller-items {
     display: flex;
-    flex-direction: column; /* Items untereinander anordnen */
-    align-items: center; /* Zentrierte Ausrichtung der Items */
+    flex-direction: column;
+    align-items: center;
 }
 
 .item {
-    border: 1px solid #ccc; /* Umrandung für jedes Item */
-    padding: 10px; /* Innenabstand für jedes Item */
-    margin: 10px 0; /* Außenabstand zwischen den Items */
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
 }
 
 .item img {
-    max-width: 100%; /* Bild responsive */
-    height: auto; /* Automatische Höhe für Bilder */
+    max-width: 100%;
+    height: auto;
 }
-
-
 
 /* Footer Styling */
 footer {
-    background-color: #111; /* Dunkler Hintergrund, passend zum Header */
-    color: white; /* Weißer Text */
-    text-align: center; /* Zentriert den Text im Footer */
-    padding: 10px; /* Abstand innerhalb des Footers */
-    bottom: 0; /*Fixiert den footer am unteren rand */
-    left: 0; /* Sicherstellen, dass der Footer bis zum linken Rand geht */
-    right: 0; /* Sicherstellen, dass der Footer bis zum rechten Rand geht */
-    width: 100%; /* Stellt sicher, dass der Footer die gesamte Breite einnimmt */
-    z-index: 999; /* Über allem anderen, falls nötig */
-    box-sizing: border-box; /* Damit Padding nicht zur Breite addiert wird */
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 999;
+    box-sizing: border-box;
 }
 
 footer p {
-    margin: 0; /* Entfernt den Standardabstand */
-    font-size: 14px; /* Kleinere Schriftgröße */
-    letter-spacing: 1px; /* Leicht erweiterter Buchstabenabstand für Lesbarkeit */
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 1px;
 }
 
-
 .hero {
-    position: relative; /* Für das Pseudo-Element */
-    background-image: url("/shop/icons/plants_Background.jpeg"); /* Pfad zu deinem Hintergrundbild */
-    background-size: cover; /* Bild vollständig skalieren */
-    background-position: center; /* Bild zentrieren */
-    height: 100vh; /* Höhe des Hero-Sections */
-    display: flex; /* Flexbox-Layout für zentrierte Texte */
-    flex-direction: column; /* Vertikale Anordnung der Kinder */
-    justify-content: center; /* Vertikal zentrieren */
-    align-items: center; /* Horizontal zentrieren */
-    color: white; /* Textfarbe */
-    text-align: center; /* Text zentrieren */
-    padding: 20px; /* Innenabstand für den Hero-Bereich */
-    font-weight: bold; /* Text fett machen */
+    position: relative;
+    background-image: url("/shop/icons/plants_Background.jpeg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
 }
 
 .hero::before {
-    content: ''; /* Leeres Pseudo-Element */
-    position: absolute; /* Absolute Positionierung */
-    top: 0; /* Oben ausrichten */
-    left: 0; /* Links ausrichten */
-    right: 0; /* Rechts ausrichten */
-    bottom: 0; /* Unten ausrichten */
-    background-color: rgba(0, 0, 0, 0.5); /* Dunkler, halbtransparenter Hintergrund */
-    z-index: 1; /* Unter die Texte legen */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 .hero h2, .hero h3 {
-    position: relative; /* Relativ zur vorherigen Schicht */
-    z-index: 2; /* Über das Pseudo-Element legen */
+    position: relative;
+    z-index: 2;
 }
 
 .hero h2 {
-    font-size: 3em; /* Erhöhe die Schriftgröße für h2 */
-    margin: 0; /* Entferne den Standardabstand */
+    font-size: 3em;
+    margin: 0;
 }
 
 .hero h3 {
-    font-size: 2em; /* Erhöhe die Schriftgröße für h3 */
-    margin: 10px 0; /* Füge Abstand zwischen h2 und h3 hinzu */
+    font-size: 2em;
+    margin: 10px 0;
 }
 
-
 .shop-button {
-	position: relative; /* Relativ zur vorherigen Schicht */
-    z-index: 2; /* Über das Pseudo-Element legen */
-    background-color: black; /* Hintergrundfarbe des Buttons */
-    color: white; /* Textfarbe des Buttons */
-    border: none; /* Kein Rahmen */
-    padding: 15px 30px; /* Innenabstand für den Button */
-    border-radius: 25px; /* Abgerundete Ecken */
-    font-size: 1.2em; /* Schriftgröße */
-    cursor: pointer; /* Zeigt einen Zeiger beim Hovern */
-    margin-top: 20px; /* Abstand zum oberen Inhalt */
-    transition: background-color 0.3s ease; /* Animationseffekt für den Hintergrund */
+    position: relative;
+    z-index: 2;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
 }
 
 .shop-button:hover {
-    background-color: #333; /* Dunklerer Hintergrund beim Hover */
+    background-color: #333;
 }
-
-
-
 
 /* Spezifisches Styling für den Einkaufswagen-Button */
 .cart-button {
-    background-color: transparent; /* Keine Hintergrundfarbe */
-    border: none; /* Kein Rahmen */
-    padding: 0; /* Kein zusätzlicher Innenabstand */
-    cursor: pointer; /* Zeigt einen Zeiger beim Hovern */
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
 }
 
-/* Bild im Einkaufswagen-Button */
 .cart-button img {
-    max-width: 30px; /* Maximale Breite des Einkaufswagen-Symbols */
-    height: auto; /* Beibehaltung des Seitenverhältnisses */
+    max-width: 30px;
+    height: auto;
 }
 
-/* Hover-Effekt für den Einkaufswagen-Button */
 .cart-button:hover img {
-    filter: brightness(0.8); /* Leichter Abdunklungseffekt beim Hovern */
+    filter: brightness(0.8);
 }
-
-
-
-/* Layout-Anpassung bei kleineren Bildschirmen */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column; /* Container übereinander anordnen bei kleineren Bildschirmen */
-    }
-
-    .container1, .container2 {
-        margin-bottom: 20px; /* Abstand zwischen den Containern bei kleinerem Layout */
-    }
-}
-
-
 
 /* Modales Fenster-Hintergrund */
 .modal {
-    display: none; /* Modal ist standardmäßig versteckt */
-    position: fixed; /* Festes Positionieren über dem gesamten Bildschirm */
-    z-index: 1000; /* Hohe Priorität, damit es vor anderen Elementen liegt */
+    display: none;
+    position: fixed;
+    z-index: 1000;
     left: 0;
     top: 0;
-    width: 100%; /* Volle Breite des Bildschirms */
-    height: 100%; /* Volle Höhe des Bildschirms */
-    background-color: rgba(0, 0, 0, 0.5); /* Verdunkelter Hintergrund */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Inhalt des modalen Fensters */
 .modal-content {
-    background-color: white; /* Weißer Hintergrund für den Warenkorb */
-    margin: 15% auto; /* Zentriert das Fenster vertikal */
-    padding: 20px; /* Innenabstand */
-    border-radius: 10px; /* Abgerundete Ecken */
-    width: 50%; /* Breite des modalen Fensters */
-    position: relative; /* Damit der Schließen-Button positioniert werden kann */
-    text-align: center; /* Zentriert den Text im Fenster */
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    position: relative;
+    text-align: center;
 }
 
-/* Schließen-Button im modalen Fenster */
 .close {
-    position: absolute; /* Positioniert den Button innerhalb des Fensters */
+    position: absolute;
     top: 10px;
     right: 20px;
-    font-size: 24px; /* Größe des Schließen-Icons */
-    cursor: pointer; /* Mauszeiger ändert sich beim Hover */
+    font-size: 24px;
+    cursor: pointer;
 }
 
-/* Animation für das Einblenden des Modals */
 .modal.show {
-    display: block; /* Modal sichtbar machen */
+    display: block;
 }
-
-
 
 .info-box {
-	position: relative; /* Relativ zur vorherigen Schicht */
-	overflow-y: auto;
-    z-index: 2; /* Über das Pseudo-Element legen */
-    background-color: rgba(255, 255, 255, 0.9); /* Weiße Hintergrundfarbe mit Transparenz */
-    border-radius: 10px; /* Kleinere abgerundete Ecken */
-    padding: 15px; /* Innenabstand */
-	max-width: 800px; /* Kleinere maximale Breite */
-	max-height: 300px;
-    margin: -100px auto 20px; /* Zentriert, mit negativem Abstand oben für die Überlappung */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Schatten für einen 3D-Effekt */
-    text-align: center; /* Text zentriert */
-    position: relative; /* Damit es im Layout funktioniert */
+    position: relative;
+    overflow-y: auto;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 15px;
+    max-width: 800px;
+    max-height: 300px;
+    margin: -100px auto 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
 }
 
 .info-box h4 {
-    font-size: 1.5em; /* Größere Schriftgröße für den Überschriftstext */
+    font-size: 1.5em;
 }
 
 .info-box p {
-    font-size: 1.2em; /* Größere Schriftgröße für den Paragraphen-Text */
+    font-size: 1.2em;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .container1, .container2 {
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+    .logo {
+        max-width: 80px;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    button {
+        font-size: 14px;
+    }
+    .shop-button {
+        padding: 12px 24px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .container1, .container2 {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .bestseller-container {
+        flex-direction: column;
+    }
+    .modal-content {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        max-width: 60px;
+    }
+    h1 {
+        font-size: 1.2em;
+    }
+    .shop-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .info-box {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}
+
+/* Styles for very large screens */
+@media (min-width: 1600px) {
+    .container1, .container2 {
+        margin-left: 200px;
+        margin-right: 200px;
+    }
+    .logo {
+        max-width: 120px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    button {
+        font-size: 18px;
+    }
+    .shop-button {
+        padding: 20px 40px;
+        font-size: 1.5em;
+    }
+    .modal-content {
+        width: 40%;
+    }
+    .info-box {
+        max-width: 1000px;
+    }
 }
