@@ -34,6 +34,11 @@ function updateCartDisplay() {
     headerLine.style.border = "2px solid black";
     modalContent.appendChild(headerLine);
 
+    let löschenButton = document.createElement("button");
+    löschenButton.innerHTML = "LÖSCHEN";
+    löschenButton.style.color = "white";
+    löschenButton.style.backgroundColor = "red";
+
     let zwischenPreis = 0;
 
     if (cartItems.length === 0) {
@@ -64,6 +69,7 @@ function updateCartDisplay() {
             itemElement.appendChild(quantitySpan);
             itemElement.appendChild(anzahlSpan);
             itemElement.appendChild(preisSpan);
+            itemElement.appendChild(löschenButton);
 
             modalContent.appendChild(itemElement);
 
@@ -101,7 +107,7 @@ function updateCartDisplay() {
         let kasseButton = document.createElement("button");
         kasseButton.innerHTML = "<strong>KASSE</strong>";
         kasseButton.style.color = "white";
-        kasseButton.style.backgroundColor = "red";
+        kasseButton.style.backgroundColor = "green";
         modalContent.appendChild(kasseButton);
     }
 }
