@@ -29,7 +29,6 @@ function updateCartDisplay() {
 
     // Add header with a bold line below
     header.style.fontSize = "2em";
-    header.style.padding = "-0.3em";
     modalContent.appendChild(header);
     const headerLine = document.createElement("hr");
     headerLine.style.border = "2px solid black";
@@ -107,6 +106,16 @@ function updateCartDisplay() {
     }
 }
 
+// CSS for modal to ensure it doesn't exceed the viewport height
+const style = document.createElement('style');
+style.textContent = `
+    .modal-content {
+        max-height: 80vh; /* Maximum height of the modal */
+        overflow-y: auto; /* Enable vertical scrolling if needed */
+    }
+`;
+document.head.appendChild(style);
+
 // CSS for consistent alignment using grid layout
 const style = document.createElement('style');
 style.textContent = `
@@ -130,4 +139,7 @@ function addItemToCart(name, quantity, anzahl, preis) {
 // Beispielaufruf zum Hinzufügen eines Elements
 addItemToCart("Auto Sleep Walker", 3, 1, 12.50);
 addItemToCart("Sleep Walker Regular", 3, 1, 15.00);
-addItemToCart("Lady´s Black Death", 3, 1, 15.00);
+addItemToCart("Lady´s Black Death Regular", 3, 1, 15.00);
+addItemToCart("Auto Lady´s Black Death", 3, 1, 12.50);
+addItemToCart("Brain Fuck Regular", 3, 1, 15.00);
+addItemToCart("Auto Brain Fuck", 3, 1, 15.00);
