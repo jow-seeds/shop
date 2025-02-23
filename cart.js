@@ -64,7 +64,7 @@ function updateCartDisplay() {
             löschenButton.innerHTML = "LÖSCHEN";
             löschenButton.style.color = "white";
             löschenButton.style.backgroundColor = "red";
-            löschenButton.style.width = "50%";
+            löschenButton.style.width = "100%";
 
             itemElement.appendChild(nameSpan);
             itemElement.appendChild(quantitySpan);
