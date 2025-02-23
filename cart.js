@@ -80,7 +80,7 @@ function updateCartDisplay() {
         zwischenPreisElement.textContent = `Zwischenpreis: ${zwischenPreis.toFixed(2)}€`;
         modalContent.appendChild(zwischenPreisElement);
 
-        let lieferkosten = 6;
+        let lieferkosten = 6.5;
         let lieferkostenElement = document.createElement("p");
         lieferkostenElement.textContent = `Lieferkosten: ${lieferkosten.toFixed(2)}€`;
         modalContent.appendChild(lieferkostenElement);
