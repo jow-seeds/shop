@@ -44,10 +44,6 @@ function updateCartDisplay() {
         cartItems.forEach(item => {
             let itemElement = document.createElement("div");
             itemElement.className = "cart-item";
-            itemElement.style.display = "flex";
-            itemElement.style.alignItems = "center";
-            itemElement.style.justifyContent = "space-between";
-            itemElement.style.marginBottom = "10px";
 
             let nameSpan = document.createElement("span");
             nameSpan.textContent = `${item.name}`;
@@ -68,7 +64,7 @@ function updateCartDisplay() {
             löschenButton.innerHTML = "LÖSCHEN";
             löschenButton.style.color = "white";
             löschenButton.style.backgroundColor = "red";
-            löschenButton.style.marginLeft = "10px"; // Add some space between price and button
+            löschenButton.style.width = "50%";
 
             itemElement.appendChild(nameSpan);
             itemElement.appendChild(quantitySpan);
@@ -122,8 +118,8 @@ const style = document.createElement('style');
 style.textContent = `
     .cart-item {
         display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: 10px;
+        grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+        gap: 6px;
         margin-bottom: 10px;
     }
     .modal-content {
