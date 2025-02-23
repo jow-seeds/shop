@@ -26,7 +26,6 @@ window.addEventListener("click", function(event) {
 // Funktion zum Aktualisieren der Anzeige des Warenkorbs
 function updateCartDisplay() {
     modalContent.innerHTML = ''; // Inhalt des Modals leeren
-    modalContent.appendChild(header);
 
     let gesamtPreis = 0;
 
@@ -63,7 +62,9 @@ function updateCartDisplay() {
             modalContent.appendChild(itemElement);
         });
 
-        modalContent.appendChild(gesamtPreis);
+        let gesamtPreisElement = document.createElement("p");
+        gesamtPreisElement.textContent = `Gesamtpreis: ${gesamtPreis}€`;
+        modalContent.appendChild(gesamtPreisElement);
     }
 }
 
