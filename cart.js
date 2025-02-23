@@ -26,6 +26,7 @@ window.addEventListener("click", function(event) {
 // Funktion zum Aktualisieren der Anzeige des Warenkorbs
 function updateCartDisplay() {
     modalContent.innerHTML = ''; // Inhalt des Modals leeren
+    modalContent.appendChild(header);
 
     if (cartItems.length === 0) {
         let emptyMessage = document.createElement("p");
