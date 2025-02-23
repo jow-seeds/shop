@@ -26,7 +26,6 @@ window.addEventListener("click", function(event) {
 // Funktion zum Aktualisieren der Anzeige des Warenkorbs
 function updateCartDisplay() {
     modalContent.innerHTML = ''; // Inhalt des Modals leeren
-    modalContent.appendChild(header);
 
     if (cartItems.length === 0) {
         let emptyMessage = document.createElement("p");
@@ -35,7 +34,27 @@ function updateCartDisplay() {
     } else {
         cartItems.forEach(item => {
             let itemElement = document.createElement("div");
-            itemElement.textContent = `${item.name}      Samen: ${item.quantity}      Anzahl: ${item.anzahl}      Preis: ${item.preis}€`;
+            itemElement.style.display = "flex";
+            itemElement.style.justifyContent = "space-between";
+            itemElement.style.marginBottom = "10px";
+
+            let nameSpan = document.createElement("span");
+            nameSpan.textContent = `Sorte: ${item.name}`;
+
+            let quantitySpan = document.createElement("span");
+            quantitySpan.textContent = `Samen: ${item.quantity}`;
+
+            let anzahlSpan = document.createElement("span");
+            anzahlSpan.textContent = `Anzahl: ${item.anzahl}`;
+
+            let preisSpan = document.createElement("span");
+            preisSpan.textContent = `Preis: ${item.preis}€`;
+
+            itemElement.appendChild(nameSpan);
+            itemElement.appendChild(quantitySpan);
+            itemElement.appendChild(anzahlSpan);
+            itemElement.appendChild(preisSpan);
+
             modalContent.appendChild(itemElement);
         });
     }
@@ -48,4 +67,4 @@ function addItemToCart(name, quantity, anzahl, preis) {
 }
 
 // Beispielaufruf zum Hinzufügen eines Elements
-addItemToCart("Auto Sleep Walker", 3, 1, 12.50);
+addItemToCart("Auto Sleep Walker", 3, 1, "12.50");
