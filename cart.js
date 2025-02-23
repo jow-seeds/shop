@@ -46,6 +46,7 @@ function updateCartDisplay() {
 
             let nameSpan = document.createElement("span");
             nameSpan.textContent = `${item.name}`;
+            nameSpan.style.fontWeight = "bold"; // Make item name bold
 
             let quantitySpan = document.createElement("span");
             quantitySpan.textContent = `Samen: ${item.quantity}`;
@@ -77,18 +78,18 @@ function updateCartDisplay() {
         modalContent.appendChild(totalLine1);
 
         let zwischenPreisElement = document.createElement("p");
-        zwischenPreisElement.textContent = `Zwischenpreis: ${zwischenPreis.toFixed(2)}€`;
+        zwischenPreisElement.innerHTML = `<strong>Zwischenpreis:</strong> ${zwischenPreis.toFixed(2)}€`;
         modalContent.appendChild(zwischenPreisElement);
 
         let lieferkosten = 6.5;
         let lieferkostenElement = document.createElement("p");
-        lieferkostenElement.textContent = `Lieferkosten: ${lieferkosten.toFixed(2)}€`;
+        lieferkostenElement.innerHTML = `<strong>Lieferkosten:</strong> ${lieferkosten.toFixed(2)}€`;
         modalContent.appendChild(lieferkostenElement);
 
         // Correct calculation of gesamtPreis
         let gesamtPreis = (zwischenPreis + lieferkosten).toFixed(2);
         let gesamtPreisElement = document.createElement("p");
-        gesamtPreisElement.textContent = `Gesamtpreis: ${gesamtPreis}€`;
+        gesamtPreisElement.innerHTML = `<strong>Gesamtpreis: ${gesamtPreis}€</strong>`;
         modalContent.appendChild(gesamtPreisElement);
         
         const totalLine2 = document.createElement("hr");
