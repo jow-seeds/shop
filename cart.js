@@ -25,7 +25,7 @@ window.addEventListener("click", function(event) {
 
 // Funktion zum Aktualisieren der Anzeige des Warenkorbs
 function updateCartDisplay() {
-    modalContent.innerHTML = ''; // Inhalt des Modals leeren
+    modalContent.innerHTML = ''; // Clear the modal content
 
     modalContent.appendChild(header);
 
@@ -38,9 +38,7 @@ function updateCartDisplay() {
     } else {
         cartItems.forEach(item => {
             let itemElement = document.createElement("div");
-            itemElement.style.display = "flex";
-            itemElement.style.justifyContent = "space-between";
-            itemElement.style.marginBottom = "10px";
+            itemElement.className = "cart-item";
 
             let nameSpan = document.createElement("span");
             nameSpan.textContent = `${item.name}`;
@@ -69,6 +67,18 @@ function updateCartDisplay() {
         modalContent.appendChild(gesamtPreisElement);
     }
 }
+
+// CSS for consistent alignment using grid layout
+const style = document.createElement('style');
+style.textContent = `
+    .cart-item {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+`;
+document.head.appendChild(style);
 
 // Beispiel zum Hinzufügen eines Elements zum Warenkorb
 function addItemToCart(name, quantity, anzahl, preis) {
