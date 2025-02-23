@@ -43,7 +43,7 @@ function updateCartDisplay() {
             itemElement.style.marginBottom = "10px";
 
             let nameSpan = document.createElement("span");
-            nameSpan.textContent = `Sorte: ${item.name}`;
+            nameSpan.textContent = `${item.name}`;
 
             let quantitySpan = document.createElement("span");
             quantitySpan.textContent = `Samen: ${item.quantity}`;
