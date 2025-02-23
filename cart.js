@@ -82,12 +82,12 @@ function updateCartDisplay() {
 
         let lieferkosten = 6;
         let lieferkostenElement = document.createElement("p");
-        lieferkostenElement.textContent = `Lieferkosten: ${lieferkosten}€`;
+        lieferkostenElement.textContent = `Lieferkosten: ${lieferkosten.toFixed(2)}€`;
         modalContent.appendChild(lieferkostenElement);
 
         let gesamtPreis = zwischenPreis.toFixed(2) + lieferkosten.toFixed(2);
         let gesamtPreisElement = document.createElement("p");
-        gesamtPreisElement.textContent = `Gesamtpreis: ${gesamtPreis.toFixed(2)}€`;
+        gesamtPreisElement.textContent = `Gesamtpreis: ${gesamtPreis}€`;
         modalContent.appendChild(gesamtPreisElement);
         
         modalContent.appendChild(totalLine);
