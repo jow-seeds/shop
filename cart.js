@@ -29,6 +29,7 @@ function updateCartDisplay() {
 
     // Add header with a bold line below
     header.style.fontSize = "2em";
+    header.style.padding = "0.8em";
     modalContent.appendChild(header);
     const headerLine = document.createElement("hr");
     headerLine.style.border = "2px solid black";
@@ -97,6 +98,12 @@ function updateCartDisplay() {
         const totalLine2 = document.createElement("hr");
         totalLine2.style.border = "2px solid black";
         modalContent.appendChild(totalLine2);
+
+        let kasseButton = document.createElement("button");
+        kasseButton.innerHTML = "<strong>KASSE</strong>";
+        kasseButton.style.color = "white";
+        kasseButton.style.backgroundColor = "red";
+        modalContent.appendChild(kasseButton);
     }
 }
 
