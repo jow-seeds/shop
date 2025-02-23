@@ -72,9 +72,9 @@ function updateCartDisplay() {
         });
 
         // Add a bold line above the total price
-        const totalLine = document.createElement("hr");
-        totalLine.style.border = "2px solid black";
-        modalContent.appendChild(totalLine);
+        const totalLine1 = document.createElement("hr");
+        totalLine1.style.border = "2px solid black";
+        modalContent.appendChild(totalLine1);
 
         let zwischenPreisElement = document.createElement("p");
         zwischenPreisElement.textContent = `Zwischenpreis: ${zwischenPreis.toFixed(2)}€`;
@@ -90,7 +90,9 @@ function updateCartDisplay() {
         gesamtPreisElement.textContent = `Gesamtpreis: ${gesamtPreis}€`;
         modalContent.appendChild(gesamtPreisElement);
         
-        modalContent.appendChild(totalLine);
+        const totalLine2 = document.createElement("hr");
+        totalLine2.style.border = "2px solid black";
+        modalContent.appendChild(totalLine2);
     }
 }
 
