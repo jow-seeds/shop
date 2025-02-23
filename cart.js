@@ -118,8 +118,8 @@ const style = document.createElement('style');
 style.textContent = `
     .cart-item {
         display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
-        gap: 6px;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        gap: 10px;
         margin-bottom: 10px;
     }
     .modal-content {
