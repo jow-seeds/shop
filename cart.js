@@ -78,18 +78,19 @@ function updateCartDisplay() {
         modalContent.appendChild(totalLine1);
 
         let zwischenPreisElement = document.createElement("p");
-        zwischenPreisElement.innerHTML = `<strong>Zwischenpreis:</strong> ${zwischenPreis.toFixed(2)}€`;
+        zwischenPreisElement.innerHTML = `Zwischenpreis: ${zwischenPreis.toFixed(2)}€`;
         modalContent.appendChild(zwischenPreisElement);
 
         let lieferkosten = 6.5;
         let lieferkostenElement = document.createElement("p");
-        lieferkostenElement.innerHTML = `<strong>Lieferkosten:</strong> ${lieferkosten.toFixed(2)}€`;
+        lieferkostenElement.innerHTML = `Lieferkosten: ${lieferkosten.toFixed(2)}€`;
         modalContent.appendChild(lieferkostenElement);
 
         // Correct calculation of gesamtPreis
         let gesamtPreis = (zwischenPreis + lieferkosten).toFixed(2);
         let gesamtPreisElement = document.createElement("p");
         gesamtPreisElement.innerHTML = `<strong>Gesamtpreis: ${gesamtPreis}€</strong>`;
+        gesamtPreisElement.style.fontSize = "1.5em";
         modalContent.appendChild(gesamtPreisElement);
         
         const totalLine2 = document.createElement("hr");
