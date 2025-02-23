@@ -34,11 +34,6 @@ function updateCartDisplay() {
     headerLine.style.border = "2px solid black";
     modalContent.appendChild(headerLine);
 
-    let löschenButton = document.createElement("button");
-    löschenButton.innerHTML = "LÖSCHEN";
-    löschenButton.style.color = "white";
-    löschenButton.style.backgroundColor = "red";
-
     let zwischenPreis = 0;
 
     if (cartItems.length === 0) {
@@ -65,6 +60,12 @@ function updateCartDisplay() {
 
             zwischenPreis += item.preis;
 
+            let löschenButton = document.createElement("button");
+            löschenButton.innerHTML = "LÖSCHEN";
+            löschenButton.style.color = "white";
+            löschenButton.style.backgroundColor = "red";
+            löschenButton.style.width = "30%";
+            
             itemElement.appendChild(nameSpan);
             itemElement.appendChild(quantitySpan);
             itemElement.appendChild(anzahlSpan);
