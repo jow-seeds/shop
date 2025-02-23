@@ -116,7 +116,7 @@ style.textContent = `
         margin-bottom: 10px;
     }
     .modal-content {
-        max-height: 80vh; /* Maximum height of the modal */
+        max-height: 50vh; /* Maximum height of the modal */
         overflow-y: auto; /* Enable vertical scrolling if needed */
     }
 `;
