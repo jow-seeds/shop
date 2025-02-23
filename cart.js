@@ -87,7 +87,7 @@ function updateCartDisplay() {
 
         let gesamtPreis = zwischenPreis.toFixed(2) + lieferkosten.toFixed(2);
         let gesamtPreisElement = document.createElement("p");
-        gesamtPreisElement.textContent = `Gesamtpreis: ${gesamtPreis.toFixed(2)}`;
+        gesamtPreisElement.textContent = `Gesamtpreis: ${gesamtPreis.toFixed(2)}€`;
         modalContent.appendChild(gesamtPreisElement);
         
         modalContent.appendChild(totalLine);
