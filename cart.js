@@ -33,17 +33,17 @@ function updateCartDisplay() {
     } else {
         cartItems.forEach(item => {
             let itemElement = document.createElement("div");
-            itemElement.textContent = `${item.name}  Menge: ${item.quantity}`;
+            itemElement.textContent = `${item.name}   Menge: ${item.quantity}   Anzahl: ${item.anzahl}   Preis: ${item.preis}`;
             modalContent.appendChild(itemElement);
         });
     }
 }
 
 // Beispiel zum Hinzufügen eines Elements zum Warenkorb
-function addItemToCart(name, quantity) {
-    cartItems.push({ name, quantity });
+function addItemToCart(name, quantity, anzahl, preis) {
+    cartItems.push({ name, quantity , anzahl, preis});
     updateCartDisplay();
 }
 
 // Beispielaufruf zum Hinzufügen eines Elements
-//addItemToCart("Beispielartikel", 2);
+addItemToCart("Beispielartikel", 2);
