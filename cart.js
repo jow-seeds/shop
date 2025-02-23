@@ -28,6 +28,8 @@ function updateCartDisplay() {
     modalContent.innerHTML = ''; // Inhalt des Modals leeren
     modalContent.appendChild(header);
 
+    let gesamtPreis = 0;
+
     if (cartItems.length === 0) {
         let emptyMessage = document.createElement("p");
         emptyMessage.textContent = "Dein Warenkorb ist leer";
@@ -51,6 +53,8 @@ function updateCartDisplay() {
             let preisSpan = document.createElement("span");
             preisSpan.textContent = `Preis: ${item.preis}€`;
 
+            gesamtPreis += item.preis;
+
             itemElement.appendChild(nameSpan);
             itemElement.appendChild(quantitySpan);
             itemElement.appendChild(anzahlSpan);
@@ -58,6 +62,8 @@ function updateCartDisplay() {
 
             modalContent.appendChild(itemElement);
         });
+
+        modalContent.appendChild(gesamtPreis);
     }
 }
 
@@ -69,3 +75,5 @@ function addItemToCart(name, quantity, anzahl, preis) {
 
 // Beispielaufruf zum Hinzufügen eines Elements
 addItemToCart("Auto Sleep Walker", 3, 1, "12.50");
+addItemToCart("Sleep Walker Regular", 3, 1, "15.00");
+addItemToCart("Lady´s Black Death", 3, 1, "15.00");
