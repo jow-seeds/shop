@@ -44,6 +44,10 @@ function updateCartDisplay() {
         cartItems.forEach(item => {
             let itemElement = document.createElement("div");
             itemElement.className = "cart-item";
+            itemElement.style.display = "flex";
+            itemElement.style.alignItems = "center";
+            itemElement.style.justifyContent = "space-between";
+            itemElement.style.marginBottom = "10px";
 
             let nameSpan = document.createElement("span");
             nameSpan.textContent = `${item.name}`;
@@ -64,7 +68,7 @@ function updateCartDisplay() {
             löschenButton.innerHTML = "LÖSCHEN";
             löschenButton.style.color = "white";
             löschenButton.style.backgroundColor = "red";
-            löschenButton.style.width = "50%";
+            löschenButton.style.marginLeft = "10px"; // Add some space between price and button
 
             itemElement.appendChild(nameSpan);
             itemElement.appendChild(quantitySpan);
