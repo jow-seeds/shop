@@ -28,6 +28,7 @@ function updateCartDisplay() {
     modalContent.innerHTML = ''; // Clear the modal content
 
     // Add header with a bold line below
+    header.style.fontSize = "2em";
     modalContent.appendChild(header);
     const headerLine = document.createElement("hr");
     headerLine.style.border = "2px solid black";
