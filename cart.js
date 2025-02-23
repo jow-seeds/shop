@@ -27,6 +27,8 @@ window.addEventListener("click", function(event) {
 function updateCartDisplay() {
     modalContent.innerHTML = ''; // Inhalt des Modals leeren
 
+    modalContent.appendChild(header);
+
     let gesamtPreis = 0;
 
     if (cartItems.length === 0) {
@@ -50,7 +52,7 @@ function updateCartDisplay() {
             anzahlSpan.textContent = `Anzahl: ${item.anzahl}`;
 
             let preisSpan = document.createElement("span");
-            preisSpan.textContent = `Preis: ${item.preis}€`;
+            preisSpan.textContent = `Preis: ${item.preis.toFixed(2)}€`;
 
             gesamtPreis += item.preis;
 
@@ -63,18 +65,20 @@ function updateCartDisplay() {
         });
 
         let gesamtPreisElement = document.createElement("p");
-        gesamtPreisElement.textContent = `Gesamtpreis: ${gesamtPreis}€`;
+        gesamtPreisElement.textContent = `Gesamtpreis: ${gesamtPreis.toFixed(2)}€`;
         modalContent.appendChild(gesamtPreisElement);
     }
 }
 
 // Beispiel zum Hinzufügen eines Elements zum Warenkorb
 function addItemToCart(name, quantity, anzahl, preis) {
-    cartItems.push({ name, quantity , anzahl, preis});
+    // Preis als Float speichern und formatieren
+    let parsedPreis = parseFloat(preis);
+    cartItems.push({ name, quantity, anzahl, preis: parsedPreis });
     updateCartDisplay();
 }
 
 // Beispielaufruf zum Hinzufügen eines Elements
-addItemToCart("Auto Sleep Walker", 3, 1, "12.50");
-addItemToCart("Sleep Walker Regular", 3, 1, "15.00");
-addItemToCart("Lady´s Black Death", 3, 1, "15.00");
+addItemToCart("Auto Sleep Walker", 3, 1, 12.50);
+addItemToCart("Sleep Walker Regular", 3, 1, 15.00);
+addItemToCart("Lady´s Black Death", 3, 1, 15.00);
