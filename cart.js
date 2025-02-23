@@ -29,7 +29,7 @@ function updateCartDisplay() {
 
     // Add header with a bold line below
     header.style.fontSize = "2em";
-    header.style.padding = "0.8em";
+    header.style.padding = "-0.3em";
     modalContent.appendChild(header);
     const headerLine = document.createElement("hr");
     headerLine.style.border = "2px solid black";
