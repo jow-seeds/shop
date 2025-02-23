@@ -222,8 +222,6 @@ footer p {
     width: 50%;
     position: relative;
     text-align: center;
-    max-height: 80vh; /* Maximum height of the modal */
-    overflow-y: auto; /* Enable vertical scrolling if needed */
 }
 
 .close {
@@ -296,8 +294,6 @@ footer p {
     }
     .modal-content {
         width: 80%;
-        max-height: 80vh; /* Maximum height of the modal */
-        overflow-y: auto; /* Enable vertical scrolling if needed */
     }
 }
 
@@ -339,8 +335,6 @@ footer p {
     }
     .modal-content {
         width: 40%;
-        max-height: 80vh; /* Maximum height of the modal */
-        overflow-y: auto; /* Enable vertical scrolling if needed */
     }
     .info-box {
         max-width: 1000px;

@@ -115,6 +115,10 @@ style.textContent = `
         gap: 10px;
         margin-bottom: 10px;
     }
+    .modal-content {
+        max-height: 80vh; /* Maximum height of the modal */
+        overflow-y: auto; /* Enable vertical scrolling if needed */
+    }
 `;
 document.head.appendChild(style);
 
