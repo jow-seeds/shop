@@ -7,7 +7,11 @@ const bestsellerData = {
             yield: "550g",
             taste: "Fruchtig, Erdig",
             bloomTime: "10 Wochen",
-            price: 12.50
+            prices: [
+                { quantity: "3 Samen", price: 12.00 },
+                { quantity: "5 Samen", price: 18.00 },
+                { quantity: "7 Samen", price: 25.00 }
+            ]
         },
         {
             name: "Black Death\nAutomatic",
@@ -15,7 +19,11 @@ const bestsellerData = {
             yield: "450g",
             taste: "Fruchtig, Nussig",
             bloomTime: "11 Wochen",
-            price: 12.50
+            prices: [
+                { quantity: "3 Samen", price: 12.00 },
+                { quantity: "5 Samen", price: 18.00 },
+                { quantity: "7 Samen", price: 25.00 }
+            ]
         }
     ],
     regular: [
@@ -25,7 +33,11 @@ const bestsellerData = {
             yield: "750g",
             taste: "Fruchtig, Minze",
             bloomTime: "8 Wochen",
-            price: 15.00
+            prices: [
+                { quantity: "3 Samen", price: 15.00 },
+                { quantity: "5 Samen", price: 24.00 },
+                { quantity: "7 Samen", price: 32.00 }
+            ]
         },
         {
             name: "Black Death\nRegular",
@@ -33,7 +45,11 @@ const bestsellerData = {
             yield: "900g",
             taste: "Frucht, Nuss",
             bloomTime: "11 Wochen",
-            price: 15.00
+            prices: [
+                { quantity: "3 Samen", price: 15.00 },
+                { quantity: "5 Samen", price: 24.00 },
+                { quantity: "7 Samen", price: 32.00 }
+            ]
         }
     ]
 };
@@ -52,15 +68,14 @@ function createProductCard(product) {
 
     const productInfo = productCard.querySelector(".product-info");
 
-    // Array mit den Texten für die Absätze
+    // Produktdetails
     const details = [
         `<strong>Ertrag:</strong> ${product.yield}`,
         `<strong>Geschmack:</strong> ${product.taste}`,
-        `<strong>Blütedauer:</strong> ${product.bloomTime}`,
-        `<strong>Preis:</strong> ${product.price.toFixed(2)}€`
+        `<strong>Blütedauer:</strong> ${product.bloomTime}`
     ];
 
-    // Absätze mit Trennlinie einfügen
+    // Details in die Produktinfo einfügen
     details.forEach((detail, index) => {
         if (index > 0) {
             const itemLine = document.createElement("hr");
@@ -73,6 +88,19 @@ function createProductCard(product) {
         p.innerHTML = detail;
         productInfo.appendChild(p);
     });
+
+    // Dropdown für die Preise
+    const select = document.createElement("select");
+    select.classList.add("price-select");
+    
+    product.prices.forEach(option => {
+        const opt = document.createElement("option");
+        opt.value = option.price;
+        opt.textContent = `${option.quantity} - ${option.price.toFixed(2)}€`;
+        select.appendChild(opt);
+    });
+
+    productInfo.appendChild(select);
 
     // Button hinzufügen
     const button = document.createElement("button");
