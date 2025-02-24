@@ -119,9 +119,11 @@ function updateCartDisplay() {
         kasseButton.style.color = "white";
         kasseButton.style.backgroundColor = "green";
 
-        // Add buttons next to each other
         let buttonContainer = document.createElement("div");
-        buttonContainer.style.display = "flex"; 
+    	buttonContainer.style.display = "flex";
+        buttonContainer.style.justifyContent = "center"; // Zentriert die Buttons horizontal
+        buttonContainer.style.gap = "20px"; // Fügt Abstand zwischen den Buttons hinzu
+
         buttonContainer.appendChild(allesLoeschenButton);
         buttonContainer.appendChild(kasseButton);
         modalContent.appendChild(buttonContainer);
