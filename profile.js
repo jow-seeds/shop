@@ -35,7 +35,14 @@ profileButton.addEventListener("click", (event) => {
     registerButton.textContent = "REGISTER";
     registerButton.classList.add("profile-btn");
 
-    profileModal.append(loginButton, orText, registerButton);
+    const buttonContainer = document.createElement("div");
+    buttonContainer.style.marginTop = "20px"; // Abstand nach dem Header
+
+    buttonContainer.appendChild(loginButton);
+    buttonContainer.appendChild(orText);
+    buttonContainer.appendChild(registerButton);
+
+    profileModal.appendChild(buttonContainer);
   }
 });
 
