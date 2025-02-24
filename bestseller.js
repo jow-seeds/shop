@@ -46,11 +46,11 @@ function createProductCard(product) {
     productCard.innerHTML = `
         <img src="${product.image}" alt="${product.name}" class="product-image">
         <div class="product-info">
-            <h2>${product.name}</h2>
-            <p><strong>Ertrag:</strong> ${product.yield}</p>
-            <p><strong>Geschmack:</strong> ${product.taste}</p>
-            <p><strong>Blütedauer:</strong> ${product.bloomTime}</p>
-            <p><strong>Preis:</strong> ${product.price.toFixed(2)}€</p>
+            <h2 class="product-name">${product.name}</h2>
+            <p class="product-yield"><strong>Ertrag:</strong> ${product.yield}</p>
+            <p class="product-taste"><strong>Geschmack:</strong> ${product.taste}</p>
+            <p class="product-bloom"><strong>Blütedauer:</strong> ${product.bloomTime}</p>
+            <p class="product-price"><strong>Preis:</strong> ${product.price.toFixed(2)}€</p>
             <button class="add-to-cart-btn">Zum Warenkorb hinzufügen</button>
         </div>
     `;
