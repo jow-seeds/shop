@@ -86,6 +86,7 @@ function createProductCard(product) {
 
         const p = document.createElement("p");
         p.innerHTML = detail;
+        p.style.marginBottom = "10px";
         productInfo.appendChild(p);
     });
 
