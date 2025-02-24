@@ -42,27 +42,43 @@ const bestsellerData = {
 function createProductCard(product) {
     const productCard = document.createElement('div');
     productCard.classList.add('bestseller-item');
-    
-    const itemLine = document.createElement("hr");
-    itemLine.style.border = "1px solid #ccc";
 
     productCard.innerHTML = `
         <img src="${product.image}" alt="${product.name}" class="product-image">
         <div class="product-info">
             <h2>${product.name}</h2>
-            <p> ${itemLine}</p>
-            <p><strong>Ertrag:</strong> ${product.yield}</p>
-            <p> ${itemLine}</p>
-            <p><strong>Geschmack:</strong> ${product.taste}</p>
-            <p> ${itemLine}</p>
-            <p><strong>Blütedauer:</strong> ${product.bloomTime}</p>
-            <p> ${itemLine}</p>
-            <p><strong>Preis:</strong> ${product.price.toFixed(2)}€</p>
-            <p> ${itemLine}</p>
-            <button class="add-to-cart-btn">Zum Warenkorb hinzufügen</button>
         </div>
     `;
-    
+
+    const productInfo = productCard.querySelector(".product-info");
+
+    // Array mit den Texten für die Absätze
+    const details = [
+        `<strong>Ertrag:</strong> ${product.yield}`,
+        `<strong>Geschmack:</strong> ${product.taste}`,
+        `<strong>Blütedauer:</strong> ${product.bloomTime}`,
+        `<strong>Preis:</strong> ${product.price.toFixed(2)}€`
+    ];
+
+    // Absätze mit Trennlinie einfügen
+    details.forEach((detail, index) => {
+        if (index > 0) {
+            const itemLine = document.createElement("hr");
+            itemLine.style.border = "1px solid #ccc";
+            productInfo.appendChild(itemLine);
+        }
+
+        const p = document.createElement("p");
+        p.innerHTML = detail;
+        productInfo.appendChild(p);
+    });
+
+    // Button hinzufügen
+    const button = document.createElement("button");
+    button.classList.add("add-to-cart-btn");
+    button.textContent = "Zum Warenkorb hinzufügen";
+    productInfo.appendChild(button);
+
     return productCard;
 }
 
