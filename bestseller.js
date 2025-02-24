@@ -64,7 +64,7 @@ function createProductCard(product) {
     details.forEach((detail, index) => {
         if (index > 0) {
             const itemLine = document.createElement("hr");
-            itemLine.style.border = "3px solid black";
+            itemLine.style.border = "20px solid black";
             productInfo.appendChild(itemLine);
         }
 
