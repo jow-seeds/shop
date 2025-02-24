@@ -36,7 +36,10 @@ profileButton.addEventListener("click", (event) => {
     registerButton.classList.add("profile-btn");
 
     const buttonContainer = document.createElement("div");
-    buttonContainer.style.marginTop = "20px"; // Abstand nach dem Header
+    buttonContainer.style.display = "flex";
+    buttonContainer.style.flexDirection = "column";
+    buttonContainer.style.alignItems = "center";
+    buttonContainer.style.marginTop = "50px";
 
     buttonContainer.appendChild(loginButton);
     buttonContainer.appendChild(orText);
