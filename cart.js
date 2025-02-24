@@ -165,11 +165,3 @@ function addItemToCart(name, quantity, anzahl, preis) {
     cartItems.push({ name, quantity, anzahl, preis: parsedPreis });
     updateCartDisplay();
 }
-
-// Beispielaufruf zum Hinzufügen eines Elements
-addItemToCart("Auto Sleep Walker", 3, 1, 12.50);
-addItemToCart("Sleep Walker Regular", 3, 1, 15.00);
-addItemToCart("Lady´s Black Death Regular", 3, 1, 15.00);
-addItemToCart("Auto Lady´s Black Death", 3, 1, 12.50);
-addItemToCart("Brain Fuck Regular", 3, 1, 15.00);
-addItemToCart("Auto Brain Fuck", 3, 1, 15.00);

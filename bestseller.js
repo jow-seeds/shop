@@ -117,6 +117,17 @@ function createProductCard(product) {
     button.textContent = "Zum Warenkorb hinzufügen";
     productInfo.appendChild(button);
 
+    // Click Event für den Button hinzufügen
+    button.addEventListener("click", () => {
+        const selectedOption = select.options[select.selectedIndex];
+        const quantity = parseInt(selectedOption.textContent.split(' - ')[0]);
+        const preis = parseFloat(selectedOption.value);
+        const anzahl = 1
+
+        // Aufruf der addItemToCart Methode mit den erforderlichen Parametern
+        addItemToCart(product.name, quantity, anzahl, preis);
+    });
+
     return productCard;
 }
 
