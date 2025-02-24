@@ -114,13 +114,10 @@ button.active::after {
     border: 3px solid black;
     margin: 10px;
     padding: 10px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto auto auto auto; 
+    display: flex;
     align-items: center;
     flex-direction: column;
     max-width: 250px;
-    min-height: 600px;
     height: 100%;
 }
 
