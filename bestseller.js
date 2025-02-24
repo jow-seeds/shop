@@ -38,26 +38,20 @@ const bestsellerData = {
     ]
 };
 
-// Funktion zum Erstellen von Produktanzeigen mit Grid-Layout
+// Funktion zum Erstellen von Produktanzeigen
 function createProductCard(product) {
     const productCard = document.createElement('div');
     productCard.classList.add('bestseller-item');
     
     productCard.innerHTML = `
-        <div class="product-grid">
-            <div class="product-image-container">
-                <img src="${product.image}" alt="${product.name}" class="product-image">
-            </div>
-            <div class="product-info">
-                <h2>${product.name}</h2>
-                <div class="product-details">
-                    <p><strong>Ertrag:</strong> ${product.yield}</p>
-                    <p><strong>Geschmack:</strong> ${product.taste}</p>
-                    <p><strong>Blütedauer:</strong> ${product.bloomTime}</p>
-                    <p><strong>Preis:</strong> ${product.price.toFixed(2)}€</p>
-                </div>
-                <button class="add-to-cart-btn">Zum Warenkorb hinzufügen</button>
-            </div>
+        <img src="${product.image}" alt="${product.name}" class="product-image">
+        <div class="product-info">
+            <h2>${product.name}</h2>
+            <p><strong>Ertrag:</strong> ${product.yield}</p>
+            <p><strong>Geschmack:</strong> ${product.taste}</p>
+            <p><strong>Blütedauer:</strong> ${product.bloomTime}</p>
+            <p><strong>Preis:</strong> ${product.price.toFixed(2)}€</p>
+            <button class="add-to-cart-btn">Zum Warenkorb hinzufügen</button>
         </div>
     `;
     
