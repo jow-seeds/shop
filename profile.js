@@ -9,8 +9,7 @@ let isLoggedIn = false;
 profileButton.addEventListener("click", (event) => {
   event.stopPropagation(); // Verhindert das Schließen direkt nach dem Öffnen
   profileModal.innerHTML = ""; // Reset
-  profileModal.style.paddingTop = "20px";
-  
+
   // Modal anzeigen
   profileModal.classList.remove("hidden");
   setTimeout(() => profileModal.classList.add("show"), 10);
@@ -20,6 +19,7 @@ profileButton.addEventListener("click", (event) => {
   header.textContent = "PROFIL";
   header.style.textDecoration = "underline";
   header.style.fontSize = "2em";
+  header.style.paddingTop = "20%vh";
   profileModal.appendChild(header);
 
   // Login-Prüfung
