@@ -17,6 +17,8 @@ profileButton.addEventListener("click", (event) => {
   // Header
   const header = document.createElement("h2");
   header.textContent = "PROFIL";
+  header.style.textDecoration = "underline";
+  header.style.fontSize = "2em";
   profileModal.appendChild(header);
 
   // Login-Prüfung

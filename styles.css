@@ -157,7 +157,7 @@ button.active::after {
   bottom: 0;
   right: -15vw; /* Startet außerhalb */
   width: 15vw;
-  height: 80vh;
+  height: 100vh;
   background: black;
   color: white;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
@@ -179,13 +179,20 @@ button.active::after {
   display: none;
 }
 
+/* Buttons im Modal */
 .profile-btn {
-  background: white;
-  color: black;
-  padding: 10px 20px;
-  border: none;
+  background: black;
+  color: white;
+  padding: 10px 30px;
+  border: 3px solid white;
   cursor: pointer;
   margin: 10px;
+  font-size: 1.5em;
+}
+
+.profile-btn:hover {
+    color: green;
+    border: 3px solid green;
 }
 /* Profil Modal End */
 
