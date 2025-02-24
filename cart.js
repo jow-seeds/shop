@@ -1,4 +1,4 @@
-let header = document.getElementById("überschrift");
+let header = document.getElementById("cart-überschrift");
 let cartButton = document.getElementById("cartButton");
 let cart = document.getElementById("cartModal");
 let closeButton = document.querySelector(".close");
