@@ -6,14 +6,16 @@ const bestsellerData = {
             image: "path_to_image.jpg",
             yield: "550g",
             taste: "Fruchtig, Erdig",
-            bloomTime: "10 Wochen"
+            bloomTime: "10 Wochen",
+            price: 12.50
         },
         {
             name: "Auto Lady´s Black Death",
             image: "path_to_image.jpg",
             yield: "450g",
             taste: "Fruchtig, Nussig",
-            bloomTime: "11 Wochen"
+            bloomTime: "11 Wochen",
+            price: 15.00
         }
     ],
     regular: [
@@ -22,14 +24,16 @@ const bestsellerData = {
             image: "path_to_image.jpg",
             yield: "750g",
             taste: "Fruchtig, Minze",
-            bloomTime: "8 Wochen"
+            bloomTime: "8 Wochen",
+            price: 12.50
         },
         {
             name: "Lady´s Black Death Reg.",
             image: "path_to_image.jpg",
             yield: "900g",
             taste: "Frucht, Nuss",
-            bloomTime: "11 Wochen"
+            bloomTime: "11 Wochen",
+            price: 15.00
         }
     ]
 };
@@ -46,6 +50,7 @@ function createProductCard(product) {
             <p><strong>Ertrag:</strong> ${product.yield}</p>
             <p><strong>Geschmack:</strong> ${product.taste}</p>
             <p><strong>Blütedauer:</strong> ${product.bloomTime}</p>
+            <p><strong>Preis:</strong> ${product.price}</p>
             <button class="add-to-cart-btn">Zum Warenkorb hinzufügen</button>
         </div>
     `;

@@ -88,21 +88,47 @@ button.active::after {
     margin: 0 10px;
 }
 
-.bestseller-items {
+/* Stil für den Warenkorb-Button */
+.add-to-cart-btn {
+    color: white;
+    background-color: green;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: darkgreen;
+}
+
+/* Stil für das Produkt-Item */
+.bestseller-item {
+    border: 3px solid black;
+    margin: 10px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 250px;
 }
 
-.item {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px 0;
-}
-
-.item img {
+.product-image {
     max-width: 100%;
     height: auto;
+}
+
+.product-info {
+    text-align: center;
+}
+
+/* Stil für das Container der Bestseller-Items */
+.bestseller-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 /* Footer Styling */
