@@ -65,6 +65,7 @@ function createProductCard(product) {
         if (index > 0) {
             const itemLine = document.createElement("hr");
             itemLine.style.border = "2px solid black";
+            itemLine.style.width = "100%";
             productInfo.appendChild(itemLine);
         }
 
