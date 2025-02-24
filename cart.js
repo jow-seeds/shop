@@ -1,9 +1,9 @@
-let header = document.getElementById("cart-\u00fcberschrift");
+let header = document.getElementById("cart-überschrift");
 let cartButton = document.getElementById("cartButton");
 let cart = document.getElementById("cartModal");
 let closeButton = document.querySelector(".close");
 let modalContent = document.querySelector(".modal-content");
-let cartItems = []; // Liste der Warenkorb-Elemente
+let cartItems = JSON.parse(localStorage.getItem("cartItems")) || []; // Warenkorb aus dem Storage laden
 
 cartButton.addEventListener("click", function() {
     updateCartDisplay();
@@ -19,6 +19,10 @@ window.addEventListener("click", function(event) {
         cart.classList.remove("show");
     }
 });
+
+function saveCartToStorage() {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+}
 
 function updateCartDisplay() {
     modalContent.innerHTML = '';
@@ -64,6 +68,7 @@ function updateCartDisplay() {
 
             loeschenButton.addEventListener("click", () => {
                 cartItems.splice(index, 1);
+                saveCartToStorage();
                 updateCartDisplay();
             });
 
@@ -108,6 +113,7 @@ function updateCartDisplay() {
         allesLoeschenButton.style.backgroundColor = "red";
         allesLoeschenButton.addEventListener("click", () => {
             cartItems = [];
+            saveCartToStorage();
             updateCartDisplay();
         });
 
@@ -141,5 +147,9 @@ function updateCartButton() {
 
 function addItemToCart(name, quantity, anzahl, preis) {
     cartItems.push({ name, quantity, anzahl, preis: parseFloat(preis) });
+    saveCartToStorage();
     updateCartDisplay();
 }
+
+// Warenkorb beim Laden der Seite wiederherstellen
+window.addEventListener("load", updateCartDisplay);
