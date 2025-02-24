@@ -92,6 +92,8 @@ function createProductCard(product) {
     // Dropdown für die Preise
     const select = document.createElement("select");
     select.classList.add("price-select");
+    select.style.fontSize = "16px";
+    select.style.padding = "5px";
     
     product.prices.forEach(option => {
         const opt = document.createElement("option");
