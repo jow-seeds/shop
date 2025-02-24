@@ -65,7 +65,7 @@ function updateCartDisplay() {
             löschenButton.style.color = "white";
             löschenButton.style.backgroundColor = "red";
             löschenButton.style.width = "100%";
-            löschenButton.style.fontSize = "0.85em"
+            löschenButton.style.fontSize = "0.85em";
 
             itemElement.appendChild(nameSpan);
             itemElement.appendChild(quantitySpan);
@@ -101,16 +101,30 @@ function updateCartDisplay() {
         gesamtPreisElement.innerHTML = `<strong>Gesamtpreis: ${gesamtPreis}€</strong>`;
         gesamtPreisElement.style.fontSize = "1.5em";
         modalContent.appendChild(gesamtPreisElement);
-        
+
         const totalLine2 = document.createElement("hr");
         totalLine2.style.border = "2px solid black";
         modalContent.appendChild(totalLine2);
 
+        // Create the "ALLES LÖSCHEN" button
+        let allesLoeschenButton = document.createElement("button");
+        allesLoeschenButton.innerHTML = "<strong>ALLES LÖSCHEN</strong>";
+        allesLoeschenButton.style.color = "white";
+        allesLoeschenButton.style.backgroundColor = "red";
+        allesLoeschenButton.style.marginRight = "10px"; 
+
+        // Create the "KASSE" button
         let kasseButton = document.createElement("button");
         kasseButton.innerHTML = "<strong>KASSE</strong>";
         kasseButton.style.color = "white";
         kasseButton.style.backgroundColor = "green";
-        modalContent.appendChild(kasseButton);
+
+        // Add buttons next to each other
+        let buttonContainer = document.createElement("div");
+        buttonContainer.style.display = "flex"; 
+        buttonContainer.appendChild(allesLoeschenButton);
+        buttonContainer.appendChild(kasseButton);
+        modalContent.appendChild(buttonContainer);
     }
 }
 
