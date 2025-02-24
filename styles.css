@@ -128,6 +128,7 @@ button.active::after {
 .bestseller-items {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 10px;
 }
 
