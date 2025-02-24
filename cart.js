@@ -155,10 +155,52 @@ style.textContent = `
         max-height: 50vh; /* Maximum height of the modal */
         overflow-y: auto; /* Enable vertical scrolling if needed */
     }
+    .cart-badge {
+        position: relative; /* Relativ zur Position des Buttons */
+        top: -5px;  /* Verschiebung nach oben */
+        right: -5px; /* Verschiebung nach rechts */
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: bold;
+    }
 `;
 document.head.appendChild(style);
 
-// Beispiel zum Hinzufügen eines Elements zum Warenkorb
+// Funktion zum Aktualisieren des Cart Buttons
+function updateCartButton() {
+    const itemCount = cartItems.length;
+
+    // Wenn der Warenkorb nicht leer ist
+    if (itemCount > 0) {
+        // Prüfen, ob das Badge bereits existiert
+        let badge = cartButton.querySelector(".cart-badge");
+
+        if (!badge) {
+            // Erstelle das Badge-Element, falls es noch nicht existiert
+            badge = document.createElement("span");
+            badge.classList.add("cart-badge");
+            cartButton.appendChild(badge);
+        }
+
+        // Setze die Anzahl der Items als Text im Badge
+        badge.textContent = itemCount;
+    } else {
+        // Badge entfernen, wenn der Warenkorb leer ist
+        let badge = cartButton.querySelector(".cart-badge");
+        if (badge) {
+            badge.remove();
+        }
+    }
+}
+
+// zum Hinzufügen eines Elements zum Warenkorb
 function addItemToCart(name, quantity, anzahl, preis) {
     // Preis als Float speichern und formatieren
     let parsedPreis = parseFloat(preis);

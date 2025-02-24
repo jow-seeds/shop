@@ -234,6 +234,7 @@ footer p {
 
 /* Spezifisches Styling für den Einkaufswagen-Button */
 .cart-button {
+    position: relative;
     background-color: transparent;
     border: none;
     padding: 0;
