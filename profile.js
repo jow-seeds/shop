@@ -6,7 +6,8 @@ const profileModal = document.getElementById("profileModal");
 let isLoggedIn = false;
 
 // Öffnen des Modals
-profileButton.addEventListener("click", () => {
+profileButton.addEventListener("click", (event) => {
+  event.stopPropagation(); // Verhindert das Schließen direkt nach dem Öffnen
   profileModal.innerHTML = ""; // Reset
 
   // Modal anzeigen
@@ -33,6 +34,11 @@ profileButton.addEventListener("click", () => {
 
     profileModal.append(loginButton, orText, registerButton);
   }
+});
+
+// Klick auf das Modal selbst verhindert das Schließen
+profileModal.addEventListener("click", (event) => {
+  event.stopPropagation();
 });
 
 // Schließen des Modals bei Klick außerhalb
