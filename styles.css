@@ -118,6 +118,7 @@ button.active::after {
     align-items: center;
     flex-direction: column;
     max-width: 250px;
+    min-height: 300px;
     height: 100%;
 }
 
