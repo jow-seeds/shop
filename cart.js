@@ -122,7 +122,7 @@ function updateCartDisplay() {
         let buttonContainer = document.createElement("div");
     	buttonContainer.style.display = "flex";
         buttonContainer.style.justifyContent = "center"; // Zentriert die Buttons horizontal
-        buttonContainer.style.gap = "20px"; // Fügt Abstand zwischen den Buttons hinzu
+        buttonContainer.style.gap = "30%"; // Fügt Abstand zwischen den Buttons hinzu
 
         buttonContainer.appendChild(allesLoeschenButton);
         buttonContainer.appendChild(kasseButton);
