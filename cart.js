@@ -140,6 +140,8 @@ function updateCartDisplay() {
         buttonContainer.appendChild(kasseButton);
         modalContent.appendChild(buttonContainer);
     }
+    
+    updateCartButton();
 }
 
 // CSS for consistent alignment using grid layout
