@@ -94,6 +94,7 @@ function createProductCard(product) {
     select.classList.add("price-select");
     select.style.fontSize = "16px";
     select.style.padding = "5px";
+    select.style.marginBottom = "10px";
     
     product.prices.forEach(option => {
         const opt = document.createElement("option");
@@ -101,6 +102,10 @@ function createProductCard(product) {
         opt.textContent = `${option.quantity} - ${option.price.toFixed(2)}€`;
         select.appendChild(opt);
     });
+
+    const itemLine = document.createElement("hr");
+    itemLine.style.border = "2px solid black";
+    itemLine.style.width = "100%";
 
     productInfo.appendChild(select);
 
