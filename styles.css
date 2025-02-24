@@ -6,6 +6,15 @@ header {
     padding: 20px;
     background-color: #f5f5f5;
     gap: 50px;
+    position: fixed;  /* Fixiert den Header */
+    top: 0;  /* Setzt den Header an die Oberseite */
+    left: 0;  /* Setzt den Header ganz nach links */
+    width: 100%;  /* Sorgt dafür, dass der Header die gesamte Bildschirmbreite einnimmt */
+    z-index: 1000;  /* Stellt sicher, dass der Header über anderen Inhalten liegt */
+}
+
+main {
+    padding-top: 80px;  /* Damit der Inhalt nicht unter dem fixierten Header verschwindet */
 }
 
 /* Styling für den ersten Container (Logo + Text) */
