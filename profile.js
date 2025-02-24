@@ -10,6 +10,9 @@ profileButton.addEventListener("click", (event) => {
   event.stopPropagation(); // Verhindert das Schließen direkt nach dem Öffnen
   profileModal.innerHTML = ""; // Reset
 
+  const modalContent = document.createElement("div");
+  modalContent.style.paddingTop = "20px";
+
   // Modal anzeigen
   profileModal.classList.remove("hidden");
   setTimeout(() => profileModal.classList.add("show"), 10);
@@ -19,8 +22,7 @@ profileButton.addEventListener("click", (event) => {
   header.textContent = "PROFIL";
   header.style.textDecoration = "underline";
   header.style.fontSize = "2em";
-  header.style.paddingTop = "20%vh";
-  profileModal.appendChild(header);
+  modalContent.appendChild(header);
 
   // Login-Prüfung
   if (!isLoggedIn) {
@@ -35,8 +37,9 @@ profileButton.addEventListener("click", (event) => {
     registerButton.textContent = "REGISTER";
     registerButton.classList.add("profile-btn");
 
-    profileModal.append(loginButton, orText, registerButton);
+    modalContent.append(loginButton, orText, registerButton);
   }
+  profileModal.appendChild(modalContent);
 });
 
 // Klick auf das Modal selbst verhindert das Schließen
