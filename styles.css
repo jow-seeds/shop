@@ -80,7 +80,7 @@ button.active::after {
     width: 100%;
 }
 
-/* Spezifisches Styling für den Einkaufswagen-Button */
+/* Einkaufswagen-Button */
 .cart-button {
     position: relative;
     background-color: transparent;
@@ -98,7 +98,7 @@ button.active::after {
     filter: brightness(0.8);
 }
 
-/* Modales Fenster-Hintergrund */
+/* Modales Warenkorb Fenster Start*/
 .modal {
     display: none;
     position: fixed;
@@ -131,6 +131,27 @@ button.active::after {
 .modal.show {
     display: block;
 }
+/* Modales Warenkorb Fenster End*/
+
+/* Profil Button */
+/* Einkaufswagen-Button */
+.profile-button {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.profile-button img {
+    max-width: 30px;
+    height: auto;
+}
+
+.profile-button:hover img {
+    filter: brightness(0.8);
+}
+/* Modales Profil Fenster Start*/
 
 /* Footer Styling */
 footer {
