@@ -10,7 +10,7 @@ const bestsellerData = {
             price: 12.50
         },
         {
-            name: "Lady´s Black Death\nAutomatic",
+            name: "Black Death\nAutomatic",
             image: "/shop/Produkte/Automatic/SleepWalker/AutoSleepWalker.jpg",
             yield: "450g",
             taste: "Fruchtig, Nussig",
@@ -28,7 +28,7 @@ const bestsellerData = {
             price: 15.00
         },
         {
-            name: "Lady´s Black Death\nRegular",
+            name: "Black Death\nRegular",
             image: "/shop/Produkte/Automatic/SleepWalker/AutoSleepWalker.jpg",
             yield: "900g",
             taste: "Frucht, Nuss",
