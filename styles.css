@@ -110,8 +110,8 @@ button.active::after {
     margin: 10px;
     padding: 10px;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
     max-width: 250px;
 }
 
@@ -128,8 +128,8 @@ button.active::after {
 .bestseller-items {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
+    justify-content: center; 
+    gap: 20px; 
 }
 
 /* Footer Styling */

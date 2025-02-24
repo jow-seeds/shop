@@ -50,7 +50,7 @@ function createProductCard(product) {
             <p><strong>Ertrag:</strong> ${product.yield}</p>
             <p><strong>Geschmack:</strong> ${product.taste}</p>
             <p><strong>Blütedauer:</strong> ${product.bloomTime}</p>
-            <p><strong>Preis:</strong> €${product.price.toFixed(2)}</p>
+            <p><strong>Preis:</strong> ${product.price.toFixed(2)}€</p>
             <button class="add-to-cart-btn">Zum Warenkorb hinzufügen</button>
         </div>
     `;
