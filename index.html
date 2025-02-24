@@ -40,18 +40,19 @@
 		
 		<!-- Bestseller -->
 		<div class="bestseller-field">
-			<h2>Bestseller</h2>
+            <h2>Bestseller</h2>
             <div class="bestseller-container">
-                <div class="category">
+                <div class="category" id="automatic-category">
                     <h3>Automatic</h3>
-                    <div class="bestseller-items">
-                        <!-- Bestseller-Items für Automatic werden hier geladen -->
+                    <div class="bestseller-items" id="automatic-items">
+                        <!-- Bestseller-Items für Automatic werden hier durch JavaScript eingefügt -->
                     </div>
                 </div>
-                <div class="category">
+        
+                <div class="category" id="regular-category">
                     <h3>Regulär</h3>
-                    <div class="bestseller-items">
-                        <!-- Bestseller-Items für Regulär werden hier geladen -->
+                    <div class="bestseller-items" id="regular-items">
+                        <!-- Bestseller-Items für Regulär werden hier durch JavaScript eingefügt -->
                     </div>
                 </div>
             </div>
@@ -73,5 +74,6 @@
     </div>
 
     <script src="/shop/cart.js"></script>
+    <script src="/shop/bestseller.js"></script>
 </body>
 </html>
