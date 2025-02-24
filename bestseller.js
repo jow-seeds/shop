@@ -3,7 +3,7 @@ const bestsellerData = {
     automatic: [
         {
             name: "Auto Sleep Walker",
-            image: "/shop/Produkte/Automatic/AutoSleepWalker.jpg",
+            image: "/shop/Produkte/Automatic/SleepWalker/AutoSleepWalker.jpg",
             yield: "550g",
             taste: "Fruchtig, Erdig",
             bloomTime: "10 Wochen",
@@ -11,7 +11,7 @@ const bestsellerData = {
         },
         {
             name: "Auto Lady´s Black Death",
-            image: "/shop/Produkte/Automatic/AutoSleepWalker.jpg",
+            image: "/shop/Produkte/Automatic/SleepWalker/AutoSleepWalker.jpg",
             yield: "450g",
             taste: "Fruchtig, Nussig",
             bloomTime: "11 Wochen",
@@ -21,7 +21,7 @@ const bestsellerData = {
     regular: [
         {
             name: "Sleep Walker Reg.",
-            image: "/shop/Produkte/Automatic/AutoSleepWalker.jpg",
+            image: "/shop/Produkte/Automatic/SleepWalker/AutoSleepWalker.jpg",
             yield: "750g",
             taste: "Fruchtig, Minze",
             bloomTime: "8 Wochen",
@@ -29,7 +29,7 @@ const bestsellerData = {
         },
         {
             name: "Lady´s Black Death Reg.",
-            image: "/shop/Produkte/Automatic/AutoSleepWalker.jpg",
+            image: "/shop/Produkte/Automatic/SleepWalker/AutoSleepWalker.jpg",
             yield: "900g",
             taste: "Frucht, Nuss",
             bloomTime: "11 Wochen",
