@@ -2,7 +2,7 @@
 const bestsellerData = {
     automatic: [
         {
-            name: "Auto Sleep Walker",
+            name: "Sleep Walker\nAutomatic",
             image: "/shop/Produkte/Automatic/SleepWalker/AutoSleepWalker.jpg",
             yield: "550g",
             taste: "Fruchtig, Erdig",
@@ -10,7 +10,7 @@ const bestsellerData = {
             price: 12.50
         },
         {
-            name: "Auto Lady´s Black Death",
+            name: "Lady´s Black Death\nAutomatic",
             image: "/shop/Produkte/Automatic/SleepWalker/AutoSleepWalker.jpg",
             yield: "450g",
             taste: "Fruchtig, Nussig",
@@ -20,7 +20,7 @@ const bestsellerData = {
     ],
     regular: [
         {
-            name: "Sleep Walker Reg.",
+            name: "Sleep Walker\nRegular",
             image: "/shop/Produkte/Automatic/SleepWalker/AutoSleepWalker.jpg",
             yield: "750g",
             taste: "Fruchtig, Minze",
@@ -28,7 +28,7 @@ const bestsellerData = {
             price: 15.00
         },
         {
-            name: "Lady´s Black Death Reg.",
+            name: "Lady´s Black Death\nRegular",
             image: "/shop/Produkte/Automatic/SleepWalker/AutoSleepWalker.jpg",
             yield: "900g",
             taste: "Frucht, Nuss",
