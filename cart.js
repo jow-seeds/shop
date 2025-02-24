@@ -41,7 +41,7 @@ function updateCartDisplay() {
         emptyMessage.textContent = "Dein Warenkorb ist leer";
         modalContent.appendChild(emptyMessage);
     } else {
-        cartItems.forEach(item => {
+        cartItems.forEach((item, index) => {
             let itemElement = document.createElement("div");
             itemElement.className = "cart-item";
 
@@ -66,6 +66,12 @@ function updateCartDisplay() {
             löschenButton.style.backgroundColor = "red";
             löschenButton.style.width = "100%";
             löschenButton.style.fontSize = "0.85em";
+
+            // EventListener for "LÖSCHEN" button
+            löschenButton.addEventListener("click", () => {
+                cartItems.splice(index, 1);
+                updateCartDisplay();
+            });
 
             itemElement.appendChild(nameSpan);
             itemElement.appendChild(quantitySpan);
@@ -113,6 +119,12 @@ function updateCartDisplay() {
         allesLoeschenButton.style.backgroundColor = "red";
         allesLoeschenButton.style.marginRight = "10px"; 
 
+        // EventListener for "ALLES LÖSCHEN" button
+        allesLoeschenButton.addEventListener("click", () => {
+            cartItems = [];
+            updateCartDisplay();
+        });
+
         // Create the "KASSE" button
         let kasseButton = document.createElement("button");
         kasseButton.innerHTML = "<strong>KASSE</strong>";
@@ -120,7 +132,7 @@ function updateCartDisplay() {
         kasseButton.style.backgroundColor = "green";
 
         let buttonContainer = document.createElement("div");
-    	buttonContainer.style.display = "flex";
+        buttonContainer.style.display = "flex";
         buttonContainer.style.justifyContent = "center"; // Zentriert die Buttons horizontal
         buttonContainer.style.gap = "30%"; // Fügt Abstand zwischen den Buttons hinzu
 
