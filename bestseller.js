@@ -3,7 +3,7 @@ const bestsellerData = {
     automatic: [
         {
             name: "Auto Sleep Walker",
-            image: "path_to_image.jpg",
+            image: "/shop/Produkte/Automatic/SleepWalker.jpg",
             yield: "550g",
             taste: "Fruchtig, Erdig",
             bloomTime: "10 Wochen",
@@ -11,25 +11,25 @@ const bestsellerData = {
         },
         {
             name: "Auto Lady´s Black Death",
-            image: "path_to_image.jpg",
+            image: "/shop/Produkte/Automatic/SleepWalker.jpg",
             yield: "450g",
             taste: "Fruchtig, Nussig",
             bloomTime: "11 Wochen",
-            price: 15.00
+            price: 12.50
         }
     ],
     regular: [
         {
             name: "Sleep Walker Reg.",
-            image: "path_to_image.jpg",
+            image: "/shop/Produkte/Automatic/SleepWalker.jpg",
             yield: "750g",
             taste: "Fruchtig, Minze",
             bloomTime: "8 Wochen",
-            price: 12.50
+            price: 15.00
         },
         {
             name: "Lady´s Black Death Reg.",
-            image: "path_to_image.jpg",
+            image: "/shop/Produkte/Automatic/SleepWalker.jpg",
             yield: "900g",
             taste: "Frucht, Nuss",
             bloomTime: "11 Wochen",
@@ -46,7 +46,7 @@ function createProductCard(product) {
     productCard.innerHTML = `
         <img src="${product.image}" alt="${product.name}" class="product-image">
         <div class="product-info">
-            <h4>${product.name}</h4>
+            <h2>${product.name}</h2>
             <p><strong>Ertrag:</strong> ${product.yield}</p>
             <p><strong>Geschmack:</strong> ${product.taste}</p>
             <p><strong>Blütedauer:</strong> ${product.bloomTime}</p>

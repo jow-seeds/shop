@@ -78,6 +78,11 @@ button.active::after {
     text-align: center;
 }
 
+.bestseller-field h2,
+.bestseller-field h3 {
+    text-decoration: underline;
+}
+
 .bestseller-container {
     display: flex;
     justify-content: space-around;
