@@ -24,6 +24,10 @@ function saveCartToStorage() {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }
 
+function deleteFromStorage(item, index) {
+    localStorage.removeItem("cartItems", JSON.stringify(item, index));
+}
+
 function updateCartDisplay() {
     modalContent.innerHTML = '';
     header.style.fontSize = "2em";
@@ -64,11 +68,11 @@ function updateCartDisplay() {
             loeschenButton.style.color = "white";
             loeschenButton.style.backgroundColor = "red";
             loeschenButton.style.width = "100%";
-            loeschenButton.style.fontSize = "0.85em";
+            loeschenButton.style.fontSize = "1em";
 
             loeschenButton.addEventListener("click", () => {
                 cartItems.splice(index, 1);
-                saveCartToStorage();
+                deleteFromStorage(item, index);
                 updateCartDisplay();
             });
 
@@ -111,6 +115,8 @@ function updateCartDisplay() {
         allesLoeschenButton.innerHTML = "<strong>ALLES LÖSCHEN</strong>";
         allesLoeschenButton.style.color = "white";
         allesLoeschenButton.style.backgroundColor = "red";
+        allesLoeschenButton.style.fontSize = "1em";
+
         allesLoeschenButton.addEventListener("click", () => {
             cartItems = [];
             saveCartToStorage();
@@ -121,6 +127,7 @@ function updateCartDisplay() {
         kasseButton.innerHTML = "<strong>KASSE</strong>";
         kasseButton.style.color = "white";
         kasseButton.style.backgroundColor = "green";
+        kasseButton.style.fontSize = "1em";
 
         buttonContainer.appendChild(allesLoeschenButton);
         buttonContainer.appendChild(kasseButton);
