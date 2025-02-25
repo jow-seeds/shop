@@ -1,6 +1,4 @@
 let loginModal = document.getElementById("loginOrRegister");
-const profileButton = document.getElementById("profileButton");
-const profileModal = document.getElementById("profileModal");
 
 // Schließen des Modals bei Klick außerhalb
 document.addEventListener("click", (event) => {
