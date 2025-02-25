@@ -24,13 +24,6 @@ function saveCartToStorage() {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }
 
-function deleteFromStorage(index) {
-    let storedItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
-    storedItems.splice(index, 1);
-    localStorage.setItem("cartItems", JSON.stringify(storedItems));
-}
-
 function updateCartDisplay() {
     modalContent.innerHTML = '';
     header.style.fontSize = "2em";
@@ -75,7 +68,7 @@ function updateCartDisplay() {
 
             loeschenButton.addEventListener("click", () => {
                 cartItems.splice(index, 1);
-                deleteFromStorage(index);
+                saveCartToStorage();
                 updateCartDisplay();
             });
 
