@@ -67,7 +67,8 @@ function updateCartDisplay() {
             loeschenButton.style.fontSize = "1.5em";
 
             loeschenButton.addEventListener("click", () => {
-                cartItems = cartItems.filter(item => item !== cartItems[index]);
+                console.log("Lösche Item an Index:", index, "Item:", cartItems[index]);
+                cartItems.splice(index, 1);
                 saveCartToStorage();
                 updateCartDisplay();
             });
