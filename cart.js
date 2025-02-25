@@ -130,6 +130,23 @@ function updateCartDisplay() {
     updateCartButton();
 }
 
+// CSS for consistent alignment using grid layout
+const style = document.createElement('style');
+style.textContent = `
+    .cart-item {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    .modal-content {
+        max-height: 50vh; /* Maximum height of the modal */
+        overflow-y: auto; /* Enable vertical scrolling if needed */
+    }
+`;
+document.head.appendChild(style);
+
+// Funktion zum Aktualisieren des Cart Buttons
 function updateCartButton() {
     const itemCount = cartItems.length;
     let badge = cartButton.querySelector(".cart-badge");
@@ -145,6 +162,7 @@ function updateCartButton() {
     }
 }
 
+// zum Hinzufügen eines Elements zum Warenkorb
 function addItemToCart(name, quantity, anzahl, preis) {
     cartItems.push({ name, quantity, anzahl, preis: parseFloat(preis) });
     saveCartToStorage();
