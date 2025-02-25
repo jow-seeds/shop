@@ -4,7 +4,7 @@ const profileModal = document.getElementById("profileModal");
 let login = document.getElementById("loginOrRegister");
 
 // Dummy-Login-Status (ersetze das mit echter Logik)
-let isLoggedIn = false;
+let isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
 // Öffnen des Modals
 profileButton.addEventListener("click", (event) => {
@@ -63,6 +63,9 @@ profileButton.addEventListener("click", (event) => {
     buttonContainer.appendChild(registerButton);
 
     profileModal.appendChild(buttonContainer);
+  }
+  else{
+    alert("Du bist bereits eingeloggt!");
   }
 });
 
