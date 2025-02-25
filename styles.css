@@ -253,6 +253,7 @@ button.active::after {
 
 .login-content h2 {
     margin-bottom: 10px;
+    text-decoration: underline;
 }
 
 .login-content input {
