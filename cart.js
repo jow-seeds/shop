@@ -3,7 +3,7 @@ let cartButton = document.getElementById("cartButton");
 let cart = document.getElementById("cartModal");
 let closeButton = document.querySelector(".close");
 let modalContent = document.querySelector(".modal-content");
-let cartItems = []; // Liste der Warenkorb-Elemente
+let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
 // Öffnen des Modals
 cartButton.addEventListener("click", function() {
@@ -22,6 +22,10 @@ window.addEventListener("click", function(event) {
         cart.classList.remove("show");
     }
 });
+
+function saveCartToLocalStorage() {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+}
 
 // Funktion zum Aktualisieren der Anzeige des Warenkorbs
 function updateCartDisplay() {
@@ -70,6 +74,7 @@ function updateCartDisplay() {
             // EventListener for "LÖSCHEN" button
             löschenButton.addEventListener("click", () => {
                 cartItems.splice(index, 1);
+                saveCartToLocalStorage();
                 updateCartDisplay();
             });
 
@@ -122,6 +127,7 @@ function updateCartDisplay() {
         // EventListener for "ALLES LÖSCHEN" button
         allesLoeschenButton.addEventListener("click", () => {
             cartItems = [];
+            saveCartToLocalStorage();
             updateCartDisplay();
         });
 
@@ -143,6 +149,9 @@ function updateCartDisplay() {
     
     updateCartButton();
 }
+
+// Initial call to display the cart
+updateCartDisplay();
 
 // CSS for consistent alignment using grid layout
 const style = document.createElement('style');
