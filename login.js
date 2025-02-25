@@ -18,10 +18,9 @@ document.addEventListener("click", (event) => {
     }
 });
 
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxpYnpvd3JtZXhoemp6a3N4Y3FiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA0OTQ1MzcsImV4cCI6MjA1NjA3MDUzN30.h9YRK6SE7erqH98w9u6oLn7qyWNBVxZr3cM-vRi21oc";
-
-const SUPABASE_URL = "https://libzowrmexhzjzksxcqb.supabase.co";
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const clientID = "1f4f1c34-c7e7-418a-8c14-6fac2008b452";
+const clientSecret = "sba_eab82b9ac6d46defa529c30c3e258c707724f0f9";
+const supabase = window._supabase;
 
 async function registerUser() {
     const email = registerMail.value;
