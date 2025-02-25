@@ -251,16 +251,18 @@ button.active::after {
     gap: 10px;
 }
 
-h2 {
+.login-content h2 {
     margin-bottom: 10px;
 }
 
-input {
+.login-content input {
     width: 80%;
     padding: 8px;
-    border: 1px solid white;
+    border: 2px solid white;
     background: black;
     color: white;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .login-content button {
@@ -281,7 +283,7 @@ input {
 .divider {
     width: 2px;
     background: white;
-    height: 80%;
+    height: 100%;
 }
 /* Login Modal End */
 
