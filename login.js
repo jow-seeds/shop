@@ -1,0 +1,1 @@
+let loginModal = document.getElementById("loginOrRegister")

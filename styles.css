@@ -196,6 +196,47 @@ button.active::after {
 }
 /* Profil Modal End */
 
+/* Login Modal Start */
+.loginOrRegister {
+    position: fixed;
+    top: 50%;
+    left: -40vw; /* Startpunkt außerhalb des Bildschirms */
+    width: 40vw;
+    height: 40vh;
+    background: black;
+    color: white;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+    transition: left 0.5s ease-in-out; /* Hier statt right */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1001;
+    transform: translate(-50%, -50%);
+}
+  
+  /* Sichtbar */
+.loginOrRegister.show {
+    left: 50%;
+}
+  
+/* Buttons im Modal */
+.loginOrRegister button {
+    background: black;
+    color: white;
+    padding: 10px 30px;
+    border: 3px solid white;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 1.2em;
+}
+  
+.loginOrRegister button:hover {
+    color: green;
+    border: 3px solid green;
+}
+/* Login Modal End */
+
 /* Footer Styling */
 footer {
     background-color: #111;

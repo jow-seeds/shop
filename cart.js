@@ -150,9 +150,6 @@ function updateCartDisplay() {
     updateCartButton();
 }
 
-// Initial call to display the cart
-updateCartDisplay();
-
 // CSS for consistent alignment using grid layout
 const style = document.createElement('style');
 style.textContent = `
@@ -204,3 +201,6 @@ function addItemToCart(name, quantity, anzahl, preis) {
     saveCartToLocalStorage();
     updateCartDisplay();
 }
+
+// Initial call to display the cart
+updateCartDisplay();

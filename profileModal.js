@@ -1,6 +1,7 @@
 // Elemente abrufen
 const profileButton = document.getElementById("profileButton");
 const profileModal = document.getElementById("profileModal");
+let loginModal = document.getElementById("loginOrRegister");
 
 // Dummy-Login-Status (ersetze das mit echter Logik)
 let isLoggedIn = false;
@@ -27,6 +28,10 @@ profileButton.addEventListener("click", (event) => {
     const loginButton = document.createElement("button");
     loginButton.textContent = "LOGIN";
     loginButton.classList.add("profile-btn");
+    loginButton.addEventListener("click", (event) => {
+      loginModal.classList.remove("hidden");
+      setTimeout(() => profileModal.classList.add("show"), 10);
+    });
 
     const orText = document.createElement("p");
     orText.textContent = "OR";
