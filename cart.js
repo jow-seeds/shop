@@ -201,5 +201,6 @@ function addItemToCart(name, quantity, anzahl, preis) {
     // Preis als Float speichern und formatieren
     let parsedPreis = parseFloat(preis);
     cartItems.push({ name, quantity, anzahl, preis: parsedPreis });
+    saveCartToLocalStorage();
     updateCartDisplay();
 }
