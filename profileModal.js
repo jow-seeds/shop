@@ -44,6 +44,14 @@ profileButton.addEventListener("click", (event) => {
     registerButton.textContent = "REGISTER";
     registerButton.classList.add("profile-btn");
 
+    registerButton.addEventListener("click", (event) => {
+      login.classList.remove("hidden");
+      setTimeout(() => login.classList.add("show"), 10);
+
+      profileModal.classList.remove("show");
+      setTimeout(() => profileModal.classList.add("hidden"), 300);
+    });
+
     const buttonContainer = document.createElement("div");
     buttonContainer.style.display = "flex";
     buttonContainer.style.flexDirection = "column";
