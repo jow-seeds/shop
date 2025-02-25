@@ -39,6 +39,7 @@ async function registerUser() {
         return;
     }
 
+    // Benutzer bei Supabase registrieren
     const { user, error } = await supabase.auth.signUp({
         email: email,
         password: password
@@ -50,7 +51,25 @@ async function registerUser() {
     } else {
         console.log("Registrierung erfolgreich:", user);
         localStorage.setItem("isLoggedIn", "true");
-        alert("Registrierung erfolgreich! Überprüfe deine E-Mails für die Bestätigung.");
+
+        // Jetzt die UserData-Tabelle mit den Benutzerdaten füllen
+        const { data, error: insertError } = await supabase
+            .from('UserData')
+            .insert([
+                {
+                    userID: user.id,
+                    userMail: email,
+                    userPass: password
+                }
+            ]);
+
+        if (insertError) {
+            console.error("Fehler beim Einfügen in die UserData-Tabelle:", insertError);
+            alert("Es ist ein Fehler beim Speichern deiner Daten aufgetreten.");
+        } else {
+            console.log("Benutzerdaten erfolgreich gespeichert:", data);
+            alert("Registrierung erfolgreich! Überprüfe deine E-Mails für die Bestätigung.");
+        }
     }
 }
 
