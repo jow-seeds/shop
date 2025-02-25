@@ -103,7 +103,7 @@
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script>
         const { createClient } = supabase
-        window._supabase = createClient('https://libzowrmexhzjzksxcqb.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxpYnpvd3JtZXhoemp6a3N4Y3FiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA0OTQ1MzcsImV4cCI6MjA1NjA3MDUzN30.h9YRK6SE7erqH98w9u6oLn7qyWNBVxZr3cM-vRi21oc')
+        window._supabase = supabase.createClient('https://libzowrmexhzjzksxcqb.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxpYnpvd3JtZXhoemp6a3N4Y3FiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA0OTQ1MzcsImV4cCI6MjA1NjA3MDUzN30.h9YRK6SE7erqH98w9u6oLn7qyWNBVxZr3cM-vRi21oc')
         console.log('Supabase Instance: ', window._supabase)
     </script>
     <script src="/shop/login.js"></script>
