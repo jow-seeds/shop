@@ -28,10 +28,11 @@ profileButton.addEventListener("click", (event) => {
     const loginButton = document.createElement("button");
     loginButton.textContent = "LOGIN";
     loginButton.classList.add("profile-btn");
+    
     loginButton.addEventListener("click", (event) => {
       loginModal.classList.remove("hidden");
       setTimeout(() => loginModal.classList.add("show"), 10);
-      
+
       profileModal.classList.remove("show");
       setTimeout(() => profileModal.classList.add("hidden"), 300);
     });

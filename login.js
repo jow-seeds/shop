@@ -8,4 +8,7 @@ document.addEventListener("click", (event) => {
         loginModal.classList.remove("show");
         setTimeout(() => loginModal.classList.add("hidden"), 300);
     }
+    else {
+        console.log(event.target);
+    }
 });
