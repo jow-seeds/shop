@@ -30,7 +30,7 @@ profileButton.addEventListener("click", (event) => {
     loginButton.classList.add("profile-btn");
     loginButton.addEventListener("click", (event) => {
       loginModal.classList.remove("hidden");
-      setTimeout(() => profileModal.classList.add("show"), 10);
+      setTimeout(() => loginModal.classList.add("show"), 10);
     });
 
     const orText = document.createElement("p");
