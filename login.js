@@ -18,11 +18,10 @@ document.addEventListener("click", (event) => {
     }
 });
 
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxpYnpvd3JtZXhoemp6a3N4Y3FiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA0OTQ1MzcsImV4cCI6MjA1NjA3MDUzN30.h9YRK6SE7erqH98w9u6oLn7qyWNBVxZr3cM-vRi21oc";
 
-const supabase = window.supabase.createClient(
-    'https://libzowrmexhzjzksxcqb.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxpYnpvd3JtZXhoemp6a3N4Y3FiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA0OTQ1MzcsImV4cCI6MjA1NjA3MDUzN30.h9YRK6SE7erqH98w9u6oLn7qyWNBVxZr3cM-vRi21oc'
-);
+const SUPABASE_URL = "https://libzowrmexhzjzksxcqb.supabase.co";
+const supabase = createClient(SUPABASE_URL, process.env.SUPABASE_KEY);
 
 async function registerUser() {
     const email = registerMail.value;
