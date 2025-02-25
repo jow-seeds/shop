@@ -31,6 +31,7 @@ profileButton.addEventListener("click", (event) => {
     loginButton.addEventListener("click", (event) => {
       loginModal.classList.remove("hidden");
       setTimeout(() => loginModal.classList.add("show"), 10);
+      
       profileModal.classList.remove("show");
       setTimeout(() => profileModal.classList.add("hidden"), 300);
     });
