@@ -29,6 +29,11 @@ async function registerUser() {
     const password = registerPass.value;
     const confirm = confirmPass.value;
 
+    if (!email || !password || !confirm) {
+        alert("Bitte gebe Email und Passwort ein!");
+        return;
+    }
+
     if (password !== confirm) {
         alert("Passwörter stimmen nicht überein!");
         return;
@@ -41,7 +46,7 @@ async function registerUser() {
 
     if (error) {
         console.error("Registrierung fehlgeschlagen:", error.message);
-        alert(error.message);
+        alert("Es ist ein Fehler aufgetreten.\nBitte wende dich an die Mitarbeiter von JoW Seeds!\n" + error.message);
     } else {
         console.log("Registrierung erfolgreich:", user);
         localStorage.setItem("isLoggedIn", "true");
@@ -53,6 +58,11 @@ async function loginUser() {
     const email = loginMail.value;
     const password = loginPass.value;
 
+    if (!email || !password) {
+        alert("Bitte gebe Email und Passwort ein!");
+        return;
+    }
+
     const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
         password: password
@@ -60,7 +70,7 @@ async function loginUser() {
 
     if (error) {
         console.error("Login fehlgeschlagen:", error.message);
-        alert(error.message);
+        alert("Es ist ein Fehler aufgetreten.\nBitte wende dich an die Mitarbeiter von JoW Seeds!\n" + error.message);
     } else {
         console.log("Login erfolgreich:", data);
         localStorage.setItem("isLoggedIn", "true");
