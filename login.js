@@ -17,14 +17,14 @@ document.addEventListener("click", (event) => {
 
 document.addEventListener("click", (event) => {
     if (loginButton.contains(event.target)) {
+        event.preventDefault();
         loginUser();
     }
     else if (registerButton.contains(event.target)) {
+        event.preventDefault();
         registerUser();
     }
 });
-
-
 
 async function loginUser()
 {
