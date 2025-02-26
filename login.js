@@ -39,7 +39,9 @@ async function loginUser()
                 method: "POST",
                 body: msg // Direkt die Rohdaten senden
             });
-    
+            
+            console.log("Response: " + response);
+
             if (response.ok) {
                 console.log("Login erfolgreich");
                 alert("Login erfolgreich");
@@ -50,8 +52,8 @@ async function loginUser()
                 localStorage.setItem("isLoggedIn", "false");
             }
         } catch (error) {
-            console.error("Fehler beim Login:", error);
-            alert("Es ist ein Fehler aufgetreten:", error);
+            console.error("Fehler beim Login:" + error);
+            alert("Es ist ein Fehler aufgetreten:" + error);
             localStorage.setItem("isLoggedIn", "false");
         }
     }
@@ -73,6 +75,8 @@ async function registerUser()
                 body: msg // Direkt die Rohdaten senden
             });
 
+            console.log("Response: " + response);
+
             if (response.ok) {
                 console.log("Registrierung erfolgreich");
                 alert("Registrierung erfolgreich");
@@ -83,7 +87,7 @@ async function registerUser()
                 localStorage.setItem("isLoggedIn", "false");
             }
         } catch (error) {
-            console.error("Fehler beim Registrieren:", error);
+            console.error("Fehler beim Registrieren:" + error);
             alert("Es ist ein Fehler aufgetreten: " + error);
             localStorage.setItem("isLoggedIn", "false");
         }
