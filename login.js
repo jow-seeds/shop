@@ -48,12 +48,18 @@ async function loginUser()
             });
     
             if (response.ok) {
-                console.log("Login erfolgreich:");
+                console.log("Login erfolgreich");
+                alert("Login erfolgreich");
+                localStorage.setItem("isLoggedIn", "true");
             } else {
-                console.error("Login fehlgeschlagen:");
+                console.error("Login fehlgeschlagen");
+                alert("Login fehlgeschlagen");
+                localStorage.setItem("isLoggedIn", "false");
             }
         } catch (error) {
             console.error("Fehler beim Login:", error);
+            alert("Es ist ein Fehler aufgetreten:", error);
+            localStorage.setItem("isLoggedIn", "false");
         }
     }
 }
@@ -79,12 +85,18 @@ async function registerUser()
             });
     
             if (response.ok) {
-                console.log("Login erfolgreich:");
+                console.log("Registrierung erfolgreich");
+                alert("Registrierung erfolgreich");
+                localStorage.setItem("isLoggedIn", "true");
             } else {
-                console.error("Login fehlgeschlagen:");
+                console.error("Registrierung fehlgeschlagen");
+                alert("Registrierung fehlgeschlagen");
+                localStorage.setItem("isLoggedIn", "false");
             }
         } catch (error) {
-            console.error("Fehler beim Login:", error);
+            console.error("Fehler beim Registrieren:", error);
+            alert("Es ist ein Fehler aufgetreten:", error);
+            localStorage.setItem("isLoggedIn", "false");
         }
     }
 }
