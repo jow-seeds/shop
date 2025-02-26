@@ -43,8 +43,6 @@ async function registerUser()
     let passValue = registerPass.value;
     let confirmValue = confirmPass.value;
 
-    console.info("Registrierung begonnen...");
-
     // 1️⃣ Prüfen, ob alle Felder ausgefüllt sind
     if (!mailValue || !passValue || !confirmValue) {
         console.warn("Bitte alle Felder ausfüllen!");
@@ -74,11 +72,13 @@ async function registerUser()
         });
 
         if (error) {
-            console.error("Registrierung fehlgeschlagen:", error.message);
+            alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
         } else {
-            console.log("Registrierung erfolgreich! Bestätigungs-E-Mail gesendet.", user);
+            setTimeout(() => {
+                window.location.href = "/shop/auth/register";
+            }, 2000);
         }
-    } catch (err) {
-        console.error("Fehler bei der Registrierung:", err);
+    } catch (error) {
+        alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
     }
 }

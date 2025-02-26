@@ -17,11 +17,11 @@
 	 <!-- Hauptinhalt der Seite -->
     <main>
         <section class="hero">
-            <h2>Bestätigung erfolgreich!</h2><br>
-            <h3>Du kannst nun zur HomePage zurück kehren und dich ganz normal einloggen.</h3><br>
-            <h4>Klicke dazu einfach auf den Button.</h4>
+            <h2 id="result">Bestätigung erfolgreich!</h2><br>
+            <h3 id="result-info">Du kannst nun zur HomePage zurück kehren und dich ganz normal einloggen.</h3><br>
+            <h4 id="result-anweisung">Klicke dazu einfach auf den Button.</h4>
             <a href="/shop/home/">
-                <button class="homePage-button">HomePage</button>
+                <button id="homePageButton" class="homePage-button hidden">HomePage</button>
             </a>
         </section>		
     </main>
@@ -30,5 +30,7 @@
     <footer>
         <p>Justice of Weed - Cannabis Samen Zuchtverband &copy; | Seed Company 2024</p>
     </footer>
+
+    <script type="modul" src="/shop/scripts/verify.js"></script>
 </body>
 </html>
