@@ -37,7 +37,6 @@ async function loginUser()
         try {
             let response = await fetch(requestURL, {
                 method: "POST",
-                headers: { "Content-Type": "text/plain" }, // Rohdaten, kein FormData
                 body: msg // Direkt die Rohdaten senden
             });
     
@@ -71,7 +70,6 @@ async function registerUser()
         try {
             let response = await fetch(requestURL, {
                 method: "POST",
-                headers: { "Content-Type": "text/plain" }, // Rohdaten, kein FormData
                 body: msg // Direkt die Rohdaten senden
             });
 
