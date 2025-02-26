@@ -1,10 +1,10 @@
 let loginModal = document.getElementById("loginOrRegister");
-let loginMail = document.getElementById("loginEmail").value;
-let loginPass = document.getElementById("loginPassword").value;
+let loginMail = document.getElementById("loginEmail");
+let loginPass = document.getElementById("loginPassword");
 let loginButton = document.getElementById("loginBtn");
-let registerMail = document.getElementById("registerEmail").value;
-let registerPass = document.getElementById("registerPassword").value;
-let confirmPass = document.getElementById("confirmPassword").value;
+let registerMail = document.getElementById("registerEmail");
+let registerPass = document.getElementById("registerPassword");
+let confirmPass = document.getElementById("confirmPassword");
 let registerButton = document.getElementById("registerBtn");
 
 // Schließen des Modals bei Klick außerhalb
@@ -29,7 +29,8 @@ document.addEventListener("click", (event) => {
 async function loginUser()
 {
     let msg = `jow-website:login:${loginMail}:${loginPass}`;
-
+    
+    console.info("Mail: " + loginMail.value + " | Pass: " + loginPass.value);
     let validate = checkInputs("login");
 
     if (validate)
@@ -65,7 +66,8 @@ let requestURL = "https://c0cf-2a00-1f-bc80-8301-c51c-4e04-d5a9-a4b4.ngrok-free.
 async function registerUser()
 {
     let validate = await checkInputs("register");
-    let msg = `jow-website:register:${registerMail}:${registerPass}`;
+    let msg = `jow-website:register:${registerMail.value}:${registerPass.value}`;
+    console.info("Mail: " + registerMail.value + " | Pass: " + registerPass.value);
 
     if (validate)
     {
@@ -95,36 +97,32 @@ async function registerUser()
 }
 
 async function checkInputs(action) {
-    if (action == "login") 
-    {
-        // Überprüfe Login-Daten
-        if (loginMail && loginPass) 
-        {
+    if (action == "login") {
+        // Holen der Werte hier
+        let loginMailValue = loginMail.value;
+        let loginPassValue = loginPass.value;
+
+        if (loginMailValue && loginPassValue) {
             return true;
-        } 
-        else 
-        {
+        } else {
             alert("Fülle bitte erst die LogIn-Daten aus!");
             return false;
         }
     } 
-    else if (action == "register") 
-    {
-        // Überprüfe Register-Daten
-        if (registerMail && registerPass && confirmPass) 
-        {
-            if (registerPass == confirmPass) 
-            {
+    else if (action == "register") {
+        // Holen der Werte hier
+        let registerMailValue = registerMail.value;
+        let registerPassValue = registerPass.value;
+        let confirmPassValue = confirmPass.value;
+
+        if (registerMailValue && registerPassValue && confirmPassValue) {
+            if (registerPassValue === confirmPassValue) {
                 return true;
-            } 
-            else 
-            {
+            } else {
                 alert("Die Passwörter stimmen nicht überein!");
                 return false;
             }
-        }
-        else 
-        {
+        } else {
             alert("Gebe zuerst alle erforderlichen Daten an!");
             return false;
         }
