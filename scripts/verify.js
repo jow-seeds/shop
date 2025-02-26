@@ -19,8 +19,10 @@ const type = urlParams.get('type') // "signup" oder "recovery"
 
 // 🌍 Falls kein Token gefunden wird, Fehlermeldung anzeigen
 if (!token || !type) {
+    console.error("Ungültiger Link!");
     setResult('Fehler: Ungültiger Link!', 'Bitte überprüfe deine E-Mail oder fordere einen neuen Link an.', 'Kehr zur Startseite zurück und versuche es erneut.')
 } else {
+    console.info("Token und Type gefunden.");
     verifyEmail(token, type)
 }
 
