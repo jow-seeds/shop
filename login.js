@@ -25,14 +25,10 @@ document.addEventListener("click", (event) => {
 });
 
 
-let requestURL = "https://c0cf-2a00-1f-bc80-8301-c51c-4e04-d5a9-a4b4.ngrok-free.app";
 
 async function loginUser()
 {
     let msg = `jow-website:login:${loginMail}:${loginPass}`;
-
-    let formData = new URLSearchParams();
-    formData.append("message", msg);
 
     let validate = checkInputs("login");
 
@@ -41,10 +37,8 @@ async function loginUser()
         try {
             let response = await fetch(requestURL, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: formData.toString()
+                headers: { "Content-Type": "text/plain" }, // Rohdaten, kein FormData
+                body: msg // Direkt die Rohdaten senden
             });
     
             if (response.ok) {
@@ -64,26 +58,23 @@ async function loginUser()
     }
 }
 
+
+let requestURL = "https://c0cf-2a00-1f-bc80-8301-c51c-4e04-d5a9-a4b4.ngrok-free.app";
+
 async function registerUser()
 {
     let validate = await checkInputs("register");
-
-    let msg = `jow-website:register:${loginMail}:${loginPass}`;
-
-    let formData = new URLSearchParams();
-    formData.append("message", msg);
+    let msg = `jow-website:register:${registerMail}:${registerPass}`;
 
     if (validate)
     {
         try {
             let response = await fetch(requestURL, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: formData.toString()
+                headers: { "Content-Type": "text/plain" }, // Rohdaten, kein FormData
+                body: msg // Direkt die Rohdaten senden
             });
-    
+
             if (response.ok) {
                 console.log("Registrierung erfolgreich");
                 alert("Registrierung erfolgreich");
@@ -95,7 +86,7 @@ async function registerUser()
             }
         } catch (error) {
             console.error("Fehler beim Registrieren:", error);
-            alert("Es ist ein Fehler aufgetreten:", error);
+            alert("Es ist ein Fehler aufgetreten: " + error);
             localStorage.setItem("isLoggedIn", "false");
         }
     }
