@@ -111,7 +111,7 @@ async function checkInputs(action) {
     else if (action == "register") 
     {
         // Überprüfe Register-Daten
-        if (registerMail.value && registerPass && confirmPass) 
+        if (registerMail && registerPass && confirmPass) 
         {
             if (registerPass == confirmPass) 
             {
