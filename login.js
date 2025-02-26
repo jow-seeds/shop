@@ -1,10 +1,10 @@
 let loginModal = document.getElementById("loginOrRegister");
-let loginMail = document.getElementById("loginEmail");
-let loginPass = document.getElementById("loginPassword");
+let loginMail = document.getElementById("loginEmail").value;
+let loginPass = document.getElementById("loginPassword").value;
 let loginButton = document.getElementById("loginBtn");
-let registerMail = document.getElementById("registerEmail");
-let registerPass = document.getElementById("registerPassword");
-let confirmPass = document.getElementById("confirmPassword");
+let registerMail = document.getElementById("registerEmail").value;
+let registerPass = document.getElementById("registerPassword").value;
+let confirmPass = document.getElementById("confirmPassword").value;
 let registerButton = document.getElementById("registerBtn");
 
 // Schließen des Modals bei Klick außerhalb
@@ -107,9 +107,9 @@ async function checkInputs(action) {
     else if (action == "register") 
     {
         // Überprüfe Register-Daten
-        if (registerMail && registerPass && confirmPass) 
+        if (registerMail.value && registerPass && confirmPass) 
         {
-            if (registerPass.trim() == confirmPass.trim()) 
+            if (registerPass == confirmPass) 
             {
                 return true;
             } 
