@@ -118,6 +118,10 @@ footer p {
     background-color: #333;
 }
 
+.hidden {
+    display: none;
+}
+
 /*#########################################   Responsive Styles   #############################################*/
 @media (max-width: 1200px) {
     .container1, .container2 {

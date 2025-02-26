@@ -1,3 +1,14 @@
+/////////////////////////////////////////     Supabase Import    ///////////////////////////////////////////////////////
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+const supabaseUrl = 'https://jfnkrqfijabzkirjbvqx.supabase.co'
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmbmtycWZpamFiemtpcmpidnF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1Nzc3MjEsImV4cCI6MjA1NjE1MzcyMX0.Gp9RRd8YrRcmOMaSBOVQl73YH-k4lYAhIMtWdUxRWKM'
+
+window.supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+console.log('Supabase Instance: ', window.supabase)
+
+///////////////////////////////////////////   Workaround   //////////////////////////////////////////////////
 let loginModal = document.getElementById("loginOrRegister");
 let loginMail = document.getElementById("loginEmail");
 let loginPass = document.getElementById("loginPassword");
@@ -26,105 +37,46 @@ document.addEventListener("click", (event) => {
     }
 });
 
-async function loginUser()
-{
-    let msg = `jow-website:login:${loginMail}:${loginPass}`;
-    
-    console.info("Mail: " + loginMail.value + " | Pass: " + loginPass.value);
-    let validate = checkInputs("login");
-
-    if (validate)
-    {
-        try {
-            let response = await fetch(requestURL, {
-                method: "POST",
-                body: msg // Direkt die Rohdaten senden
-            });
-            
-            console.log("Response: " + response);
-
-            if (response.ok) {
-                console.log("Login erfolgreich");
-                alert("Login erfolgreich");
-                localStorage.setItem("isLoggedIn", "true");
-            } else {
-                console.error("Login fehlgeschlagen");
-                alert("Login fehlgeschlagen");
-                localStorage.setItem("isLoggedIn", "false");
-            }
-        } catch (error) {
-            console.error("Fehler beim Login:" + error);
-            alert("Es ist ein Fehler aufgetreten:" + error);
-            localStorage.setItem("isLoggedIn", "false");
-        }
-    }
-}
-
-
-let requestURL = "https://caf0-2a00-1f-bc80-8301-c51c-4e04-d5a9-a4b4.ngrok-free.app";
-
 async function registerUser()
 {
-    let validate = await checkInputs("register");
-    let msg = `jow-website:register:${registerMail.value}:${registerPass.value}`;
-    console.info("Mail: " + registerMail.value + " | Pass: " + registerPass.value);
+    let mailValue = registerMail.value;
+    let passValue = registerPass.value;
+    let confirmValue = confirmPass.value;
 
-    if (validate)
-    {
-        try {
-            let response = await fetch(requestURL, {
-                method: "POST",
-                body: msg // Direkt die Rohdaten senden
-            });
-
-            console.log("Response: " + response);
-
-            if (response.ok) {
-                console.log("Registrierung erfolgreich");
-                alert("Registrierung erfolgreich");
-                localStorage.setItem("isLoggedIn", "true");
-            } else {
-                console.error("Registrierung fehlgeschlagen");
-                alert("Registrierung fehlgeschlagen");
-                localStorage.setItem("isLoggedIn", "false");
-            }
-        } catch (error) {
-            console.error("Fehler beim Registrieren:" + error);
-            alert("Es ist ein Fehler aufgetreten: " + error);
-            localStorage.setItem("isLoggedIn", "false");
-        }
+    // 1️⃣ Prüfen, ob alle Felder ausgefüllt sind
+    if (!mailValue || !passValue || !confirmValue) {
+        console.warn("Bitte alle Felder ausfüllen!");
+        alert("Bitte alle nötigen Felder ausfüllen!");
+        return;
     }
-}
 
-async function checkInputs(action) {
-    if (action == "login") {
-        // Holen der Werte hier
-        let loginMailValue = loginMail.value;
-        let loginPassValue = loginPass.value;
+    // 2️⃣ Prüfen, ob Passwörter übereinstimmen
+    if (passValue !== confirmValue) {
+        console.warn("Passwörter stimmen nicht überein!");
+        alert("Passwörter stimmen nicht überein!");
+        return;
+    }
 
-        if (loginMailValue && loginPassValue) {
-            return true;
+    // 3️⃣ Passwort muss Buchstaben & Zahlen enthalten (RegEx)
+    if (!/^(?=.*[a-zA-Z])(?=.*\d).{6,}$/.test(passValue)) {
+        console.warn("Passwort muss mindestens 6 Zeichen haben, mit Buchstaben & Zahlen!");
+        alert("Passwort muss mindestens 6 Zeichen haben, mit Buchstaben & Zahlen!");
+        return;
+    }
+
+    try {
+        // 4️⃣ Benutzer in Supabase registrieren
+        const { user, error } = await window.supabase.auth.signUp({
+            email: mailValue,
+            password: passValue
+        });
+
+        if (error) {
+            alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
         } else {
-            alert("Fülle bitte erst die LogIn-Daten aus!");
-            return false;
+            window.location.href = "/shop/auth/register";
         }
-    } 
-    else if (action == "register") {
-        // Holen der Werte hier
-        let registerMailValue = registerMail.value;
-        let registerPassValue = registerPass.value;
-        let confirmPassValue = confirmPass.value;
-
-        if (registerMailValue && registerPassValue && confirmPassValue) {
-            if (registerPassValue === confirmPassValue) {
-                return true;
-            } else {
-                alert("Die Passwörter stimmen nicht überein!");
-                return false;
-            }
-        } else {
-            alert("Gebe zuerst alle erforderlichen Daten an!");
-            return false;
-        }
+    } catch (error) {
+        alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
     }
 }
