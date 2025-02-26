@@ -16,31 +16,42 @@ const homePageButton = document.getElementById('homePageButton')
 const urlParams = new URLSearchParams(window.location.search)
 const token = urlParams.get('token')
 const type = urlParams.get('type') // "signup" oder "recovery"
+const mail = urlParams.get('mail')
 
-// 🌍 Falls kein Token gefunden wird, Fehlermeldung anzeigen
-if (!token || !type) {
-    console.error("Ungültiger Link!");
-    setResult('Fehler: Ungültiger Link!', 'Bitte überprüfe deine E-Mail oder fordere einen neuen Link an.', 'Kehr zur Startseite zurück und versuche es erneut.')
-} else {
-    console.info("Token und Type gefunden.");
-    verifyEmail(token, type)
+async function checkURL() {
+    // 🌍 Falls kein Token gefunden wird, Fehlermeldung anzeigen
+    if (!token || !type || !mail) {
+        console.error("Ungültiger Link!");
+        await setResult('Fehler: Ungültiger Link!', 'Bitte überprüfe deine E-Mail oder fordere einen neuen Link an.', 'Kehr zur Startseite zurück und versuche es erneut.');
+    } else {
+        console.info("Token, Type und Mail gefunden.");
+        await verifyEmail(token, type, mail);
+    }
 }
 
 // ✅ Funktion zur Verifizierung
-async function verifyEmail(token, type) {
-    const { error } = await supabase.auth.verifyOtp({ token, type: 'email' })
+async function verifyEmail(token, type, mail) {
+    const { error } = await supabase.auth.verifyOtp({
+        token: token,
+        email: mail,
+        type: type
+    })
 
     if (error) {
-        setResult('Verifizierung fehlgeschlagen!', error.message, 'Bitte versuche es später erneut.')
+        await setResult('Verifizierung fehlgeschlagen!', error.message, 'Bitte versuche es später erneut.')
     } else {
-        setResult('Bestätigung erfolgreich!', 'Du kannst dich nun einloggen.', 'Nutze den Button, um zur HomePage zurückzukehren.')
-        homePageButton.classList.remove('hidden')
+        await setResult('Bestätigung erfolgreich!', 'Du kannst dich nun einloggen.', 'Nutze den Button, um zur HomePage zurückzukehren.')
+        homePageButton.classList.remove('hidden');
     }
 }
 
 // ✅ Funktion zum Aktualisieren der Anzeige
-function setResult(title, info, anweisung) {
+async function setResult(title, info, anweisung) {
     resultTitle.innerText = title
     resultInfo.innerText = info
     resultAnweisung.innerText = anweisung
 }
+
+window.addEventListener('load', async function () {
+    await checkURL();  // Rufe checkURL auf, nachdem die Seite vollständig geladen ist
+});
