@@ -66,7 +66,7 @@ async function loginUser()
 
 async function registerUser()
 {
-    let validate = checkInputs("register");
+    let validate = await checkInputs("register");
 
     let msg = `jow-website:register:${loginMail}:${loginPass}`;
 
@@ -120,7 +120,7 @@ async function checkInputs(action) {
         // Überprüfe Register-Daten
         if (registerMail && registerPass && confirmPass) 
         {
-            if (registerPass === confirmPass) 
+            if (registerPass.trim() == confirmPass.trim()) 
             {
                 return true;
             } 
