@@ -100,7 +100,14 @@ async function loginUser()
         })
 
         if (error) {
-            alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
+            if (error === "AuthAPIError: Invalid login credentials")
+            {
+                alert("Email oder Passwort falsch!");
+            }
+            else
+            {
+                alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
+            }
         } else {
             // ⏳ Warte 5 Sekunden
             setTimeout(() => {
