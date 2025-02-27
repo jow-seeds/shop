@@ -31,7 +31,6 @@ async function registerUser()
     if (!mailValue || !passValue || !confirmValue) {
 
         loginModal.classList.remove("border-loading");
-        loginModal.style.border = "3px solid white";
 
         console.warn("Bitte alle Felder ausfüllen!");
         alert("Bitte alle nötigen Felder ausfüllen!");
@@ -42,7 +41,6 @@ async function registerUser()
     if (passValue !== confirmValue) {
 
         loginModal.classList.remove("border-loading");
-        loginModal.style.border = "3px solid white";
 
         console.warn("Passwörter stimmen nicht überein!");
         alert("Passwörter stimmen nicht überein!");
@@ -53,7 +51,6 @@ async function registerUser()
     if (!/^(?=.*[a-zA-Z])(?=.*\d).{6,}$/.test(passValue)) {
 
         loginModal.classList.remove("border-loading");
-        loginModal.style.border = "3px solid white";
 
         console.warn("Passwort muss mindestens 6 Zeichen haben, mit Buchstaben & Zahlen!");
         alert("Passwort muss mindestens 6 Zeichen haben, mit Buchstaben & Zahlen!");
@@ -70,14 +67,12 @@ async function registerUser()
         if (error) 
         {
             loginModal.classList.remove("border-loading");
-            loginModal.style.border = "3px solid white";
 
             alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
         } else {
             setTimeout(() => {
                 // 🚀 Animation entfernen
                 loginModal.classList.remove("border-loading");
-                loginModal.style.border = "3px solid white";
 
                 window.location.href = "/shop/auth/register";
             }, 5000);
@@ -85,7 +80,6 @@ async function registerUser()
     } catch (error) 
     {
         loginModal.classList.remove("border-loading");
-        loginModal.style.border = "3px solid white";
 
         alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
     }
@@ -102,7 +96,6 @@ async function loginUser()
     if (!mailValue || !passValue)
     {
         loginModal.classList.remove("border-loading");
-        loginModal.style.border = "3px solid white";
 
         console.warn("Bitte alle Felder ausfüllen!");
         alert("Bitte alle nötigen Felder ausfüllen!");
@@ -112,7 +105,6 @@ async function loginUser()
     if (!/^(?=.*[a-zA-Z])(?=.*\d).{6,}$/.test(passValue)) 
     {
         loginModal.classList.remove("border-loading");
-        loginModal.style.border = "3px solid white";
 
         console.warn("Passwort hatte mindestens 6 Zeichen, mit Buchstaben & Zahlen!");
         alert("Dein Passwort hatte mindestens 6 Zeichen, mit Buchstaben & Zahlen!");
@@ -131,18 +123,17 @@ async function loginUser()
         {
             // 🚀 Animation entfernen
             loginModal.classList.remove("border-loading");
-            loginModal.style.border = "3px solid white";
 
             if (error.message.includes("Invalid login")) 
             {
                 loginModal.classList.remove("border-loading");
-                loginModal.style.border = "3px solid white";
+                
                 alert("Email oder Passwort falsch!");
                 return;
             } else 
             {
                 loginModal.classList.remove("border-loading");
-                loginModal.style.border = "3px solid white";
+                
                 alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
                 return;
             }
@@ -156,7 +147,6 @@ async function loginUser()
                 
                 // 🚀 Animation entfernen
                 loginModal.classList.remove("border-loading");
-                loginModal.style.border = "3px solid white";
 
                 // 🔄 Aktualisierung der Seite
                 location.reload(true);
@@ -166,7 +156,7 @@ async function loginUser()
     catch (error)
     {
         loginModal.classList.remove("border-loading");
-        loginModal.style.border = "3px solid white";
+        
         alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
     }
 }
