@@ -206,6 +206,7 @@ button.active::after {
     background: black;
     color: white;
     border: 4px solid white; /* Setze den Rand auf transparent */
+    transition: left 0.5s ease-in-out;
     padding: 20px;
     display: flex;
     flex-direction: column;
