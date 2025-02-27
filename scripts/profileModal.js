@@ -81,17 +81,9 @@ profileButton.addEventListener("click", (event) => {
     logoutButton.style.bottom = "20vh";
     logoutButton.classList.add("profile-btn");
 
-    const buttonContainer = document.createElement("div");
-    buttonContainer.style.display = "flex";
-    buttonContainer.style.flexDirection = "column";
-    buttonContainer.style.alignItems = "center";
-    buttonContainer.style.marginTop = "50px";
-
-    buttonContainer.appendChild(profilButton);
-    buttonContainer.appendChild(historyButton);
-    buttonContainer.appendChild(favButton);
-
-    profileModal.appendChild(buttonContainer);
+    profileModal.appendChild(profilButton);
+    profileModal.appendChild(historyButton);
+    profileModal.appendChild(favButton);
     profileModal.appendChild(logoutButton);
   }
 });
