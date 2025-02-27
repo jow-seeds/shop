@@ -302,7 +302,6 @@ button.active::after {
 .border-loading {
     border: none; /* Keine feste Border */
     animation: borderAnimation 1s infinite alternate;
-    position: relative;
 }
 /* Login Modal End */
 
