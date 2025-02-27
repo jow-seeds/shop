@@ -64,7 +64,31 @@ profileButton.addEventListener("click", (event) => {
     profileModal.appendChild(buttonContainer);
   }
   else{
-    alert("Du bist bereits eingeloggt!");
+    const profilButton = document.createElement("button");
+    profilButton.textContent = "PROFIL";
+
+    const historyButton = document.createElement("button");
+    historyButton.textContent = "HISTORY";
+
+    const favButton = document.createElement("button");
+    favButton.textContent = "FAVORITES";
+
+    const logoutButton = document.createElement("button");
+    logoutButton.textContent = "LOG OUT";
+    logoutButton.style.bottom = "20vh";
+
+    const buttonContainer = document.createElement("div");
+    buttonContainer.style.display = "flex";
+    buttonContainer.style.flexDirection = "column";
+    buttonContainer.style.alignItems = "center";
+    buttonContainer.style.marginTop = "50px";
+
+    buttonContainer.appendChild(profilButton);
+    buttonContainer.appendChild(historyButton);
+    buttonContainer.appendChild(favButton);
+
+    profileModal.appendChild(buttonContainer);
+    profileModal.appendChild(logoutButton);
   }
 });
 
