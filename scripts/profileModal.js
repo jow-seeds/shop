@@ -66,16 +66,20 @@ profileButton.addEventListener("click", (event) => {
   else{
     const profilButton = document.createElement("button");
     profilButton.textContent = "PROFIL";
+    profilButton.classList.add("profile-btn");
 
     const historyButton = document.createElement("button");
     historyButton.textContent = "HISTORY";
+    profilButton.classList.add("profile-btn");
 
     const favButton = document.createElement("button");
     favButton.textContent = "FAVORITES";
+    favButton.classList.add("profile-btn");
 
     const logoutButton = document.createElement("button");
     logoutButton.textContent = "LOG OUT";
     logoutButton.style.bottom = "20vh";
+    logoutButton.classList.add("profile-btn");
 
     const buttonContainer = document.createElement("div");
     buttonContainer.style.display = "flex";
