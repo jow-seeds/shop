@@ -289,20 +289,20 @@ button.active::after {
 
 @keyframes borderAnimation {
     0% {
-        border-color: linear-gradient(to bottom, green, white);
+        border-color: linear-gradient(to bottom, green, white) 1;
     }
     50% {
-        border-color: linear-gradient(to top, white, green);
+        border-color: linear-gradient(to top, white, green) 1;
     }
     100% {
-        border-color: linear-gradient(to bottom, green, white);
+        border-color: linear-gradient(to bottom, green, white) 1;
     }
 }
 
 .border-loading {
     border-width: 4px;
-    border-style: solid;
-    animation: borderAnimation 0.5s linear infinite;
+    border-style: transparent;
+    animation: borderAnimation 0.5s infinite;
 }
 /* Login Modal End */
 
