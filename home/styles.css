@@ -200,19 +200,20 @@ button.active::after {
 .loginOrRegister {
     position: fixed;
     top: 50%;
-    left: -40vw; /* Startpunkt außerhalb des Bildschirms */
+    left: -40vw;
     width: 40vw;
     height: 40vh;
     background: black;
     color: white;
-    border: 3px solid white;
-    transition: left 0.5s ease-in-out; /* Hier statt right */
+    border: 3px solid transparent; /* Transparenter Border für Platzierung */
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 1001;
     transform: translate(-50%, -50%);
+    overflow: hidden;
+    position: relative; /* Wichtig, um Pseudo-Elemente relativ zu positionieren */
 }
   
   /* Sichtbar */
@@ -289,18 +290,23 @@ button.active::after {
 
 @keyframes borderAnimation {
     0% {
-        box-shadow: 0 0 0 3px rgb(0, 255, 0), 0 0 0 6px rgba(255, 255, 255, 1);
+        background: linear-gradient(to bottom, green, white);
     }
     50% {
-        box-shadow: 0 0 0 3px rgba(255, 255, 255, 1), 0 0 0 6px rgba(0, 255, 0, 1);
+        background: linear-gradient(to top, white, green);
     }
     100% {
-        box-shadow: 0 0 0 3px rgb(0, 255, 0), 0 0 0 6px rgba(255, 255, 255, 1);
+        background: linear-gradient(to bottom, green, white);
     }
 }
 
-.border-loading {
-    border: none; /* Keine feste Border */
+.loginOrRegister::before,
+.loginOrRegister::after {
+    content: "";
+    position: absolute;
+    top: -3px; left: -3px; right: -3px; bottom: -3px;
+    background: linear-gradient(to bottom, green, white);
+    z-index: -1;
     animation: borderAnimation 1s infinite alternate;
 }
 /* Login Modal End */
