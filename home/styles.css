@@ -288,18 +288,22 @@ button.active::after {
 }
 
 @keyframes borderAnimation {
-    0% { border-image-source: linear-gradient(to bottom, green, white); }
-    50% { border-image-source: linear-gradient(to top, white, green); }
-    100% { border-image-source: linear-gradient(to bottom, green, white); }
+    0% {
+        border-image-source: linear-gradient(to bottom, green, white);
+    }
+    50% {
+        border-image-source: linear-gradient(to top, white, green);
+    }
+    100% {
+        border-image-source: linear-gradient(to bottom, green, white);
+    }
 }
 
 .border-loading {
     border-width: 4px;
     border-style: solid;
     border-image-slice: 1;
-    border-image-width: 4px;
-    border-image-repeat: stretch;
-    animation: borderAnimation 0.5s infinite alternate;
+    animation: borderAnimation 2s ease-in-out infinite;
 }
 /* Login Modal End */
 
