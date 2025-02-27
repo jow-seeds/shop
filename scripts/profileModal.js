@@ -70,7 +70,7 @@ profileButton.addEventListener("click", (event) => {
 
     const historyButton = document.createElement("button");
     historyButton.textContent = "HISTORY";
-    profilButton.classList.add("profile-btn");
+    historyButton.classList.add("profile-btn");
 
     const favButton = document.createElement("button");
     favButton.textContent = "FAVORITES";
@@ -78,12 +78,20 @@ profileButton.addEventListener("click", (event) => {
 
     const logoutButton = document.createElement("button");
     logoutButton.textContent = "LOG OUT";
-    logoutButton.style.bottom = "20vh";
+    logoutButton.style.bottom = "80vh";
     logoutButton.classList.add("profile-btn");
 
-    profileModal.appendChild(profilButton);
-    profileModal.appendChild(historyButton);
-    profileModal.appendChild(favButton);
+    const buttonContainer = document.createElement("div");
+    buttonContainer.style.display = "flex";
+    buttonContainer.style.flexDirection = "column";
+    buttonContainer.style.alignItems = "center";
+    buttonContainer.style.marginTop = "50px";
+
+    buttonContainer.appendChild(profilButton);
+    buttonContainer.appendChild(historyButton);
+    buttonContainer.appendChild(favButton);
+
+    profileModal.appendChild(buttonContainer);
     profileModal.appendChild(logoutButton);
   }
 });
