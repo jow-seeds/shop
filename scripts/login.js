@@ -21,7 +21,7 @@ let registerButton = document.getElementById("registerBtn");
 async function registerUser()
 {
     // 🚀 Animation starten
-    loginModal.appendChild("border-loading");
+    loginModal.classList.add("border-loading");
 
     let mailValue = registerMail.value;
     let passValue = registerPass.value;
@@ -90,7 +90,7 @@ async function registerUser()
 async function loginUser() 
 {
     // 🚀 Animation starten
-    loginModal.appendChild("border-loading");
+    loginModal.classList.add("border-loading");
 
     let mailValue = loginMail.value;
     let passValue = loginPass.value;

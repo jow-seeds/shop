@@ -206,32 +206,22 @@ button.active::after {
     background: black;
     color: white;
     border: 3px solid white;
-    transition: left 0.5s ease-in-out; /* Hier statt right */
+    transition: left 0.5s ease-in-out; 
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 1001;
     transform: translate(-50%, -50%);
-    position: relative; /* Relatives Positionieren für die Border */
 }
 
 /* Border-Ladeanimation */
-.border-loading {
-    border: 10px solid transparent;
-    border-radius: 50%;
+.border-loading { 
     background-image: repeating-conic-gradient( 
         from 0deg,
         green 0%, green 5%, transparent 5%, transparent 40%, green 50%
     );
     animation: rotateBorder 2s linear infinite;
-    position: absolute; /* Absolute Positionierung relativ zum Container */
-    top: 50%;
-    left: 50%;
-    width: 45vw;
-    height: 45vh;
-    z-index: -1; /* Unter das Login-Fenster setzen, damit es nicht überlappt */
-    transform: translate(-50%, -50%); /* Sicherstellen, dass es zentriert bleibt */
 }
 
 /* Animation für den Ladeeffekt */
