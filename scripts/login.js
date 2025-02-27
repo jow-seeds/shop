@@ -18,25 +18,6 @@ let registerPass = document.getElementById("registerPassword");
 let confirmPass = document.getElementById("confirmPassword");
 let registerButton = document.getElementById("registerBtn");
 
-// Schließen des Modals bei Klick außerhalb
-document.addEventListener("click", (event) => {
-    if (!loginModal.contains(event.target)) {
-        loginModal.classList.remove("show");
-        setTimeout(() => loginModal.classList.add("hidden"), 300);
-    }
-});
-
-document.addEventListener("click", (event) => {
-    if (loginButton.contains(event.target)) {
-        event.preventDefault();
-        loginUser();
-    }
-    else if (registerButton.contains(event.target)) {
-        event.preventDefault();
-        registerUser();
-    }
-});
-
 async function registerUser()
 {
     let mailValue = registerMail.value;
@@ -65,6 +46,9 @@ async function registerUser()
     }
 
     try {
+        // 🚀 Animation starten
+        loginModal.classList.add("border-loading");
+
         // 4️⃣ Benutzer in Supabase registrieren
         const { user, error } = await window.supabase.auth.signUp({
             email: mailValue,
@@ -79,4 +63,28 @@ async function registerUser()
     } catch (error) {
         alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
     }
+    finally
+    {
+        // 🚀 Animation starten
+        loginModal.classList.remove("border-loading");
+    }
 }
+
+// Schließen des Modals bei Klick außerhalb
+document.addEventListener("click", (event) => {
+    if (!loginModal.contains(event.target)) {
+        loginModal.classList.remove("show");
+        setTimeout(() => loginModal.classList.add("hidden"), 300);
+    }
+});
+
+document.addEventListener("click", (event) => {
+    if (loginButton.contains(event.target)) {
+        event.preventDefault();
+        loginUser();
+    }
+    else if (registerButton.contains(event.target)) {
+        event.preventDefault();
+        registerUser();
+    }
+});

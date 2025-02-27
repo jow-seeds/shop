@@ -286,6 +286,19 @@ button.active::after {
     background: white;
     height: 100%;
 }
+
+@keyframes borderAnimation {
+    0% { border-image-source: linear-gradient(to bottom, green, white); }
+    50% { border-image-source: linear-gradient(to top, white, green); }
+    100% { border-image-source: linear-gradient(to bottom, green, white); }
+}
+
+.border-loading {
+    border-width: 4px;
+    border-style: solid;
+    border-image-slice: 1;
+    animation: borderAnimation 1s infinite alternate;
+}
 /* Login Modal End */
 
 /* Footer Styling */
