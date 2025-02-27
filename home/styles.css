@@ -206,14 +206,15 @@ button.active::after {
     transition: left 0.5s ease-in-out;
     background: black;
     color: white;
-    border: 5px solid white; /* Setze den Rand auf transparent */
+    border: 5px solid transparent;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 1001;
     transform: translate(-50%, -50%);
-    box-sizing: border-box; /* Sicherstellen, dass der Rand korrekt berücksichtigt wird */
+    box-sizing: border-box;
+    background-clip: border-box;
 }
 
 /* Border-Ladeanimation */
@@ -223,16 +224,16 @@ button.active::after {
 
 @keyframes borderGradientAnimation {
     0% {
-        border-image: repeating-conic-gradient(
+        background-image: repeating-conic-gradient(
             from 0deg,
             green 0%, green 5%, transparent 5%, transparent 40%, green 50%
-        ) 1;
+        );
     }
     100% {
-        border-image: repeating-conic-gradient(
+        background-image: repeating-conic-gradient(
             from 360deg,
             green 0%, green 5%, transparent 5%, transparent 40%, green 50%
-        ) 1;
+        );
     }
 }
   
