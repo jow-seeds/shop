@@ -205,7 +205,7 @@ button.active::after {
     height: 40vh;
     background: black;
     color: white;
-    border: 3px solid transparent; /* Setze den Rand auf transparent */
+    border: 4px solid white; /* Setze den Rand auf transparent */
     padding: 20px;
     display: flex;
     flex-direction: column;
