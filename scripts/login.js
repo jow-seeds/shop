@@ -29,6 +29,10 @@ async function registerUser()
 
     // 1️⃣ Prüfen, ob alle Felder ausgefüllt sind
     if (!mailValue || !passValue || !confirmValue) {
+
+        loginModal.classList.remove("border-loading");
+        loginModal.style.border = "3px solid white";
+
         console.warn("Bitte alle Felder ausfüllen!");
         alert("Bitte alle nötigen Felder ausfüllen!");
         return;
@@ -36,6 +40,10 @@ async function registerUser()
 
     // 2️⃣ Prüfen, ob Passwörter übereinstimmen
     if (passValue !== confirmValue) {
+
+        loginModal.classList.remove("border-loading");
+        loginModal.style.border = "3px solid white";
+
         console.warn("Passwörter stimmen nicht überein!");
         alert("Passwörter stimmen nicht überein!");
         return;
@@ -43,6 +51,10 @@ async function registerUser()
 
     // 3️⃣ Passwort muss Buchstaben & Zahlen enthalten (RegEx)
     if (!/^(?=.*[a-zA-Z])(?=.*\d).{6,}$/.test(passValue)) {
+
+        loginModal.classList.remove("border-loading");
+        loginModal.style.border = "3px solid white";
+
         console.warn("Passwort muss mindestens 6 Zeichen haben, mit Buchstaben & Zahlen!");
         alert("Passwort muss mindestens 6 Zeichen haben, mit Buchstaben & Zahlen!");
         return;
@@ -55,17 +67,26 @@ async function registerUser()
             password: passValue
         });
 
-        if (error) {
+        if (error) 
+        {
+            loginModal.classList.remove("border-loading");
+            loginModal.style.border = "3px solid white";
+
             alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
         } else {
             setTimeout(() => {
                 // 🚀 Animation entfernen
                 loginModal.classList.remove("border-loading");
+                loginModal.style.border = "3px solid white";
 
                 window.location.href = "/shop/auth/register";
             }, 5000);
         }
-    } catch (error) {
+    } catch (error) 
+    {
+        loginModal.classList.remove("border-loading");
+        loginModal.style.border = "3px solid white";
+
         alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
     }
 }
@@ -80,12 +101,19 @@ async function loginUser()
 
     if (!mailValue || !passValue)
     {
+        loginModal.classList.remove("border-loading");
+        loginModal.style.border = "3px solid white";
+
         console.warn("Bitte alle Felder ausfüllen!");
         alert("Bitte alle nötigen Felder ausfüllen!");
         return;
     }
 
-    if (!/^(?=.*[a-zA-Z])(?=.*\d).{6,}$/.test(passValue)) {
+    if (!/^(?=.*[a-zA-Z])(?=.*\d).{6,}$/.test(passValue)) 
+    {
+        loginModal.classList.remove("border-loading");
+        loginModal.style.border = "3px solid white";
+
         console.warn("Passwort hatte mindestens 6 Zeichen, mit Buchstaben & Zahlen!");
         alert("Dein Passwort hatte mindestens 6 Zeichen, mit Buchstaben & Zahlen!");
         return;
@@ -99,13 +127,28 @@ async function loginUser()
             password: passValue
         })
 
-        if (error) {
-            if (error.message.includes("Invalid login")) {
+        if (error) 
+        {
+            // 🚀 Animation entfernen
+            loginModal.classList.remove("border-loading");
+            loginModal.style.border = "3px solid white";
+
+            if (error.message.includes("Invalid login")) 
+            {
+                loginModal.classList.remove("border-loading");
+                loginModal.style.border = "3px solid white";
                 alert("Email oder Passwort falsch!");
-            } else {
+                return;
+            } else 
+            {
+                loginModal.classList.remove("border-loading");
+                loginModal.style.border = "3px solid white";
                 alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
+                return;
             }
-        } else {
+        } 
+        else 
+        {
             // ⏳ Warte 5 Sekunden
             setTimeout(() => {
                 // ✅ Status in localStorage speichern
@@ -113,6 +156,7 @@ async function loginUser()
                 
                 // 🚀 Animation entfernen
                 loginModal.classList.remove("border-loading");
+                loginModal.style.border = "3px solid white";
 
                 // 🔄 Aktualisierung der Seite
                 location.reload(true);
@@ -121,6 +165,8 @@ async function loginUser()
     }
     catch (error)
     {
+        loginModal.classList.remove("border-loading");
+        loginModal.style.border = "3px solid white";
         alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
     }
 }
