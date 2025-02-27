@@ -203,9 +203,10 @@ button.active::after {
     left: -40vw; /* Startpunkt außerhalb des Bildschirms */
     width: 40vw;
     height: 40vh;
+    transition: left 0.5s ease-in-out;
     background: black;
     color: white;
-    border: 3px solid transparent; /* Setze den Rand auf transparent */
+    border: 5px solid white; /* Setze den Rand auf transparent */
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -224,24 +225,6 @@ button.active::after {
     0% {
         border-image: repeating-conic-gradient(
             from 0deg,
-            green 0%, green 5%, transparent 5%, transparent 40%, green 50%
-        ) 1;
-    }
-    25% {
-        border-image: repeating-conic-gradient(
-            from 90deg,
-            green 0%, green 5%, transparent 5%, transparent 40%, green 50%
-        ) 1;
-    }
-    50% {
-        border-image: repeating-conic-gradient(
-            from 180deg,
-            green 0%, green 5%, transparent 5%, transparent 40%, green 50%
-        ) 1;
-    }
-    75% {
-        border-image: repeating-conic-gradient(
-            from 270deg,
             green 0%, green 5%, transparent 5%, transparent 40%, green 50%
         ) 1;
     }
