@@ -20,8 +20,7 @@ let registerButton = document.getElementById("registerBtn");
 
 async function registerUser()
 {
-    // 🚀 Animation starten
-    loginModal.classList.add("border-loading");
+    addLoading();
 
     let mailValue = registerMail.value;
     let passValue = registerPass.value;
@@ -89,8 +88,7 @@ async function registerUser()
 
 async function loginUser() 
 {
-    // 🚀 Animation starten
-    loginModal.classList.add("border-loading");
+    addLoading();
 
     let mailValue = loginMail.value;
     let passValue = loginPass.value;
@@ -160,6 +158,61 @@ async function loginUser()
         loginModal.classList.remove("border-loading");
         
         alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
+    }
+}
+
+function addLoading()
+{
+    generateKeyframes();
+    // 🚀 Animation starten
+    loginModal.classList.add("border-loading");
+}
+
+function generateKeyframes() {
+    let keyframes = '';
+    let steps = 100; // 100 Schritte für 1% Inkrement
+
+    for (let i = 0; i <= steps; i++) {
+        let degree = (i * 360) / steps; // Berechnet den Grad in 1%-Schritten
+        keyframes += `
+            ${i}% {
+                border-image: repeating-conic-gradient(
+                    from ${degree}deg,
+                    green 0%, green 5%, transparent 5%, transparent 40%, green 50%
+                ) 1;
+            }
+        `;
+    }
+
+    // Finde das vorhandene <style>-Tag
+    let styleTag = document.querySelector('style');
+    
+    if (styleTag) {
+        // Füge die Keyframes und die Klasse zur vorhandenen <style> Tag hinzu
+        styleTag.innerHTML += `
+            /* Border-Ladeanimation */
+            .border-loading {
+                animation: borderGradientAnimation 1s infinite;
+            }
+
+            @keyframes borderGradientAnimation {
+                ${keyframes}
+            }
+        `;
+    } else {
+        // Falls kein <style>-Tag existiert, erstelle es
+        const style = document.createElement('style');
+        style.innerHTML = `
+            /* Border-Ladeanimation */
+            .border-loading {
+                animation: borderGradientAnimation 1s infinite;
+            }
+
+            @keyframes borderGradientAnimation {
+                ${keyframes}
+            }
+        `;
+        document.head.appendChild(style); // Füge es zum Head-Bereich hinzu
     }
 }
 
