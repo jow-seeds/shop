@@ -100,7 +100,7 @@ async function loginUser()
         })
 
         if (error) {
-            if (error.includes("Invalid login")) {
+            if (error.message.includes("Invalid login")) {
                 alert("Email oder Passwort falsch!");
             } else {
                 alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
