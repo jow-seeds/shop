@@ -213,6 +213,7 @@ button.active::after {
     align-items: center;
     z-index: 1001;
     transform: translate(-50%, -50%);
+    overflow: hidden;
 }
   
   /* Sichtbar */

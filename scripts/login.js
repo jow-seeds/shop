@@ -63,21 +63,23 @@ async function registerUser()
             email: mailValue,
             password: passValue
         });
+        setTimeout(() => {
+            if (error) 
+            {
+                loginModal.classList.remove("border-loading");
 
-        if (error) 
-        {
-            loginModal.classList.remove("border-loading");
-
-            alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
-        } else {
-            setTimeout(() => {
+                alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
+            } 
+            else 
+            {
                 // 🚀 Animation entfernen
                 loginModal.classList.remove("border-loading");
 
                 window.location.href = "/shop/auth/register";
-            }, 5000);
-        }
-    } catch (error) 
+            }
+        }, 5000);
+    } 
+    catch (error) 
     {
         loginModal.classList.remove("border-loading");
 
@@ -119,29 +121,29 @@ async function loginUser()
             password: passValue
         })
 
-        if (error) 
-        {
-            // 🚀 Animation entfernen
-            loginModal.classList.remove("border-loading");
+        setTimeout(() => {
+            if (error) 
+            {
+                // 🚀 Animation entfernen
+                loginModal.classList.remove("border-loading");
 
-            if (error.message.includes("Invalid login")) 
-            {
-                loginModal.classList.remove("border-loading");
+                if (error.message.includes("Invalid login")) 
+                {
+                    loginModal.classList.remove("border-loading");
                 
-                alert("Email oder Passwort falsch!");
-                return;
-            } else 
-            {
-                loginModal.classList.remove("border-loading");
+                    alert("Email oder Passwort falsch!");
+                    return;
+                } 
+                else 
+                {
+                    loginModal.classList.remove("border-loading");
                 
-                alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
-                return;
-            }
-        } 
-        else 
-        {
-            // ⏳ Warte 5 Sekunden
-            setTimeout(() => {
+                    alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
+                    return;
+                }
+            } 
+            else 
+            {            
                 // ✅ Status in localStorage speichern
                 localStorage.setItem("isLoggedIn", "true");
                 
@@ -150,8 +152,8 @@ async function loginUser()
 
                 // 🔄 Aktualisierung der Seite
                 location.reload(true);
-            }, 5000);
-        }
+            }
+        }, 5000);
     }
     catch (error)
     {
