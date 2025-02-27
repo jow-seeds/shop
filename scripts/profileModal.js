@@ -3,9 +3,6 @@ const profileButton = document.getElementById("profileButton");
 const profileModal = document.getElementById("profileModal");
 let login = document.getElementById("loginOrRegister");
 
-// Dummy-Login-Status (ersetze das mit echter Logik)
-let isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-
 // Öffnen des Modals
 profileButton.addEventListener("click", (event) => {
   event.stopPropagation(); // Verhindert das Schließen direkt nach dem Öffnen
@@ -22,6 +19,8 @@ profileButton.addEventListener("click", (event) => {
   header.style.fontSize = "2em";
   header.style.paddingTop = "20%";
   profileModal.appendChild(header);
+
+  let isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
   // Login-Prüfung
   if (!isLoggedIn) {
