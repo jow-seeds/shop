@@ -205,32 +205,51 @@ button.active::after {
     height: 40vh;
     background: black;
     color: white;
-    border: 3px solid white;
-    transition: left 0.5s ease-in-out; 
+    border: 3px solid transparent; /* Setze den Rand auf transparent */
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 1001;
     transform: translate(-50%, -50%);
+    box-sizing: border-box; /* Sicherstellen, dass der Rand korrekt berücksichtigt wird */
 }
 
 /* Border-Ladeanimation */
-.border-loading { 
-    background-image: repeating-conic-gradient( 
-        from 0deg,
-        green 0%, green 5%, transparent 5%, transparent 40%, green 50%
-    );
-    animation: rotateBorder 2s linear infinite;
+.border-loading {
+    animation: borderGradientAnimation 1s infinite;
 }
 
-/* Animation für den Ladeeffekt */
-@keyframes rotateBorder {
+@keyframes borderGradientAnimation {
     0% {
-        transform: rotate(0deg);
+        border-image: repeating-conic-gradient(
+            from 0deg,
+            green 0%, green 5%, transparent 5%, transparent 40%, green 50%
+        ) 1;
+    }
+    25% {
+        border-image: repeating-conic-gradient(
+            from 90deg,
+            green 0%, green 5%, transparent 5%, transparent 40%, green 50%
+        ) 1;
+    }
+    50% {
+        border-image: repeating-conic-gradient(
+            from 180deg,
+            green 0%, green 5%, transparent 5%, transparent 40%, green 50%
+        ) 1;
+    }
+    75% {
+        border-image: repeating-conic-gradient(
+            from 270deg,
+            green 0%, green 5%, transparent 5%, transparent 40%, green 50%
+        ) 1;
     }
     100% {
-        transform: rotate(360deg);
+        border-image: repeating-conic-gradient(
+            from 360deg,
+            green 0%, green 5%, transparent 5%, transparent 40%, green 50%
+        ) 1;
     }
 }
   
