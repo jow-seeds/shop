@@ -299,7 +299,7 @@ button.active::after {
     border-image-slice: 1;
     border-image-width: 4px;
     border-image-repeat: stretch;
-    animation: borderAnimation 1s infinite alternate;
+    animation: borderAnimation 0.5s infinite alternate;
 }
 /* Login Modal End */
 
