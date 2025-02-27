@@ -289,19 +289,20 @@ button.active::after {
 
 @keyframes borderAnimation {
     0% {
-        border-color: green;
+        box-shadow: 0 0 0 3px rgb(0, 255, 0), 0 0 0 6px rgba(255, 255, 255, 1);
     }
     50% {
-        border-color: white;
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 1), 0 0 0 6px rgba(0, 255, 0, 1);
     }
     100% {
-        border-color: green;
+        box-shadow: 0 0 0 3px rgb(0, 255, 0), 0 0 0 6px rgba(255, 255, 255, 1);
     }
 }
 
 .border-loading {
-    border: 3px solid green; /* Startfarbe */
+    border: none; /* Keine feste Border */
     animation: borderAnimation 1s infinite alternate;
+    position: relative;
 }
 /* Login Modal End */
 
