@@ -78,7 +78,7 @@ profileButton.addEventListener("click", (event) => {
 
     const logoutButton = document.createElement("button");
     logoutButton.textContent = "LOG OUT";
-    logoutButton.style.bottom = "80vh";
+    logoutButton.style.marginTop = "80px";
     logoutButton.classList.add("profile-btn");
 
     const buttonContainer = document.createElement("div");
@@ -90,9 +90,9 @@ profileButton.addEventListener("click", (event) => {
     buttonContainer.appendChild(profilButton);
     buttonContainer.appendChild(historyButton);
     buttonContainer.appendChild(favButton);
+    buttonContainer.appendChild(logoutButton);
 
     profileModal.appendChild(buttonContainer);
-    profileModal.appendChild(logoutButton);
   }
 });
 
