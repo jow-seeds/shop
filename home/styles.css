@@ -289,20 +289,37 @@ button.active::after {
 
 @keyframes borderAnimation {
     0% {
-        border-color: linear-gradient(to bottom, green, white) 1;
+        background: linear-gradient(to bottom, green, white);
     }
     50% {
-        border-color: linear-gradient(to top, white, green) 1;
+        background: linear-gradient(to top, white, green);
     }
     100% {
-        border-color: linear-gradient(to bottom, green, white) 1;
+        background: linear-gradient(to bottom, green, white);
     }
 }
 
 .border-loading {
-    border-width: 4px;
-    border-style: solid;
-    animation: borderAnimation 0.5s infinite;
+    position: relative;
+    padding: 10px;
+}
+
+.border-loading::before,
+.border-loading::after {
+    content: "";
+    position: absolute;
+    top: -4px; left: -4px; right: -4px; bottom: -4px;
+    background: linear-gradient(to bottom, green, white);
+    z-index: -1;
+    animation: borderAnimation 1s infinite;
+    mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
+    mask-composite: exclude;
+    padding: 4px;
+}
+
+.border-loading::after {
+    animation-delay: 0.5s; /* Versetzt die zweite Animation für sanfteren Effekt */
+    opacity: 0.7; /* Optional für leichten Glow */
 }
 /* Login Modal End */
 
