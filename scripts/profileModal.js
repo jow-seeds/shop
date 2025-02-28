@@ -105,6 +105,9 @@ async function showModal() {
         else 
         {
           localStorage.setItem("isLoggedIn", "false");
+
+          profileModal.classList.remove("show");
+          setTimeout(() => profileModal.classList.add("hidden"), 10);
         }
       }
       catch (error)
