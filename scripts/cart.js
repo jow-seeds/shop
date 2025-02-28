@@ -163,17 +163,6 @@ style.textContent = `
         max-height: 50vh; /* Maximum height of the modal */
         overflow-y: auto; /* Enable vertical scrolling if needed */
     }
-    .cart-badge {
-        background: red;
-        color: black;
-        width: 20px; 
-        height: 20px; 
-        border-radius: 50%; 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: bold;
-    }
 `;
 document.head.appendChild(style);
 
