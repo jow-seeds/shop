@@ -51,7 +51,7 @@ function updateCartDisplay() {
 
             let nameSpan = document.createElement("span");
             nameSpan.textContent = `${item.name}`;
-            nameSpan.style.fontWeight = "bold"; // Make item name bold
+            nameSpan.style.fontWeight = "bold";
 
             let quantitySpan = document.createElement("span");
             quantitySpan.textContent = `Samen: ${item.quantity}`;
@@ -162,6 +162,10 @@ style.textContent = `
     .modal-content {
         max-height: 50vh; /* Maximum height of the modal */
         overflow-y: auto; /* Enable vertical scrolling if needed */
+    }
+    .cart-badge {
+        background: black;
+        border-radius: 50%;
     }
 `;
 document.head.appendChild(style);
