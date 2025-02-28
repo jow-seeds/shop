@@ -166,9 +166,10 @@ style.textContent = `
     .cart-badge {
         background: red;
         color: black;
-        width: 30px; 
-        height: 30px; 
-        border-radius: 50%;
+        width: 20px; 
+        height: 20px; 
+        border-radius: 50%; 
+        display: flex;
         justify-content: center;
         align-items: center;
         font-weight: bold;
