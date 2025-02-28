@@ -93,7 +93,7 @@ profileButton.addEventListener("click", (event) => {
     buttonContainer.style.display = "flex";
     buttonContainer.style.flexDirection = "column";
     buttonContainer.style.alignItems = "center";
-    buttonContainer.style.marginTop = "50px";
+    buttonContainer.style.marginTop = "70px";
 
     buttonContainer.appendChild(profilButton);
     buttonContainer.appendChild(historyButton);
