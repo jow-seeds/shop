@@ -7,7 +7,10 @@ let login = document.getElementById("loginOrRegister");
 profileButton.addEventListener("click", (event) => {
   event.stopPropagation(); // Verhindert das Schließen direkt nach dem Öffnen
   profileModal.innerHTML = ""; // Reset
+  showModal();
+});
 
+async function showModal() {
   // Modal anzeigen
   profileModal.classList.remove("hidden");
   setTimeout(() => profileModal.classList.add("show"), 10);
@@ -28,7 +31,7 @@ profileButton.addEventListener("click", (event) => {
     loginButton.textContent = "LOGIN";
     loginButton.classList.add("profile-btn");
 
-    loginButton.addEventListener("click", (event) => {
+    loginButton.addEventListener("click", () => {
       login.classList.remove("hidden");
       setTimeout(() => login.classList.add("show"), 10);
 
@@ -89,6 +92,27 @@ profileButton.addEventListener("click", (event) => {
     logoutButton.style.marginTop = "80px";
     logoutButton.classList.add("profile-btn");
 
+    logoutButton.addEventListener("click", async () =>
+    {
+      try
+      {
+        let { error } = await supabase.auth.signOut()
+
+        if (error)
+        {
+          alert("LogOut vorgang fehlgeschlagen!\nBitte wende dich an einen Mitarbeiter.\n" + error);
+        }
+        else 
+        {
+          localStorage.setItem("isLoggedIn", "false");
+        }
+      }
+      catch (error)
+      {
+        alert("LogOut vorgang fehlgeschlagen!\nBitte wende dich an einen Mitarbeiter.\n" + error);
+      }
+    })
+
     const buttonContainer = document.createElement("div");
     buttonContainer.style.display = "flex";
     buttonContainer.style.flexDirection = "column";
@@ -104,7 +128,7 @@ profileButton.addEventListener("click", (event) => {
 
     profileModal.appendChild(buttonContainer);
   }
-});
+}
 
 // Klick auf das Modal selbst verhindert das Schließen
 profileModal.addEventListener("click", (event) => {

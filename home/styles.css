@@ -188,8 +188,7 @@ button.active::after {
   cursor: pointer;
   margin: 10px;
   font-size: 1.2em;
-  width: 80%;
-  text-align: center;
+  width: 90%;
 }
 
 .profile-btn:hover {
