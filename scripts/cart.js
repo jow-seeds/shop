@@ -167,6 +167,7 @@ style.textContent = `
         background: black;
         border-radius: 25%;
         color: white;
+        padding: 5px;
     }
 `;
 document.head.appendChild(style);
