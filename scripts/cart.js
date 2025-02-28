@@ -164,11 +164,15 @@ style.textContent = `
         overflow-y: auto; /* Enable vertical scrolling if needed */
     }
     .cart-badge {
-        background: black;
-        border-radius: 35%;
-        background-color: red;
+        background: red;
         color: black;
-        padding: 5px;
+        width: 30px; 
+        height: 30px; 
+        border-radius: 50%; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
     }
 `;
 document.head.appendChild(style);
