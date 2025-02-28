@@ -165,7 +165,8 @@ style.textContent = `
     }
     .cart-badge {
         background: black;
-        border-radius: 50%;
+        border-radius: 25%;
+        color: white;
     }
 `;
 document.head.appendChild(style);
