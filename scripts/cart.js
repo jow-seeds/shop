@@ -168,8 +168,7 @@ style.textContent = `
         color: black;
         width: 30px; 
         height: 30px; 
-        border-radius: 50%; 
-        display: flex;
+        border-radius: 50%;
         justify-content: center;
         align-items: center;
         font-weight: bold;
