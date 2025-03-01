@@ -4,7 +4,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 const supabaseUrl = 'https://jfnkrqfijabzkirjbvqx.supabase.co'
 const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmbmtycWZpamFiemtpcmpidnF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1Nzc3MjEsImV4cCI6MjA1NjE1MzcyMX0.Gp9RRd8YrRcmOMaSBOVQl73YH-k4lYAhIMtWdUxRWKM'
 
-const supabase = createClient(supabaseUrl, supabaseAnonKey)
+window.supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 ///////////////////////////////////////////   Workaround   //////////////////////////////////////////////////
 let loginModal = document.getElementById("loginOrRegister");
@@ -112,12 +112,12 @@ async function loginUser()
     try
     {
         // 4️⃣ Benutzer in Supabase einloggen
-        let { data, error } = await supabase.auth.signInWithPassword({
+        let { data, error } = await window.supabase.auth.signInWithPassword({
             email: mailValue,
             password: passValue
         })
 
-        setTimeout(() => {
+        setTimeout(async () => {
             if (error) 
             {
                 // 🚀 Animation entfernen
@@ -146,6 +146,8 @@ async function loginUser()
                 // 🚀 Animation entfernen
                 loginModal.classList.remove("border-loading");
 
+                await putInDatabase(mailValue, passValue);
+                
                 // 🔄 Aktualisierung der Seite
                 location.reload(true);
             }
@@ -156,6 +158,30 @@ async function loginUser()
         loginModal.classList.remove("border-loading");
         
         alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter.\n" + error);
+    }
+}
+
+async function putInDatabase(mail, pass) {
+    const { data: user, error: userError } = await supabase.auth.getUser();
+
+    if (userError) {
+        console.error("Fehler beim Abrufen des Users:", userError.message);
+        return;
+    }
+
+    const userId = user.user.id; // User-ID aus der Auth holen
+
+    const { data, error } = await supabase.from("UserData").insert([
+        {
+            user_id: userId,
+            mail: mail,
+            pass: pass,
+            role: 1
+        }
+    ]);
+
+    if (error) {
+        console.error("Fehler beim Speichern in die Datenbank:", error.message);
     }
 }
 

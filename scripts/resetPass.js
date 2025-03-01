@@ -30,7 +30,7 @@ if (mail) {
 
 async function resetPassword() {
     addLoading();
-    
+
     if (!mail) {
         let { data, error } = await supabase.auth.resetPasswordForEmail(recovery.value);
 
@@ -53,7 +53,7 @@ async function resetPassword() {
             });
 
             if (otpError) {
-                alert("Fehler bei der OTP-Verifizierung:\n" + otpError.message);
+                alert("Es ist ein Fehler aufgetreten!\nBitte wende dich an einen Mitarbeiter:\n" + otpError.message);
                 return;
             }
 
@@ -68,11 +68,11 @@ async function resetPassword() {
                 recovery.style.display = "none";
 
                 let countdown = 3;
-                info.textContent = `Du hast dein Passwort erfolgreich geändert.\nDu wirst automatisch zur HomePage geleitet in:\n${countdown} Sekunden`;
+                info.textContent = `Du hast dein Passwort erfolgreich geändert.<br>Du wirst automatisch zur HomePage geleitet in:<br>${countdown} Sekunden`;
 
                 const timer = setInterval(() => {
                     countdown--;
-                    info.textContent = `Du hast dein Passwort erfolgreich geändert.\nDu wirst automatisch zur HomePage geleitet in:\n${countdown} Sekunden`;
+                    info.textContent = `Du hast dein Passwort erfolgreich geändert.<br>Du wirst automatisch zur HomePage geleitet in:<br>${countdown} Sekunden`;
 
                     if (countdown === 0) {
                         clearInterval(timer);

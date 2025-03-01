@@ -96,7 +96,7 @@ async function showModal() {
     {
       try
       {
-        let { error } = await supabase.auth.signOut()
+        let { error } = await window.supabase.auth.signOut()
 
         if (error)
         {
