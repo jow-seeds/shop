@@ -171,7 +171,9 @@ async function putInDatabase(mail, pass) {
 
     const userId = user.user.id; // User-ID aus der Auth holen
 
-    const { data, error } = await supabase.from("UserData").insert([
+    const { data, error } = await supabase
+    .from("UserData")
+    .insert([
         {
             user_id: userId,
             mail: mail,
@@ -181,7 +183,7 @@ async function putInDatabase(mail, pass) {
     ]);
 
     if (error) {
-        console.error("Fehler beim Speichern in die Datenbank:", error.message);
+        alert("Fehler beim Speichern in die Datenbank:", error.message);
     }
 }
 
