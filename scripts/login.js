@@ -4,9 +4,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 const supabaseUrl = 'https://jfnkrqfijabzkirjbvqx.supabase.co'
 const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmbmtycWZpamFiemtpcmpidnF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1Nzc3MjEsImV4cCI6MjA1NjE1MzcyMX0.Gp9RRd8YrRcmOMaSBOVQl73YH-k4lYAhIMtWdUxRWKM'
 
-window.supabase = createClient(supabaseUrl, supabaseAnonKey)
-
-console.log('Supabase Instance: ', window.supabase)
+const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 ///////////////////////////////////////////   Workaround   //////////////////////////////////////////////////
 let loginModal = document.getElementById("loginOrRegister");

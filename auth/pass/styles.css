@@ -110,6 +110,7 @@ footer p {
     padding: 10px 20px;
     font-size: 1.5em;
     z-index: 2;
+    cursor: pointer;
 }
 
 .hero button:hover {
