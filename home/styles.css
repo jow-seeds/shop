@@ -288,6 +288,21 @@ button.active::after {
     background: white;
     height: 100%;
 }
+
+.forgotPass {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    text-decoration: underline;
+    border-radius: 5px;
+    border: 2px solid white;
+}
+
+.forgotPass:hover {
+    border-color: green;
+    color: green;
+}
 /* Login Modal End */
 
 /* Footer Styling */
