@@ -40,23 +40,38 @@ async function resetPassword() {
             confirmRecovery.style.display = "none";
         }
     } else {
-        const { data, error } = await supabase.auth.updateUser({
-            email: mail,
-            password: recovery.value
-        });
+        const token = getQueryParam("token");  // Der OTP-Code aus der URL
 
-        if (error) {
-            alert("Passwort konnte nicht aktualisiert werden:\n" + error);
-        } else {
-            info.textContent = "Du hast dein Passwort erfolgreich geändert.\nNutze den Button um zur HomePage zurück zu kehren."
-            recovery.style.display = "none";
-            
-            // Button Event entfernen und stattdessen weiterleiten
-            confirmRecovery.removeEventListener("click", resetPassword());
-            confirmRecovery.textContent = "Zurück zur Homepage";
-            confirmRecovery.addEventListener("click", () => {
-                window.location.href = "/shop/home/";
+        if (token) {
+            // OTP verifizieren und Benutzer authentifizieren
+            const { data: session, error: otpError } = await supabase.auth.verifyOtp({
+                email: mail,
+                token: token,
+                type: 'recovery'
             });
+
+            if (otpError) {
+                alert("Fehler bei der OTP-Verifizierung:\n" + otpError.message);
+                return;
+            }
+
+            // Falls OTP erfolgreich war, Passwort ändern
+            const { data, error } = await supabase.auth.updateUser({
+                password: recovery.value
+            });
+
+            if (error) {
+                alert("Passwort konnte nicht aktualisiert werden:\n" + error.message);
+            } else {
+                info.textContent = "Du hast dein Passwort erfolgreich geändert.";
+                recovery.style.display = "none";
+                confirmRecovery.textContent = "Zurück zur Homepage";
+                confirmRecovery.addEventListener("click", () => {
+                    window.location.href = "/shop/home/";
+                });
+            }
+        } else {
+            alert("Fehlender Token! Bitte nutze den Link aus der Email.");
         }
     }
 }
