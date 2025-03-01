@@ -85,7 +85,7 @@ footer p {
     z-index: 1;
 }
 
-.hero h2, .hero h3, .hero h4{
+.hero h2, .hero h3{
     position: relative;
     z-index: 2;
 }
@@ -98,6 +98,7 @@ footer p {
 .hero h3, .hero input {
     font-size: 2em;
     margin: 10px 0;
+    z-index: 2;
 }
 
 .hero button
@@ -108,6 +109,7 @@ footer p {
     border-radius: 25px;
     padding: 10px 20px;
     font-size: 1.5em;
+    z-index: 2;
 }
 
 .hero button:hover {
