@@ -127,8 +127,7 @@ async function showModal() {
       historyButton,
       favButton,
       supportButton,
-      careerButton,
-      logoutButton
+      careerButton
     ];
 
     profileModal.appendChild(buttonContainer);
@@ -142,6 +141,7 @@ async function showModal() {
     });
 
     profileModal.appendChild(buttonContainer);
+    profileModal.appendChild(logoutButton);
   }
 }
 
