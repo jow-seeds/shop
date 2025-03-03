@@ -122,15 +122,31 @@ async function showModal() {
     buttonContainer.style.alignItems = "center";
     buttonContainer.style.marginTop = "70px";
 
-    buttonContainer.appendChild(profilButton);
-    buttonContainer.appendChild(historyButton);
-    buttonContainer.appendChild(favButton);
-    buttonContainer.appendChild(supportButton);
-    buttonContainer.appendChild(careerButton);
-    buttonContainer.appendChild(logoutButton);
+    const buttons = [
+      profilButton,
+      historyButton,
+      favButton,
+      supportButton,
+      careerButton,
+      logoutButton
+    ];
+
+    profileModal.appendChild(buttonContainer);
+
+    buttons.forEach(button => {
+      buttonContainer.appendChild(button);
+    
+      button.addEventListener("click", function() {
+        button.textContent.trim().toLowerCase();
+      });
+    });
 
     profileModal.appendChild(buttonContainer);
   }
+}
+
+function buttonEvents(target) {
+  window.location.href = `/shop/profil/${target}`;
 }
 
 // Klick auf das Modal selbst verhindert das Schließen
