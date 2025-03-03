@@ -137,7 +137,7 @@ async function showModal() {
       buttonContainer.appendChild(button);
     
       button.addEventListener("click", function() {
-        button.textContent.trim().toLowerCase();
+        buttonEvents(button.textContent.trim().toLowerCase());
       });
     });
 
@@ -146,7 +146,7 @@ async function showModal() {
 }
 
 function buttonEvents(target) {
-  window.location.href = `/shop/profil/${target}`;
+  window.location.href = `/shop/profil/${target}/`;
 }
 
 // Klick auf das Modal selbst verhindert das Schließen
