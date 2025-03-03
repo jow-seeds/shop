@@ -18,6 +18,7 @@ main {
     background-image: url("/shop/icons/samen_background.png");
     background-size: cover;
     background-position: center;
+    align-items: center;
 }
 
 /* Header Container (Logo + Text) */
@@ -327,7 +328,7 @@ footer p {
 /*############################################   Seiten Inhalt   ##########################################################*/
 .hero {
     position: relative;
-    padding-top: 10%;
+    padding-top: 20%;
     display: flex;
     flex-direction: column;
     align-items: center;
