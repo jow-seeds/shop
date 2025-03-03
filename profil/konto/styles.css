@@ -13,14 +13,6 @@ header {
     z-index: 1000;  /* Stellt sicher, dass der Header über anderen Inhalten liegt */
 }
 
-main {
-    padding-top: 80px;  /* Damit der Inhalt nicht unter dem fixierten Header verschwindet */
-    background-image: url("/shop/icons/samen_background.png");
-    background-size: cover;
-    background-position: center;
-    align-items: center;
-}
-
 /* Header Container (Logo + Text) */
 .container1 {
     display: flex;
@@ -326,14 +318,22 @@ footer p {
 }
 
 /*############################################   Seiten Inhalt   ##########################################################*/
-.hero {
-    margin-top: 1%;
+main {
+    padding-top: 120px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90%;
+    justify-content: center;  /* Falls auch vertikal zentriert werden soll */
+    height: 100%;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
     background-color: rgba(255, 255, 255, 0.5);
-    border: 3px solid black;
+    border: 5px solid black;
 }
 
 .hero h1 {
@@ -343,6 +343,7 @@ footer p {
 
 .header {
     text-align: center;
+    padding: 10px 20px;
 }
 
 .container {
@@ -350,13 +351,14 @@ footer p {
     flex-direction: row;
     align-items: stretch;
     width: 100%;
+    padding: 10px 20px;
 }
 
 .menu {
     display: flex;
     flex-direction: column;
     gap: 10px; /* Abstand zwischen den Buttons */
-    padding-left: 5%;
+    padding: 10px 20px;
 }
 
 .menu button{
@@ -383,7 +385,6 @@ footer p {
     width: 100%;  /* Volle Breite */
     height: 5px;  /* Dünne Linie */
     background-color: black;
-    margin: 10px 0;
 }
 
 .divider-vertical {
@@ -391,7 +392,6 @@ footer p {
     height: auto;  /* Automatische Höhe */
     background-color: black;
     align-self: stretch;
-    margin: 0 20px;
 }
 
 .content {
