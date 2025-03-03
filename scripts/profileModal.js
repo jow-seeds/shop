@@ -68,7 +68,7 @@ async function showModal() {
   }
   else{
     const profilButton = document.createElement("button");
-    profilButton.textContent = "PROFIL";
+    profilButton.textContent = "KONTO";
     profilButton.classList.add("profile-btn");
 
     const historyButton = document.createElement("button");
