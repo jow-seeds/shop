@@ -319,7 +319,7 @@ footer p {
 /*############################################   Seiten Inhalt   ##########################################################*/
 main {
     padding-top: 10%;
-    padding-bottom: 1%;
+    padding-bottom: 0.5%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -436,6 +436,7 @@ input {
     background-color: transparent;
     border: 5px solid black;
     color: black;
+    cursor: pointer;
 }
 
 .content button:hover {
