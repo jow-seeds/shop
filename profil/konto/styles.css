@@ -302,7 +302,7 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 5px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -399,8 +399,51 @@ main {
 }
 
 .content {
-    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px; /* Abstand zwischen den Feldern */
+    width: 100%;
+    padding: 0px 50px;
 }
+
+.content h3 {
+    font-size: 1.5em;
+    text-decoration: underline;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Abstand zwischen PLZ und Stadt */
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.content button {
+    font-size: 1.5em;
+    padding: 10px 80px;
+    background-color: transparent;
+    border: 5px solid black;
+    color: black;
+}
+
+.content button:hover {
+    border-color: green;
+    color: green;
+}
+
 /*#########################################   Responsive Styles   #############################################*/
 @media (max-width: 1200px) {
     .container1, .container2 {
