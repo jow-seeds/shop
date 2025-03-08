@@ -362,16 +362,20 @@ main {
     flex-direction: column;
     gap: 10px; /* Abstand zwischen den Buttons */
     padding: 10px 20px;
+    align-items: stretch;
 }
 
-.menu button{
-    padding: 10px 70px;
+.menu button {
+    padding: 10px 70px; /* Entfernt feste Breite durch Padding */
     font-size: 1.5em;
     font-weight: bold;
     cursor: pointer;
     background-color: transparent;
     color: black;
     border: 5px solid black;
+    width: 100%; /* Alle Buttons nehmen die gesamte Breite ein */
+    justify-content: center; /* Zentriert den Text */
+    align-items: center;
 }
 
 .menu button:hover {
