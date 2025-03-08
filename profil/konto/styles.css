@@ -404,17 +404,18 @@ main {
 .content {
     display: flex;
     flex-direction: column;
+    gap: 10px; /* Abstand zwischen den Buttons */
+    padding: 0px 20px;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 10px; /* Abstand zwischen den Feldern */
-    width: 100%;
-    padding: 0px 50px;
+    width: 80%;
+    height: 54vh;
 }
 
 .content h3 {
-    font-size: 1.5em;
+    position: relative;
+    font-size: 2em;
     text-decoration: underline;
+    margin: 1%;
 }
 
 input {
