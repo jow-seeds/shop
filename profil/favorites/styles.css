@@ -418,10 +418,13 @@ main {
 }
 
 .product-info {
-    text-align: center;
+    border: 3px solid black;
+    margin: 10px;
+    padding: 10px;
     display: flex;
+    align-items: center;
     flex-direction: column;
-    justify-content: space-between;
+    max-width: 250px;
     height: 100%;
 }
 
@@ -432,6 +435,8 @@ main {
     justify-content: center; 
     gap: 2px; 
 }
+
+
 
 /*#########################################   Responsive Styles   #############################################*/
 @media (max-width: 1200px) {
