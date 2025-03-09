@@ -448,6 +448,19 @@ main {
     font-size: 1.5em;
 }
 
+.history-grid button {
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.history-grid button:hover {
+    color: green;
+    border-color: green;
+}
+
 /*#########################################   Responsive Styles   #############################################*/
 @media (max-width: 1200px) {
     .container1, .container2 {
