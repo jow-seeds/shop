@@ -411,13 +411,6 @@ main {
     height: 54vh;
 }
 
-.content h3 {
-    position: relative;
-    font-size: 2em;
-    text-decoration: underline;
-    margin: 1%;
-}
-
 input {
     width: 100%;
     padding: 1%;

@@ -411,13 +411,6 @@ main {
     height: 54vh;
 }
 
-.content h3 {
-    position: relative;
-    font-size: 2em;
-    text-decoration: underline;
-    margin: 1%;
-}
-
 .history-container {
     max-height: 50vh; /* Höhe anpassen */
     overflow-y: auto; /* Vertikales Scrollen aktivieren */
