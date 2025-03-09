@@ -405,15 +405,15 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px; /* Abstand zwischen den Buttons */
-    padding: 0px 20px;
+    padding: 4.5vh 20vh;
     align-items: center;
     width: 80%;
-    height: 54vh;
+    height: 45vh;
 }
 
 input {
     width: 100%;
-    padding: 1%;
+    padding: 1vh;
     border: 2px solid black;
     border-radius: 5px;
     font-size: 1.25em;
@@ -429,6 +429,7 @@ input {
 }
 
 .content button {
+    position: relative;
     font-size: 1.5em;
     padding: 1% 8%;
     background-color: transparent;
