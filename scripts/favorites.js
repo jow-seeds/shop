@@ -100,6 +100,17 @@ function CreateOverview() {
         });
 
         const productButton = document.createElement("button");
+        productButton.textContent = "Zum Produkt";
+        productButton.style.marginTop = "10px";
+        productButton.style.padding = "10px";
+        productButton.style.border = "2px solid black";
+        productButton.style.backgroundColor = "transparent";
+        productButton.style.color = "black";
+        productButton.style.borderRadius = "5px";
+        productButton.style.cursor = "pointer";
+        productButton.onclick = () => {
+            alert(`Produkt: ${product.name} ausgewählt!`);
+        };
 
         productContainer.appendChild(img);
         productContainer.appendChild(title);

@@ -409,20 +409,6 @@ main {
     align-items: center;
     width: 80%;
 }
-
-.content button {
-    content: "Zum Produkt";
-    width: 80%;
-    height: 10%;
-    color: black;
-    border: 2px solid black;
-    cursor: pointer;
-}
-
-.content button:hover {
-    color: green;
-    border-color: green;
-}
 /*#########################################   Responsive Styles   #############################################*/
 @media (max-width: 1200px) {
     .container1, .container2 {
