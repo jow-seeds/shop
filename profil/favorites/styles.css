@@ -409,6 +409,18 @@ main {
     align-items: center;
     width: 80%;
 }
+
+.content button {
+    width: 80%;
+    color: black;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.content button:hover {
+    color: green;
+    border-color: green;
+}
 /*#########################################   Responsive Styles   #############################################*/
 @media (max-width: 1200px) {
     .container1, .container2 {

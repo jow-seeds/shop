@@ -99,12 +99,16 @@ function CreateOverview() {
             priceList.appendChild(li);
         });
 
+        const productButton = document.createElement("button");
+        productButton.style.innerHTML = "Zum Produkt";
+
         productContainer.appendChild(img);
         productContainer.appendChild(title);
         productContainer.appendChild(yieldText);
         productContainer.appendChild(tasteText);
         productContainer.appendChild(bloomTimeText);
         productContainer.appendChild(priceList);
+        productContainer.appendChild(productButton);
         
         container.appendChild(productContainer);
     });
