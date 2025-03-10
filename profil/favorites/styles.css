@@ -413,6 +413,7 @@ main {
 .content button {
     content: "Zum Produkt";
     width: 80%;
+    height: 10%;
     color: black;
     border: 2px solid black;
     cursor: pointer;
