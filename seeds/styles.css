@@ -357,6 +357,7 @@ main {
 .grid button {
     border: 3px solid black;
     cursor: pointer;
+    height: 300px;
 }
 
 .grid button:hover {
@@ -366,10 +367,14 @@ main {
 
 .automatics {
     background-image: url("/shop/icons/SeedLogo_Automatic.png");
+    background-size: cover;
+    background-position: center;
 }
 
 .regular {
     background-image: url("/shop/icons/SeedLogo_Photoperiodic.png");
+    background-size: cover;
+    background-position: center;
 }
 
 /*#########################################   Responsive Styles   #############################################*/
