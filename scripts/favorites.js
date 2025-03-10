@@ -1,5 +1,4 @@
-// Beispielhafte Daten, die später durch eine Datenbankabfrage ersetzt werden
-const prodictsData = {
+const productsData = {
     automatic: [
         {
             name: "Sleep Walker\nAutomatic",
@@ -54,98 +53,59 @@ const prodictsData = {
     ]
 };
 
-// Funktion zum Erstellen von Produktanzeigen
-function createProductCard(product) {
-    const productCard = document.getElementsByClassName("content-container");
-    productCard.classList.add('prodicts-item');
-
-    productCard.innerHTML = `
-        <img src="${product.image}" alt="${product.name}" class="product-image">
-        <div class="product-info">
-            <h2>${product.name}</h2>
-        </div>
-    `;
-
-    const productInfo = productCard.querySelector(".product-info");
-
-    // Produktdetails
-    const details = [
-        `<strong>Ertrag:</strong> ${product.yield}`,
-        `<strong>Geschmack:</strong> ${product.taste}`,
-        `<strong>Blütedauer:</strong> ${product.bloomTime}`
-    ];
-
-    // Details in die Produktinfo einfügen
-    details.forEach((detail, index) => {
-        if (index > 0) {
-            const itemLine = document.createElement("hr");
-            itemLine.style.border = "2px solid black";
-            itemLine.style.width = "100%";
-            productInfo.appendChild(itemLine);
-        }
-
-        const p = document.createElement("p");
-        p.innerHTML = detail;
-        p.style.marginBottom = "10px";
-        productInfo.appendChild(p);
-    });
-
-    // Dropdown für die Preise
-    const select = document.createElement("select");
-    select.classList.add("price-select");
-    select.style.fontSize = "16px";
-    select.style.padding = "5px";
-    select.style.marginBottom = "10px";
+function CreateOverview() {
+    const content = document.querySelector(".content");
+    content.innerHTML = ""; // Bestehenden Inhalt leeren
     
-    product.prices.forEach(option => {
-        const opt = document.createElement("option");
-        opt.value = option.price;
-        opt.textContent = `${option.quantity} - ${option.price.toFixed(2)}€`;
-        select.appendChild(opt);
+    const container = document.createElement("div");
+    container.style.display = "grid";
+    container.style.gridTemplateColumns = "repeat(auto-fill, minmax(250px, 1fr))";
+    container.style.gap = "20px";
+
+    Object.values(productsData).flat().forEach(product => {
+        const productContainer = document.createElement("div");
+        productContainer.style.border = "1px solid black";
+        productContainer.style.padding = "10px";
+        productContainer.style.borderRadius = "8px";
+        productContainer.style.backgroundColor = "#f9f9f9";
+        productContainer.style.textAlign = "center";
+
+        const img = document.createElement("img");
+        img.src = product.image;
+        img.alt = product.name;
+        img.style.width = "100%";
+        img.style.borderRadius = "8px";
+
+        const title = document.createElement("h3");
+        title.textContent = product.name;
+
+        const yieldText = document.createElement("p");
+        yieldText.textContent = `Ertrag: ${product.yield}`;
+        
+        const tasteText = document.createElement("p");
+        tasteText.textContent = `Geschmack: ${product.taste}`;
+        
+        const bloomTimeText = document.createElement("p");
+        bloomTimeText.textContent = `Blütezeit: ${product.bloomTime}`;
+
+        const priceList = document.createElement("ul");
+        product.prices.forEach(price => {
+            const li = document.createElement("li");
+            li.textContent = `${price.quantity}: ${price.price.toFixed(2)}€`;
+            priceList.appendChild(li);
+        });
+
+        productContainer.appendChild(img);
+        productContainer.appendChild(title);
+        productContainer.appendChild(yieldText);
+        productContainer.appendChild(tasteText);
+        productContainer.appendChild(bloomTimeText);
+        productContainer.appendChild(priceList);
+        
+        container.appendChild(productContainer);
     });
 
-    const itemLine = document.createElement("hr");
-    itemLine.style.border = "2px solid black";
-    itemLine.style.width = "100%";
-    productInfo.appendChild(itemLine);
-
-    productInfo.appendChild(select);
-
-    // Button hinzufügen
-    const button = document.createElement("button");
-    button.classList.add("add-to-cart-btn");
-    button.textContent = "Zum Warenkorb hinzufügen";
-    productInfo.appendChild(button);
-
-    // Click Event für den Button hinzufügen
-    button.addEventListener("click", () => {
-        const selectedOption = select.options[select.selectedIndex];
-        const quantity = parseInt(selectedOption.textContent.split(' - ')[0]);
-        const preis = parseFloat(selectedOption.value);
-        const anzahl = 1
-
-        // Aufruf der addItemToCart Methode mit den erforderlichen Parametern
-        addItemToCart(product.name, quantity, anzahl, preis);
-    });
-
-    return productCard;
+    content.appendChild(container);
 }
 
-// Funktion zum Hinzufügen von prodicts-Produkten in die jeweiligen Kategorien
-function loadprodictss() {
-    const automaticItemsContainer = document.getElementById('automatic-items');
-    const regularItemsContainer = document.getElementById('regular-items');
-    
-    prodictsData.automatic.forEach(product => {
-        const productCard = createProductCard(product);
-        automaticItemsContainer.appendChild(productCard);
-    });
-    
-    prodictsData.regular.forEach(product => {
-        const productCard = createProductCard(product);
-        regularItemsContainer.appendChild(productCard);
-    });
-}
-
-// Aufrufen der Funktion, um die prodicts anzuzeigen
-loadprodictss();
+CreateOverview();
