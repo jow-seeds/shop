@@ -100,7 +100,6 @@ function CreateOverview() {
         });
 
         const productButton = document.createElement("button");
-        productButton.style.innerHTML = "Zum Produkt";
 
         productContainer.appendChild(img);
         productContainer.appendChild(title);

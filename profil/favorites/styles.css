@@ -411,6 +411,7 @@ main {
 }
 
 .content button {
+    content: "Zum Produkt";
     width: 80%;
     color: black;
     border: 2px solid black;
