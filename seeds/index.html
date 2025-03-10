@@ -14,7 +14,7 @@
         </div>
         <div class="container2">
             <a href="/shop/home/"><button>HOME</button></a>
-            <a href="/shop/seeds/"><button>SHOP</button></a>
+            <a href="/shop/seeds/"><button class="active">SHOP</button></a>
             <a href="/shop/kontakt/"><button>KONTAKT</button></a>
             <a href="/shop/impressumg/"><button>IMPRESSUM</button></a>
             <button class="cart-button" id="cartButton">
@@ -28,27 +28,10 @@
 	
 	 <!-- Hauptinhalt der Seite -->
     <main>
-        <section class="hero">
-            <h1 id="header" class="header">Konto Übersicht</h1>
-
-            <div class="divider-horizontal"></div>
-
-            <section class="container">
-                <div class="menu">
-                    <a href="/shop/profil/konto/"><button id="übersicht">Konto</button></a>
-                    <a href="/shop/profil/history/"><button id="history">History</button></a>
-                    <a href="/shop/profil/favorites/"><button id="favs">Favorites</button></a>
-                    <a href="/shop/profil/support/"><button id="support">Support</button></a>
-                    <a href="/shop/profil/carrer/"><button class="active" id="carrer">Carrer</button></a>
-                </div>
-
-                <div class="divider-vertical"></div>
-
-                <div class="content">
-                    <p>Coming Soon</p>
-                </div>
-            </section>
-        </section>		
+        <section class="grid">
+            <button class="automatics"></button>
+            <button class="regular"></button>
+        </section>
     </main>
 
     <!-- Footer bleibt auf jeder Seite gleich -->
@@ -89,6 +72,7 @@
     </div>
 
     <script src="/shop/scripts/cart.js"></script>
+    <script src="/shop/scripts/bestseller.js"></script>
     <script src="/shop/scripts/profileModal.js"></script>
     <script type="module" src="/shop/scripts/login.js"></script>
 </body>
