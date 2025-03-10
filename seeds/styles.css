@@ -326,7 +326,6 @@ main {
     display: flex;
     justify-content: center; /* Zentriert den Inhalt horizontal */
     align-items: center; /* Zentriert den Inhalt vertikal */
-    height: 74vh; /* Falls du es wirklich mittig haben willst */
     padding-top: 125px;  /* Damit der Inhalt nicht unter dem fixierten Header verschwindet */
     background-image: url("/shop/icons/samen_background.png");
     background-size: cover;
@@ -350,17 +349,17 @@ main {
     align-items: center;
     place-items: center;
     width: 80%;
-    margin: 0 auto;
+    height: 68vh;
+    margin: 1% auto;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 20px;
 }
 
 .grid button {
-    position: relative;
     border: 3px solid black;
     cursor: pointer;
-    width: 90%;
-    height: auto;
+    width: 50%;
+    height: 300px;
 }
 
 .grid button:hover {
