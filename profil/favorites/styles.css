@@ -408,7 +408,6 @@ main {
     padding: 0px 20px;
     align-items: center;
     width: 80%;
-    height: 54vh;
 }
 /*#########################################   Responsive Styles   #############################################*/
 @media (max-width: 1200px) {
