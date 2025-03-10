@@ -74,6 +74,8 @@ function CreateOverview() {
         img.src = product.image;
         img.alt = product.name;
         img.style.width = "100%";
+        img.style.maxHeight = "200px";
+        img.style.objectFit = "cover";
         img.style.borderRadius = "8px";
 
         const title = document.createElement("h3");
