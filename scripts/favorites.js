@@ -59,7 +59,9 @@ function CreateOverview() {
     
     const container = document.createElement("div");
     container.style.display = "grid";
-    container.style.gridTemplateColumns = "repeat(auto-fill, minmax(250px, 1fr))";
+    container.style.gridTemplateColumns = "repeat(auto-fit, minmax(250px, 1fr))";
+    container.style.width = "100%";
+    container.style.justifyContent = "center";
     container.style.gap = "20px";
 
     Object.values(productsData).flat().forEach(product => {
