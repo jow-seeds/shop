@@ -377,6 +377,14 @@ main {
     background-position: center;
 }
 
+.name {
+    position: relative;
+    top: 40%;
+    font-weight: bold;
+    padding: 10px 30px;
+    border: 2px solid black;
+}
+
 /*#########################################   Responsive Styles   #############################################*/
 @media (max-width: 1200px) {
     .container1, .container2 {
