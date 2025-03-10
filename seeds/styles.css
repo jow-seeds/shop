@@ -323,17 +323,27 @@ footer p {
 
 /*############################################   Seiten Inhalt   ##########################################################*/
 main {
+    display: flex;
+    justify-content: center; /* Zentriert den Inhalt horizontal */
+    align-items: center; /* Zentriert den Inhalt vertikal */
+    height: 74vh; /* Falls du es wirklich mittig haben willst */
     padding-top: 125px;  /* Damit der Inhalt nicht unter dem fixierten Header verschwindet */
     background-image: url("/shop/icons/samen_background.png");
     background-size: cover;
     background-position: center;
 }
 
+.window {
+    margin: auto; /* Sorgt für zentrierte Position */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .grid {
-    width: 80%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    justify-content: center; /* Zentriert die Buttons innerhalb des Grid */
+    align-items: center;
 }
 
 .grid button {
