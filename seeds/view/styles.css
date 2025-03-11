@@ -330,7 +330,7 @@ main {
     align-items: flex-start; /* Zentriert den Inhalt vertikal */
     padding-top: 20vh;  /* Damit der Inhalt nicht unter dem fixierten Header verschwindet */
     background-image: url("/shop/icons/samen_background.png");
-    background-size: cover;
+    object-fit: cover;
     background-position: center;
     width: 100%;
     min-height: fit-content;
@@ -395,7 +395,7 @@ main {
 .produktContainer img{
     width: 100%;
     height: 50%;
-    background-size: cover;
+    object-fit: cover;
 }
 
 .produktContainer h2{
