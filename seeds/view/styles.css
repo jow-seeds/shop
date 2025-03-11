@@ -303,6 +303,7 @@ button.active::after {
 
 /* Footer Styling */
 footer {
+    position: relative;
     background-color: #111;
     color: white;
     text-align: center;
@@ -313,6 +314,7 @@ footer {
     width: 100%;
     z-index: 999;
     box-sizing: border-box;
+    margin-top: 10px;
 }
 
 footer p {
@@ -325,66 +327,89 @@ footer p {
 main {
     display: flex;
     justify-content: center; /* Zentriert den Inhalt horizontal */
-    align-items: center; /* Zentriert den Inhalt vertikal */
+    align-items: flex-start; /* Zentriert den Inhalt vertikal */
     padding-top: 20vh;  /* Damit der Inhalt nicht unter dem fixierten Header verschwindet */
     background-image: url("/shop/icons/samen_background.png");
     background-size: cover;
     background-position: center;
+    width: 100%;
+    min-height: fit-content;
 }
 
-.window {
-    margin: auto; /* Sorgt für zentrierte Position */
+.content {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center; /* Zentriert den Inhalt horizontal */
+    align-items: center; /* Zentriert den Inhalt vertikal */
+    background-color: rgba(255, 255, 255, 0.5);
     border: 5px solid black;
     width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
+    height: auto;
+    min-height: fit-content;
+    padding: 10px 20px;
 }
 
-.grid {
-    display: grid;
-    justify-content: center; /* Zentriert die Buttons innerhalb des Grid */
-    align-items: center;
-    place-items: center;
-    width: 80%;
-    height: 66vh;
-    margin: 1% auto;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.grid button {
-    border: 3px solid black;
-    cursor: pointer;
-    width: 50%;
-    height: 300px;
-}
-
-.grid button:hover {
-    border-color: green;
-    background-color: lightyellow;
-}
-
-.automatics {
-    background-image: url("/shop/icons/SeedLogo_Automatic.png");
-    background-size: cover;
-    background-position: center;
-}
-
-.regular {
-    background-image: url("/shop/icons/SeedLogo_Photoperiodic.png");
-    background-size: cover;
-    background-position: center;
-}
-
-.name {
-    position: relative;
-    top: 40%;
+.samenArt {
+    font-size: 3em;
     font-weight: bold;
-    padding: 10px 30px;
+    text-decoration: underline;
+}
+
+.horizontalDivider {
+    width: 100%;
+    background: rgb(0, 0, 0);
+    height: 5px;
+    margin: 10px;
+}
+
+.samenListe {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    grid-auto-rows: minmax(380px, auto);
+    gap: 20px;
+    justify-content: center;
+    align-content: start;
+    width: 100%;
+    min-height: fit-content;
+}
+
+.samenListe div {
     border: 2px solid black;
+    display: flex;
+    justify-content: flex-start; /* StartPosition produktContainer */
+    cursor: pointer;
+}
+
+.samenListe div:hover {
+    border-radius: 25px;
+    border: 5px solid green;
+}
+
+.produktContainer {
+    display: flex;
+    justify-content: flex-start; /* Elemente oben ausrichten */
+    align-items: center; /* Damit das Bild wirklich oben bleibt */
+    flex-direction: column;
+}
+
+.produktContainer img{
+    width: 100%;
+    height: 50%;
+    background-size: cover;
+}
+
+.produktContainer h2{
+    padding: 10px 20px;
+    width: 85%;
+    border: 2px solid black;
+    margin: 0px;
+}
+
+.produktContainer p{
+    padding: 10px 20px;
+    width: 85%;
+    border: 2px solid black;
+    margin: 0px;
 }
 
 /*#########################################   Responsive Styles   #############################################*/
