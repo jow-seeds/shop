@@ -303,7 +303,7 @@ button.active::after {
 
 /* Footer Styling */
 footer {
-    position: absolute;
+    position: relative;
     background-color: #111;
     color: white;
     text-align: center;
@@ -369,6 +369,8 @@ main {
     gap: 20px;
     justify-content: center;
     text-align: center;
+    min-width: 90vh;
+    min-height: 40vh;
 }
 
 .produktContainer {
