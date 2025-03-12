@@ -303,7 +303,7 @@ button.active::after {
 
 /* Footer Styling */
 footer {
-    position: relative;
+    position: absolute;
     background-color: #111;
     color: white;
     text-align: center;
@@ -333,7 +333,7 @@ main {
     background-size: contain;
     background-position: center;
     width: 100%;
-    min-height: fit-content;
+    min-height: 70vh;
 }
 
 .content {
@@ -344,8 +344,8 @@ main {
     background-color: rgba(255, 255, 255, 0.5);
     border: 5px solid black;
     width: 100%;
-    height: auto;
-    min-height: fit-content;
+    height: fit-content;
+    min-height: 65vh;
     padding: 10px 20px;
 }
 
@@ -372,7 +372,7 @@ main {
 
 .produktContainer {
     width: 300px;
-    height: 250px;
+    height: 350px;
     border: 3px solid black;
     cursor: pointer;
     transition: border-color 0.3s ease-in-out;
