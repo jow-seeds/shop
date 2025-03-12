@@ -364,7 +364,7 @@ main {
 
 .samenListe {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 300px);
+    grid-template-columns: repeat(auto-fit);
     gap: 20px;
     justify-content: center;
     align-content: start;
