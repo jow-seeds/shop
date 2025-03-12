@@ -364,7 +364,7 @@ main {
 
 .samenListe {
     display: grid;
-    grid-template-columns: repeat(auto-fit);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     justify-content: center;
     align-content: start;
@@ -378,7 +378,7 @@ main {
     justify-content: flex-start; /* StartPosition produktContainer */
     cursor: pointer;
     width: 300px;
-    height: 250px;
+    height: auto;
 }
 
 .samenListe div:hover {
@@ -391,6 +391,8 @@ main {
     justify-content: flex-start; /* Elemente oben ausrichten */
     align-items: center; /* Damit das Bild wirklich oben bleibt */
     flex-direction: column;
+    width: 100%;
+    height: auto;
 }
 
 .produktContainer img{
