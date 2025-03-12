@@ -330,7 +330,7 @@ main {
     align-items: flex-start; /* Zentriert den Inhalt vertikal */
     padding-top: 20vh;  /* Damit der Inhalt nicht unter dem fixierten Header verschwindet */
     background-image: url("/shop/icons/samen_background.png");
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     width: 100%;
     min-height: fit-content;
@@ -364,7 +364,7 @@ main {
 
 .samenListe {
     display: grid;
-    grid-template-columns: repeat(auto-fit);
+    grid-template-columns: repeat(auto-fit, 200px);
     gap: 20px;
     justify-content: center;
     align-content: start;
