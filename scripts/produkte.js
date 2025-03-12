@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // 1. Hole alle Buttons mit einer bestimmten Klasse
-    const buttons = document.querySelectorAll(".automatics, .regular");
+    const buttons = document.querySelectorAll(".automatics, .regular, .produktContainer");
 
     // 2. Prüfe, ob ein Button geklickt wurde
     buttons.forEach(button => {
@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 window.location.href = "/shop/seeds/view/?automatics";
             } else if (this.classList.contains("regular")) {
                 window.location.href = "/shop/seeds/view/?regular";
+            } else if (this.classList.contains("produktContainer")) {
+                window.location.href = "/shop/seeds/produkt/?product=seed.0001";
             }
         });
     });
