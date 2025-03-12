@@ -330,7 +330,7 @@ main {
     align-items: flex-start; /* Zentriert den Inhalt vertikal */
     padding-top: 20vh;  /* Damit der Inhalt nicht unter dem fixierten Header verschwindet */
     background-image: url("/shop/icons/samen_background.png");
-    object-fit: cover;
+    background-size: cover;
     background-position: center;
     width: 100%;
     min-height: fit-content;
