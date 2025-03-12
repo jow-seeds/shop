@@ -381,6 +381,8 @@ main {
     align-items: center;
     justify-content: space-between;
     padding: 10px;
+    box-sizing: border-box; /* Verhindert Überlauf */
+    overflow: hidden; /* Falls Inhalte zu groß werden */
 }
 
 .produktContainer:hover {
@@ -389,9 +391,8 @@ main {
 
 .produktContainer img {
     height: 50%;
-    width: auto;
-    max-width: 100%;
-    object-fit: cover;
+    width: 100%; /* Bild nimmt die volle Breite ein */
+    object-fit: cover; /* Sorgt für eine schöne Platzierung */
 }
 
 .produktContainer h2,
@@ -417,22 +418,22 @@ main {
     content: '→';
     transition: transform 0.3s ease-in-out;
     display: inline-block;
-    margin-right: 10px; /* Anfangsabstand */
+    margin-right: 15px; /* Anfangsabstand für mehr Platz */
 }
 
 .produktContainer p:last-child::after {
     content: '←';
     transition: transform 0.3s ease-in-out;
     display: inline-block;
-    margin-left: 10px; /* Anfangsabstand */
+    margin-left: 15px; /* Anfangsabstand für mehr Platz */
 }
 
 .produktContainer:hover p:last-child::before {
-    transform: translateX(3px);
+    transform: translateX(5px);
 }
 
 .produktContainer:hover p:last-child::after {
-    transform: translateX(-3px);
+    transform: translateX(-5px);
 }
 
 /*#########################################   Responsive Styles   #############################################*/
