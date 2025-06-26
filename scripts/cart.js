@@ -1,206 +1,215 @@
-let header = document.getElementById("cart-überschrift");
-let cartButton = document.getElementById("cartButton");
-let cart = document.getElementById("cartModal");
-let closeButton = document.querySelector(".close");
-let modalContent = document.querySelector(".modal-content");
-let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+// Warenkorb laden (inkl. Migration von altem Array-Format)
+const cart = loadCartFromLocalStorage();
 
-// Öffnen des Modals
-cartButton.addEventListener("click", function() {
-    updateCartDisplay();
-    cart.classList.add("show"); // Modal anzeigen
-});
+const cartAmount = document.getElementById("cartAmount");
 
-// Schließen des Modals beim Klick auf den "X"-Button
-closeButton.addEventListener("click", function() {
-    cart.classList.remove("show"); // Modal verstecken
-});
+function loadCartFromLocalStorage() {
+    const raw = localStorage.getItem("Warenkorb");
+    if (!raw) return [];
 
-// Schließen des Modals, wenn man auf den Hintergrund klickt
-window.addEventListener("click", function(event) {
-    if (event.target === cart) {
-        cart.classList.remove("show");
+    try {
+        const parsed = JSON.parse(raw);
+
+        // Prüfen ob es strukturiert gespeichert ist (also als Objekt mit Keys wie 'Sleep Walker')
+        if (!Array.isArray(parsed)) {
+            // Zurückwandeln in ein array für cart[]
+            const items = [];
+            for (const [name, eintraege] of Object.entries(parsed)) {
+                for (const eintrag of eintraege) {
+                    const menge = parseInt(eintrag.Menge);
+                    const preis = parseFloat(eintrag.Einzelpreis.replace("€", "").replace(",", "."));
+                    const option = eintrag.Option;
+
+                    items.push({ name, option, menge, preis });
+                }
+            }
+            return items;
+        }
+
+        // Falls altes Array-Format [name, option, menge, preis]
+        return parsed.map(item => {
+            if (Array.isArray(item)) {
+                const [name, option, menge, preis] = item;
+                return { name, option, menge: Number(menge), preis: Number(preis) };
+            }
+            return {
+                ...item,
+                menge: Number(item.menge),
+                preis: Number(item.preis)
+            };
+        });
+
+    } catch (e) {
+        console.error("Fehler beim Laden des Warenkorbs:", e);
+        return [];
     }
-});
+}
 
 function saveCartToLocalStorage() {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-}
+    const structuredCart = {};
 
-// Funktion zum Aktualisieren der Anzeige des Warenkorbs
-function updateCartDisplay() {
-    modalContent.innerHTML = ''; // Clear the modal content
+    cart.forEach(item => {
+        const { name, option, menge, preis } = item;
+        const gesamtpreis = +(menge * preis).toFixed(2);
 
-    // Add header with a bold line below
-    header.style.fontSize = "2em";
-    modalContent.appendChild(header);
-    const headerLine = document.createElement("hr");
-    headerLine.style.border = "2px solid black";
-    modalContent.appendChild(headerLine);
-
-    let zwischenPreis = 0;
-
-    if (cartItems.length === 0) {
-        let emptyMessage = document.createElement("p");
-        emptyMessage.textContent = "Dein Warenkorb ist leer";
-        modalContent.appendChild(emptyMessage);
-    } else {
-        cartItems.forEach((item, index) => {
-            let itemElement = document.createElement("div");
-            itemElement.className = "cart-item";
-
-            let nameSpan = document.createElement("span");
-            nameSpan.textContent = `${item.name}`;
-            nameSpan.style.fontWeight = "bold";
-
-            let quantitySpan = document.createElement("span");
-            quantitySpan.textContent = `Samen: ${item.quantity}`;
-
-            let anzahlSpan = document.createElement("span");
-            anzahlSpan.textContent = `Anzahl: ${item.anzahl}`;
-
-            let preisSpan = document.createElement("span");
-            preisSpan.textContent = `Preis: ${item.preis.toFixed(2)}€`;
-
-            zwischenPreis += item.preis;
-
-            let löschenButton = document.createElement("button");
-            löschenButton.innerHTML = "LÖSCHEN";
-            löschenButton.style.color = "white";
-            löschenButton.style.backgroundColor = "red";
-            löschenButton.style.width = "100%";
-            löschenButton.style.fontSize = "0.85em";
-
-            // EventListener for "LÖSCHEN" button
-            löschenButton.addEventListener("click", () => {
-                cartItems.splice(index, 1);
-                saveCartToLocalStorage();
-                updateCartDisplay();
-            });
-
-            itemElement.appendChild(nameSpan);
-            itemElement.appendChild(quantitySpan);
-            itemElement.appendChild(anzahlSpan);
-            itemElement.appendChild(preisSpan);
-            itemElement.appendChild(löschenButton);
-
-            modalContent.appendChild(itemElement);
-
-            // Add a thin line between cart items
-            const itemLine = document.createElement("hr");
-            itemLine.style.border = "1px solid #ccc";
-            modalContent.appendChild(itemLine);
-        });
-
-        // Add a bold line above the total price
-        const totalLine1 = document.createElement("hr");
-        totalLine1.style.border = "2px solid black";
-        modalContent.appendChild(totalLine1);
-
-        let zwischenPreisElement = document.createElement("p");
-        zwischenPreisElement.innerHTML = `Zwischenpreis: ${zwischenPreis.toFixed(2)}€`;
-        modalContent.appendChild(zwischenPreisElement);
-
-        let lieferkosten = 6.5;
-        let lieferkostenElement = document.createElement("p");
-        lieferkostenElement.innerHTML = `Lieferkosten: ${lieferkosten.toFixed(2)}€`;
-        modalContent.appendChild(lieferkostenElement);
-
-        // Correct calculation of gesamtPreis
-        let gesamtPreis = (zwischenPreis + lieferkosten).toFixed(2);
-        let gesamtPreisElement = document.createElement("p");
-        gesamtPreisElement.innerHTML = `<strong>Gesamtpreis: ${gesamtPreis}€</strong>`;
-        gesamtPreisElement.style.fontSize = "1.5em";
-        modalContent.appendChild(gesamtPreisElement);
-
-        const totalLine2 = document.createElement("hr");
-        totalLine2.style.border = "2px solid black";
-        modalContent.appendChild(totalLine2);
-
-        // Create the "ALLES LÖSCHEN" button
-        let allesLoeschenButton = document.createElement("button");
-        allesLoeschenButton.innerHTML = "<strong>ALLES LÖSCHEN</strong>";
-        allesLoeschenButton.style.color = "white";
-        allesLoeschenButton.style.backgroundColor = "red";
-        allesLoeschenButton.style.marginRight = "10px"; 
-
-        // EventListener for "ALLES LÖSCHEN" button
-        allesLoeschenButton.addEventListener("click", () => {
-            cartItems = [];
-            saveCartToLocalStorage();
-            updateCartDisplay();
-        });
-
-        // Create the "KASSE" button
-        let kasseButton = document.createElement("button");
-        kasseButton.innerHTML = "<strong>KASSE</strong>";
-        kasseButton.style.color = "white";
-        kasseButton.style.backgroundColor = "green";
-
-        let buttonContainer = document.createElement("div");
-        buttonContainer.style.display = "flex";
-        buttonContainer.style.justifyContent = "center"; // Zentriert die Buttons horizontal
-        buttonContainer.style.gap = "30%"; // Fügt Abstand zwischen den Buttons hinzu
-
-        buttonContainer.appendChild(allesLoeschenButton);
-        buttonContainer.appendChild(kasseButton);
-        modalContent.appendChild(buttonContainer);
-    }
-    
-    updateCartButton();
-}
-
-// CSS for consistent alignment using grid layout
-const style = document.createElement('style');
-style.textContent = `
-    .cart-item {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-        gap: 10px;
-        margin-bottom: 10px;
-    }
-    .modal-content {
-        max-height: 50vh; /* Maximum height of the modal */
-        overflow-y: auto; /* Enable vertical scrolling if needed */
-    }
-`;
-document.head.appendChild(style);
-
-// Funktion zum Aktualisieren des Cart Buttons
-function updateCartButton() {
-    const itemCount = cartItems.length;
-
-    // Wenn der Warenkorb nicht leer ist
-    if (itemCount > 0) {
-        // Prüfen, ob das Badge bereits existiert
-        let badge = cartButton.querySelector(".cart-badge");
-
-        if (!badge) {
-            // Erstelle das Badge-Element, falls es noch nicht existiert
-            badge = document.createElement("span");
-            badge.classList.add("cart-badge");
-            cartButton.appendChild(badge);
+        if (!structuredCart[name]) {
+            structuredCart[name] = [];
         }
 
-        // Setze die Anzahl der Items als Text im Badge
-        badge.textContent = itemCount;
-    } else {
-        // Badge entfernen, wenn der Warenkorb leer ist
-        let badge = cartButton.querySelector(".cart-badge");
-        if (badge) {
-            badge.remove();
-        }
-    }
+        structuredCart[name].push({
+            Option: option,
+            Menge: `${menge}x`,
+            Einzelpreis: `${preis.toFixed(2)}€`,
+            Gesamtpreis: `${gesamtpreis.toFixed(2)}€`
+        });
+    });
+
+    localStorage.setItem("Warenkorb", JSON.stringify(structuredCart));
 }
 
-// zum Hinzufügen eines Elements zum Warenkorb
-function addItemToCart(name, quantity, anzahl, preis) {
-    // Preis als Float speichern und formatieren
-    let parsedPreis = parseFloat(preis);
-    cartItems.push({ name, quantity, anzahl, preis: parsedPreis });
+function changeAmount() {
+    const totalItems = cart.reduce((sum, item) => sum + item.menge, 0);
+    cartAmount.innerHTML = totalItems;
+}
+
+function addToCart(name, option, menge, preis) {
+    // Prüfe, ob das Produkt mit derselben Option bereits existiert
+    const existing = cart.find(item => item.name === name && item.option === option);
+
+    if (existing) {
+        existing.menge += menge;
+    } else {
+        cart.push({ name, option, menge, preis });
+    }
+
+    changeAmount();
     saveCartToLocalStorage();
-    updateCartDisplay();
+    console.info(cart);
 }
 
-// Initial call to display the cart
-updateCartDisplay();
+// Button-Handler
+document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("addToCartBtn")) {
+        const cardBody = event.target.closest(".card-body");
+        const name = cardBody.querySelector(".card-title")?.textContent.trim() || "Unbekannt";
+        const optionSelect = cardBody.querySelector("select");
+        const selectedOption = optionSelect.options[optionSelect.selectedIndex].text;
+
+        const optionMatch = selectedOption.match(/(\d+)\s+Samen/);
+        const preisMatch = selectedOption.match(/(\d+,\d{2})€/);
+
+        const option = optionMatch ? optionMatch[0] : "Unbekannt";
+        const preis = preisMatch ? parseFloat(preisMatch[1].replace(",", ".")) : 0.0;
+
+        const menge = 1;
+
+        addToCart(name, option, menge, preis);
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    changeAmount();
+});
+
+function renderCart() {
+    const cartItemsContainer = document.getElementById("cartItems");
+    const cartTotalElement = document.getElementById("cartTotal");
+
+    cartItemsContainer.innerHTML = "";
+    let gesamtpreis = 0;
+
+    const cartData = localStorage.getItem("Warenkorb");
+    if (!cartData) {
+        cartItemsContainer.innerHTML = "<p>Der Warenkorb ist leer.</p>";
+        cartTotalElement.textContent = "0.00 €";
+        return;
+    }
+
+    const cart = JSON.parse(cartData);
+
+    for (const name in cart) {
+        cart[name].forEach((item, index) => {
+            const { Option, Menge, Einzelpreis, Gesamtpreis } = item;
+            const einzel = parseFloat(Gesamtpreis.replace("€", "").replace(",", "."));
+            gesamtpreis += einzel;
+
+            const itemId = `${name}__${Option}__${index}`; // Eindeutiger Key für Button
+
+            const itemHTML = `
+                <div class="mb-2" id="cartItem-${itemId}">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>${name}</strong><br>
+                            <small>${Option} | ${Menge} | ${Einzelpreis}</small>
+                        </div>
+                        <div class="text-end">
+                            <strong>${Gesamtpreis}</strong><br>
+                            <button class="btn btn-sm btn-outline-danger mt-1 remove-btn" data-name="${name}" data-option="${Option}">Entfernen</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            cartItemsContainer.insertAdjacentHTML("beforeend", itemHTML);
+        });
+    }
+
+    cartTotalElement.textContent = `${gesamtpreis.toFixed(2)} €`;
+
+    // Entfernen-Buttons aktivieren
+    document.querySelectorAll(".remove-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const name = btn.getAttribute("data-name");
+            const option = btn.getAttribute("data-option");
+            removeCartItem(name, option);
+        });
+    });
+}
+
+function removeCartItem(name, option) {
+    const cartData = JSON.parse(localStorage.getItem("Warenkorb")) || {};
+
+    if (cartData[name]) {
+        cartData[name] = cartData[name].filter(item => item.Option !== option);
+
+        if (cartData[name].length === 0) {
+            delete cartData[name];
+        }
+
+        // 📌 Speicher aktualisieren
+        localStorage.setItem("Warenkorb", JSON.stringify(cartData));
+
+        // 📌 globales cart[] neu aufbauen
+        cart.length = 0; // leere globales cart[]
+        const newCart = loadCartFromLocalStorage();
+        newCart.forEach(item => cart.push(item));
+
+        // 📌 Anzeige aktualisieren
+        renderCart();
+        changeAmount();
+    }
+}
+
+function updateInternalCart() {
+    const stored = localStorage.getItem("Warenkorb");
+    const parsed = stored ? JSON.parse(stored) : {};
+    cart.length = 0; // leeren
+
+    for (const name in parsed) {
+        parsed[name].forEach(item => {
+            const option = parseInt(item.Option);
+            const menge = parseInt(item.Menge.replace("x", ""));
+            const preis = parseFloat(item.Einzelpreis.replace("€", "").replace(",", "."));
+            cart.push([name, option, menge, preis]);
+        });
+    }
+}
+
+const cartModal = document.getElementById("cartModal");
+cartModal.addEventListener("show.bs.modal", renderCart);
+
+document.getElementById("clearCartBtn").addEventListener("click", () => {
+    localStorage.removeItem("Warenkorb");
+    cart.length = 0;
+    renderCart();
+    changeAmount();
+});
