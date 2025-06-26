@@ -1,6 +1,6 @@
 async function loadBestseller() {
     try {
-        const response = await fetch('http://176.100.37.241:6401/api/bestseller')
+        const response = await fetch("https://jow-api.onrender.com/api/bestseller")
         if (!response.ok) throw new Error('Netzwerkfehler beim Laden der Bestseller');
 
         const data = await response.json();
