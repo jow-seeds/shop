@@ -1,21 +1,16 @@
-async function loadBestseller() {
+async function loadSorten() {
     try {
-        const response = await fetch('https://https://jow-api.onrender.com/api/bestseller')
-        if (!response.ok) throw new Error('Netzwerkfehler beim Laden der Bestseller');
+        const response = await fetch('https://jow-api.onrender.com/api/sorten')
+        if (!response.ok) throw new Error('Netzwerkfehler beim Laden der Sorten');
 
         const data = await response.json();
 
-        const container = document.querySelector('.row.row-cols-1.row-cols-md-4.g-4.justify-content-center');
+        const container = document.querySelector('.row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 g-3');
         container.innerHTML = ''; // Alte Karten entfernen
 
         data.forEach(sorte => {
             const isAuto = sorte.Name.toLowerCase().includes('auto');
             const label = isAuto ? 'Samen bis Ernte' : 'Blütezeit';
-
-            // Preise Options HTML bauen
-            const optionsHTML = sorte.Preise.map(preis =>
-                `<option>${preis}</option>`
-            ).join('');
 
             const cardHTML = `
                 <div class="col">
@@ -32,10 +27,7 @@ async function loadBestseller() {
                         <li>Ertrag Outdoor: ${sorte.ErtragOutdoor}</li>
                         <li>${label}: ${sorte.Blütezeit}</li>
                     </ul>
-                    <select class="form-select mb-3" style="cursor: pointer;">
-                        ${optionsHTML}
-                    </select>
-                    <button class="btn btn-primary w-100 addToCartBtn">In den Warenkorb</button>
+                    <button class="btn btn-primary w-100">Details</button>
                     </div>
                 </div>
                 </div>
@@ -50,4 +42,4 @@ async function loadBestseller() {
 }
 
 // Aufruf nach DOM geladen
-document.addEventListener('DOMContentLoaded', loadBestseller);
+document.addEventListener('DOMContentLoaded', loadSorten);
