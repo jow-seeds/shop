@@ -5,7 +5,7 @@ async function loadSorten() {
 
         const data = await response.json();
 
-        const container = document.querySelector('.row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 g-3');
+        const container = document.getElementById('product-grid');
         container.innerHTML = ''; // Alte Karten entfernen
 
         data.forEach(sorte => {
@@ -37,7 +37,7 @@ async function loadSorten() {
         });
 
     } catch (err) {
-        console.error('Fehler beim Laden der Bestseller:', err);
+        console.error('Fehler beim Laden der Sorten:', err);
     }
 }
 
