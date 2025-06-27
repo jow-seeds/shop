@@ -14,24 +14,27 @@ async function loadSorten() {
 
             const cardHTML = `
                 <div class="col">
-                <div class="card h-100">
+                    <div class="card h-100"
+                        data-type="${isAuto ? 'automatic' : 'regular'}"
+                        data-gen="${sorte.Gen.toLowerCase()}"
+                        data-thc="${getThcRange(sorte.THC)}">
                     <img src="${sorte.Foto}" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Produktbild">
                     <div class="card-body">
-                    <h6 class="text-muted">${isAuto ? 'Automatic' : 'Regular'}</h6>
-                    <h5 class="card-title">${sorte.Name}</h5>
-                    <ul>
+                        <h6 class="text-muted">${isAuto ? 'Automatic' : 'Regular'}</h6>
+                        <h5 class="card-title">${sorte.Name}</h5>
+                        <ul>
                         <li>Gen: ${sorte.Gen}</li>
                         <li>THC: ~${sorte.THC}%</li>
                         <li>Geruch: ${sorte.Terpene}</li>
                         <li>Ertrag Indoor: ${sorte.ErtragIndoor}</li>
                         <li>Ertrag Outdoor: ${sorte.ErtragOutdoor}</li>
                         <li>${label}: ${sorte.Blütezeit}</li>
-                    </ul>
-                    <button class="btn btn-primary w-100">Details</button>
+                        </ul>
+                        <button class="btn btn-primary w-100">Details</button>
+                    </div>
                     </div>
                 </div>
-                </div>
-            `;
+                `;
 
             container.insertAdjacentHTML('beforeend', cardHTML);
         });
@@ -39,6 +42,13 @@ async function loadSorten() {
     } catch (err) {
         console.error('Fehler beim Laden der Sorten:', err);
     }
+}
+
+function getThcRange(thc) {
+  if (thc < 15) return "0-15";
+  if (thc < 20) return "15-20";
+  if (thc < 25) return "20-25";
+  return "25+";
 }
 
 // Aufruf nach DOM geladen
