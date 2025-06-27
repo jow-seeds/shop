@@ -33,7 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const cardThc = card.dataset.thc;
 
             const matchType = activeFilters.type.length === 0 || activeFilters.type.includes(cardType);
-            const matchGen = activeFilters.gen.length === 0 || activeFilters.gen.includes(cardGen);
+            const matchGen =
+                activeFilters.gen.length === 0 ||
+                activeFilters.gen.some(filterGen => cardGen.includes(filterGen.toLowerCase()));
+
             const matchThc = activeFilters.thc.length === 0 || activeFilters.thc.includes(cardThc);
 
             if (matchType && matchGen && matchThc) {
