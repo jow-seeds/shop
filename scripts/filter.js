@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const filterInputs = document.querySelectorAll('.form-check-input');
-    const cards = document.querySelectorAll('.card');
 
     function getActiveFilters() {
         const filters = {
@@ -25,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function applyFilters() {
+        const cards = document.querySelectorAll('.card');
         const activeFilters = getActiveFilters();
 
         cards.forEach(card => {
