@@ -19,7 +19,7 @@ async function loadBestseller() {
 
             const cardHTML = `
                 <div class="col">
-                <div class="card h-100">
+                <a href=${`produkte/${sorte.Name.toLowerCase().replace(/\s+/g, '_')}.html`} class="card h-100" style="curser: pointer">
                     <img src="${sorte.Foto}" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Produktbild">
                     <div class="card-body">
                     <h6 class="text-muted">${isAuto ? 'Automatic' : 'Regular'}</h6>
@@ -37,7 +37,7 @@ async function loadBestseller() {
                     </select>
                     <button class="btn btn-primary w-100 addToCartBtn">In den Warenkorb</button>
                     </div>
-                </div>
+                </a>
                 </div>
             `;
 
