@@ -18,21 +18,21 @@ async function loadSorten() {
                         data-type="${isAuto ? 'automatic' : 'regular'}"
                         data-gen="${sorte.Gen.toLowerCase()}"
                         data-thc="${getThcRange(sorte.THC)}">
-                    <img src="${sorte.Foto}" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Produktbild">
-                    <div class="card-body">
-                        <h6 class="text-muted">${isAuto ? 'Automatic' : 'Regular'}</h6>
-                        <h5 class="card-title">${sorte.Name}</h5>
-                        <ul>
-                        <li>Gen: ${sorte.Gen}</li>
-                        <li>THC: ~${sorte.THC}%</li>
-                        <li>Geruch: ${sorte.Terpene}</li>
-                        <li>Ertrag Indoor: ${sorte.ErtragIndoor}</li>
-                        <li>Ertrag Outdoor: ${sorte.ErtragOutdoor}</li>
-                        <li>${label}: ${sorte.Blütezeit}</li>
-                        </ul>
-                        <button class="btn btn-primary w-100">Details</button>
-                    </div>
-                    </div>
+                        <img src="${sorte.Foto}" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Produktbild">
+                        <div class="card-body">
+                            <h6 class="text-muted">${isAuto ? 'Automatic' : 'Regular'}</h6>
+                            <h5 class="card-title">${sorte.Name}</h5>
+                            <ul>
+                            <li>Gen: ${sorte.Gen}</li>
+                            <li>THC: ~${sorte.THC}%</li>
+                            <li>Geruch: ${sorte.Terpene}</li>
+                            <li>Ertrag Indoor: ${sorte.ErtragIndoor}</li>
+                            <li>Ertrag Outdoor: ${sorte.ErtragOutdoor}</li>
+                            <li>${label}: ${sorte.Blütezeit}</li>
+                            </ul>
+                            <button class="btn btn-primary w-100">Details</button>
+                        </div>
+                    </a>
                 </div>
                 `;
 
