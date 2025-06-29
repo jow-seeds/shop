@@ -14,7 +14,7 @@ async function loadSorten() {
 
             const cardHTML = `
                 <div class="col">
-                    <a href=${`produkte/${sorte.Name.replace(/\s+/g, '')}/${sorte.Name.toLowerCase().replace(/\s+/g, '_')}.html`} class="card h-100" style="cursor: pointer"
+                    <div class="card h-100"
                         data-type="${isAuto ? 'automatic' : 'regular'}"
                         data-gen="${sorte.Gen.toLowerCase()}"
                         data-thc="${getThcRange(sorte.THC)}">
@@ -30,9 +30,9 @@ async function loadSorten() {
                             <li>Ertrag Outdoor: ${sorte.ErtragOutdoor}</li>
                             <li>${label}: ${sorte.Blütezeit}</li>
                             </ul>
-                            <button class="btn btn-primary w-100">Details</button>
+                            <a href=${`produkte/${sorte.Name.replace(/\s+/g, '')}/${sorte.Name.toLowerCase().replace(/\s+/g, '_')}.html`} class="btn btn-primary w-100 mt-2">Details</a>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 `;
 

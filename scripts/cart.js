@@ -107,6 +107,34 @@ document.addEventListener("click", (event) => {
     }
 });
 
+const mengeSelect = document.getElementById('dropdown-menge');
+document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("addToCartBtn2")) {
+        const name = document.getElementById("sortenName")?.textContent.trim() || "Unbekannt";
+        const optionSelect = document.getElementById("dropdown-samenmenge");
+        const selectedOption = optionSelect.options[optionSelect.selectedIndex].text;
+
+        const optionMatch = selectedOption.match(/(\d+)\s+Samen/);
+        const preisMatch = selectedOption.match(/(\d+,\d{2})€/);
+
+        const option = optionMatch ? optionMatch[0] : "Unbekannt";
+        const preis = preisMatch ? parseFloat(preisMatch[1].replace(",", ".")) : 0.0;
+
+        const menge = parseInt(mengeSelect.value, 10);
+
+        addToCart(name, option, menge, preis);
+    }
+});
+
+if (mengeSelect != null) {
+    for (let i = 1; i <= 10; i++) {
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = i;
+        mengeSelect.appendChild(option);
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     changeAmount();
 });
