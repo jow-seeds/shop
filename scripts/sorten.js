@@ -14,7 +14,7 @@ async function loadSorten() {
 
             const cardHTML = `
                 <div class="col">
-                    <a href=${`produkte/${sorte.Name.toLowerCase().replace(/\s+/g, '_')}.html`} class="card h-100" style="curser: pointer"
+                    <a href=${`produkte/${sorte.Name.replace(/\s+/g, '')}/${sorte.Name.toLowerCase().replace(/\s+/g, '_')}.html`} class="card h-100" style="cursor: pointer"
                         data-type="${isAuto ? 'automatic' : 'regular'}"
                         data-gen="${sorte.Gen.toLowerCase()}"
                         data-thc="${getThcRange(sorte.THC)}">
