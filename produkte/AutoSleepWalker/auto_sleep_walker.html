@@ -9,7 +9,7 @@
 
     <!-- Meta Description -->
     <meta name="description"
-        content="Impressum von JoW Seeds. Einem deutschem Cannabis Samen Breeder.">
+        content="Durchstöbere den JoW Seeds Shop - exklusive, mutierte Cannabis-Genetik. Reguläre, Automatic und Hybrid-Samen direkt aus Deutschland.">
 
     <!-- Meta Keywords -->
     <meta name="keywords"
@@ -65,7 +65,38 @@
         .form-check-input:checked {
             accent-color: blue;
         }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(1);
+        }
     </style>
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "Auto Sleep Walker",
+        "image": [
+            "https://deine-domain.de/pfad/AutoSleepWalker.jpg"
+        ],
+        "description": "50/50 Hybrid Cannabis-Sorte mit fruchtig-zitronigem Geschmack. Körperlich stark Indica, geistig stark Sativa. Sehr harzreich mit ca. 30% THC.",
+        "sku": "ASW-001",
+        "mpn": "ASW-001",
+        "brand": {
+            "@type": "Brand",
+            "name": "JoW Seeds"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://jow-seeds.github.io/shop/produkte/AutoSleepWalker/auto_sleep_walker.html",
+            "priceCurrency": "EUR",
+            "price": "12.50",
+            "priceValidUntil": "2025-12-31",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock"
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -83,13 +114,13 @@
                             <a class="nav-link" href="index.html">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="shop.html">SHOP</a>
+                            <a class="nav-link active" href="shop.html">SHOP</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="kontakt.html">KONTAKT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="impressum.html">IMPRESSUM</a>
+                            <a class="nav-link" href="impressum.html">IMPRESSUM</a>
                         </li>
                         <li class="nav-item position-relative">
                             <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
@@ -115,70 +146,94 @@
     <main>
         <!-- Hero Section -->
         <section class="position-relative text-center"
-            style="background: url('icons/plants_Background.jpeg') center center / cover no-repeat; height: 100vh;">
+            style="background: url('../../icons/samen_background.png') center center / cover no-repeat; height: 100vh;">
             <div class="hero-overlay"></div>
             <div
                 class="container px-3 position-relative z-2 d-flex align-items-center justify-content-center h-100 text-white">
                 <div>
-                    <h1 class="display-4 display-md-2 fw-bold">Impressum</h1>
-                    <a href="#impressum" class="btn btn-success btn-lg mt-4">Zum Impressum</a>
+                    <h1 class="display-4 display-md-2 fw-bold">Auto Sleep Walker</h1>
+                    <p class="display-4 display-md-2">Automatic</p>
+                    <a href="#produkt-detail" class="btn btn-success btn-lg mt-4">Details</a>
                 </div>
             </div>
         </section>
 
-        <!-- Impressum -->
-        <section class="my-5 container" id="impressum">
-            <h2 class="mb-4">Impressum</h2>
+        <section class="container my-5" id="produkt-detail">
+            <a href="../../shop.html" class="btn btn-link mb-3" id="btn-zurueck">&larr; Zurück zur Übersicht</a>
 
-            <p><strong>Angaben gemäß § 5 TMG:</strong></p>
-            <p>
-                JoW Seeds<br>
-                Nico Klum<br>
-                Dorfstraße 25<br>
-                04936 Stechau<br>
-                Deutschland
-            </p>
+            <div class="row">
+                <!-- Bild-Diashow -->
+                <div class="col-md-6">
+                    <div id="produktCarousel" class="carousel slide" data-bs-ride="carousel"
+                        style="max-height: 400px; overflow: hidden;">
+                        <div class="carousel-inner" id="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="AutoSleepWalker.jpg" class="d-block w-100 rounded" alt="Produktbild 1"
+                                    style="object-fit: contain; max-height: 400px;">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="AutoSleepWalker.jpg" class="d-block w-100 rounded" alt="Produktbild 2"
+                                    style="object-fit: contain; max-height: 400px;">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#produktCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                            <span class="visually-hidden">Vorheriges</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#produktCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                            <span class="visually-hidden">Nächstes</span>
+                        </button>
+                    </div>
+                </div>
 
-            <p><strong>Kontakt:</strong><br>
-                Telefon: 0156/78819423<br>
-                E-Mail: justiceofweed@gmail.com
-            </p>
+                <!-- Produktinfos -->
+                <div class="col-md-6 d-flex flex-column">
+                    <table class="table table-sm table-borderless mb-3">
+                        <tbody id="eigenschaften-tabelle">
+                            <tr>
+                                <th>Eigenschaft</th>
+                                <th>Wert</th>
+                            </tr>
+                            <tr>
+                                <td>Genetik</td>
+                                <td id="wert-genetik">Automatic</td>
+                            </tr>
+                            <tr>
+                                <td>THC</td>
+                                <td id="wert-thc">~30 %</td>
+                            </tr>
+                            <tr>
+                                <td>Ertrag Indoor</td>
+                                <td id="wert-ertrag">550g/m²</td>
+                            </tr>
+                            <tr>
+                                <td>Ertrag Outdoor</td>
+                                <td id="wert-ertrag">700g/Pflanze</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-            <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
-                Nico Klum<br>
-                Dorfstraße 25<br>
-                04936 Stechau<br>
-                Deutschland
-            </p>
+                    <p id="produkt-kurzbeschreibung" class="mb-3">
+                        Die <strong>Auto Sleep Walker</strong> ist eine Automatic welche dich körperlich beruhigt und
+                        geistig aktiv macht.<br>
+                        Sie ist dankbar über etwas mehr Dünger als üblich und wird dich mit einer reichen Ernte
+                        bescheren wenn du <strong>LST</strong> anwendest!
+                    </p>
 
-            <p><strong>Haftung für Inhalte</strong><br>
-                Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den
-                allgemeinen Gesetzen verantwortlich.
-                Nach §§ 8 bis 10 TMG sind wir jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde
-                Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit
-                hinweisen.
-            </p>
+                    <label for="dropdown-samenmenge" class="form-label">Samenmenge & Preis</label>
+                    <select class="form-select mb-3" id="dropdown-samenmenge"
+                        aria-label="Samenmenge und Preis auswählen">
+                        <option value="1" data-preis="29.90" selected>1 Samen – 29,90 €</option>
+                        <option value="3" data-preis="79.90">3 Samen – 79,90 €</option>
+                        <option value="5" data-preis="119.90">5 Samen – 119,90 €</option>
+                    </select>
 
-            <p>
-                Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen
-                bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis
-                einer konkreten Rechtsverletzung möglich.
-                Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
-            </p>
-
-            <p><strong>Haftung für Links</strong><br>
-                Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.
-                Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
-                Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten
-                verantwortlich.
-            </p>
-
-            <p><strong>Urheberrecht</strong><br>
-                Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen
-                Urheberrecht.
-                Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des
-                Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
-            </p>
+                    <button class="btn btn-primary btn-lg mt-auto" id="btn-in-den-warenkorb">In den Warenkorb</button>
+                </div>
+            </div>
         </section>
     </main>
 
