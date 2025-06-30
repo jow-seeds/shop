@@ -173,7 +173,7 @@ confirmOrder.addEventListener('click', async () => {
 
     try {
         // Stripe-Checkout-Aufruf
-        const response = await fetch('/create-checkout-session', {
+        const response = await fetch('https://jow-api.onrender.com/create-checkout-session', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
