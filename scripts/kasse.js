@@ -180,10 +180,12 @@ confirmOrder.addEventListener('click', async () => {
                 // Produktdaten & Kundendaten an Backend schicken
                 warenkorb: JSON.parse(localStorage.getItem('Warenkorb')),
                 kunde: {
-                    name: document.getElementById('inputName').value.trim(),
-                    vorname: document.getElementById('inputVorname').value.trim(),
-                    adresse: document.getElementById('inputAdresse').value.trim(),
-                    email: document.getElementById('inputEmail').value.trim(),
+                    name: document.getElementById('nachname').value.trim(),
+                    vorname: document.getElementById('vorname').value.trim(),
+                    strasse: document.getElementById('strasse').value.trim(),
+                    plz: document.getElementById('plz').value.trim(),
+                    ort: document.getElementById('ort').value.trim(),
+                    email: document.getElementById('email').value.trim(),
                 }
             })
         });
