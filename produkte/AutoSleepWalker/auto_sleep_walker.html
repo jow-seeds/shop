@@ -165,15 +165,15 @@
                 <!-- Bild-Diashow -->
                 <div class="col-md-6">
                     <div id="produktCarousel" class="carousel slide" data-bs-ride="carousel"
-                        style="max-height: 400px; overflow: hidden;">
+                        style="max-height: 600px; overflow: hidden;">
                         <div class="carousel-inner" id="carousel-inner">
                             <div class="carousel-item active">
                                 <img src="AutoSleepWalker.jpg" class="d-block w-100 rounded" alt="Produktbild 1"
-                                    style="object-fit: contain; max-height: 400px;">
+                                    style="object-fit: cover; max-height: 600px;">
                             </div>
                             <div class="carousel-item">
                                 <img src="AutoSleepWalker.jpg" class="d-block w-100 rounded" alt="Produktbild 2"
-                                    style="object-fit: contain; max-height: 400px;">
+                                    style="object-fit: cover; max-height: 600px;">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#produktCarousel"
@@ -207,33 +207,42 @@
                             </tr>
                             <tr>
                                 <td>Ertrag Indoor</td>
-                                <td id="wert-ertrag">550g/m²</td>
+                                <td id="wert-ertrag_indoor">550g/m²</td>
                             </tr>
                             <tr>
                                 <td>Ertrag Outdoor</td>
-                                <td id="wert-ertrag">700g/Pflanze</td>
+                                <td id="wert-ertrag_outdoor">700g/Pflanze</td>
+                            </tr>
+                            <tr>
+                                <td>Höhe Indoor</td>
+                                <td id="wert-höhe_indoor">60cm</td>
+                            </tr>
+                            <tr>
+                                <td>Höhe Outdoor</td>
+                                <td id="wert-höhe_outdoor">1.20m</td>
+                            </tr>
+                            <tr>
+                                <td>Erntezeit</td>
+                                <td id="wert-erntezeit">mitte bis ende September</td>
                             </tr>
                             <tr>
                                 <td>Geschmack</td>
-                                <td id="wert-ertrag">fruchtig, Zitrone</td>
+                                <td id="wert-geschmack">fruchtig, Zitrone</td>
                             </tr>
                             <tr>
                                 <td>Wirkung</td>
-                                <td id="wert-ertrag">beruhigend, kreativ</td>
+                                <td id="wert-wirkung">beruhigend, kreativ</td>
                             </tr>
                             <tr>
                                 <td>Ärztlicher Nutzen</td>
-                                <td id="wert-ertrag">ADHS, Schmerzen, Schlafstörung</td>
+                                <td id="wert-ärztlicher_nutzen">ADHS, Schmerzen, Schlafstörung</td>
+                            </tr>
+                            <tr>
+                                <td>Besonderheiten</td>
+                                <td id="wert-besonderheiten">lila und rote Blüten</td>
                             </tr>
                         </tbody>
                     </table>
-
-                    <p id="produkt-kurzbeschreibung" class="mb-3">
-                        Die <strong>Auto Sleep Walker</strong> ist eine Automatic welche dich körperlich beruhigt und
-                        geistig aktiv macht.<br>
-                        Sie ist dankbar über etwas mehr Dünger als üblich und wird dich mit einer reichen Ernte
-                        bescheren wenn du <strong>LST</strong> anwendest!
-                    </p>
 
                     <label for="dropdown-samenmenge" class="form-label">Samenmenge & Preis</label>
                     <select style="cursor: pointer;" class="form-select mb-3" id="dropdown-samenmenge"
@@ -244,13 +253,130 @@
                     </select>
 
                     <label for="dropdown-menge" class="form-label">Menge</label>
-                    <select style="cursor: pointer;" class="form-select mb-3" id="dropdown-menge" aria-label="Zu bestellende Menge auswählen">
+                    <select style="cursor: pointer;" class="form-select mb-3" id="dropdown-menge"
+                        aria-label="Zu bestellende Menge auswählen">
                         <option value="">Bitte wählen</option>
                     </select>
 
-                    <button class="btn btn-primary btn-lg mt-auto addToCartBtn2" id="btn-in-den-warenkorb">In den Warenkorb</button>
+                    <button class="btn btn-primary btn-lg mt-auto addToCartBtn2" id="btn-in-den-warenkorb">In den
+                        Warenkorb</button>
                 </div>
             </div>
+        </section>
+
+        <section class="container my-5">
+            <h2 class="display-7 display-md-2 fw-bold text-center text-decoration-underline">Beschreibung</h2>
+            <p class="mb-3">
+                Die <strong>Auto Sleep Walker</strong> ist eine faszinierende Autoflower-Sorte, die mit einem seltenen
+                Zusammenspiel aus körperlicher Tiefenentspannung und geistiger Wachheit begeistert. Ihre Wirkung ist
+                ideal für Konsumenten, die nach einem ausgewogenen Erlebnis suchen - einem Zustand, in dem der Körper
+                zur Ruhe kommt, während der Geist hellwach und kreativ bleibt. Ob du in den Abendstunden noch an einem
+                Projekt arbeitest, dich beim Zocken konzentrieren willst oder einfach den Tag entspannt ausklingen lässt
+                - diese Sorte liefert genau die richtige Balance.<br><br>
+
+                Der Geschmack der <strong>Auto Sleep Walker</strong> ist ebenso bemerkenswert wie ihre Wirkung. Bereits
+                beim ersten Zug entfaltet sich ein angenehm fruchtiges Aroma, das an eine Mischung aus reifen Beeren und
+                süßen Zitrusfrüchten erinnert. Im Abgang bleibt ein feiner Hauch von Zitrone auf der Zunge zurück, der
+                das Geschmackserlebnis wunderbar abrundet. Der Rauch ist dabei überraschend mild, was sie besonders für
+                sensible Genießer oder Einsteiger attraktiv macht.<br><br>
+
+                Was das Erlebnis besonders macht, ist die Art und Weise, wie sie wirkt: Du wirst merken, wie deine
+                Muskulatur sanft nachgibt, während deine Gedanken weiterhin klar und strukturiert bleiben. Statt dich in
+                Watte zu packen oder geistig abzuschalten, sorgt sie für eine entspannte Präsenz - perfekt für
+                gemütliche, aber produktive Abende. Du liegst zwar entspannt auf der Couch, aber dein Kopf bleibt an -
+                ideal für kreative Prozesse, fokussiertes Arbeiten oder einfach für gute Gespräche mit Freunden.<br><br>
+
+                Auch im Anbau zeigt sich die <strong>Auto Sleep Walker</strong> von ihrer dankbaren Seite. Sie ist
+                pflegeleicht, verzeiht kleinere Fehler und gedeiht zuverlässig sowohl im Indoor- als auch im
+                Outdoor-Setup. Besonders auffällig ist ihr kräftiger Wuchs und ihre robuste Struktur. Sie reagiert sehr
+                positiv auf eine leicht erhöhte Nährstoffzufuhr - im Vergleich zu anderen Automatics verträgt sie ein
+                bisschen „mehr Liebe“ in Form von Dünger, ohne dabei zu überreagieren.<br><br>
+
+                Wer das Beste aus ihr herausholen will, sollte auf <strong>LST</strong> (Low Stress Training) setzen.
+                Mit der richtigen Technik lässt sich der Ertrag deutlich steigern, da sie eine gleichmäßige
+                Lichtverteilung in der Krone besonders gut verwerten kann. Für erfahrene Grower ist sogar
+                <strong>HST</strong> (High Stress Training) eine Option - vorausgesetzt, das Timing stimmt. Wenn alles
+                passt, belohnt sie dich mit kompakten, harzreichen Buds und einem Ertrag, der für eine Autoflower mehr
+                als beachtlich ist.<br><br>
+
+                Die <strong>Auto Sleep Walker</strong> ist mehr als nur eine Sorte - sie ist ein Erlebnis für alle, die
+                das Beste aus zwei Welten suchen: tiefe Entspannung ohne Kontrollverlust, Genuss ohne Schwere, und Anbau
+                ohne Drama.
+            </p>
+        </section>
+
+        <section class="container my-5">
+            <h2 class="display-7 display-md-2 fw-bold text-center text-decoration-underline">Grow</h2>
+            <p class="mb-3">
+                Die <strong>Auto Sleep Walker</strong> zeigt schon früh im Lebenszyklus, dass sie weiß, was sie will:
+                Bereits nach etwa 14 Tagen - manchmal erst nach rund 17 Tagen, je nach Umweltbedingungen - beginnt sie
+                von selbst mit der Vorblüte. Zu diesem Zeitpunkt hat sie meist 3 bis 4 Nodien ausgebildet und wirkt auf
+                den ersten Blick noch kompakt und unscheinbar.<br><br>
+
+                Doch unterschätze sie nicht: Kaum hat sie die Blütephase eingeleitet, beginnt ein deutlich sichtbarer
+                Wachstumsschub. In dieser Phase streckt sie sich mit Nachdruck in die Höhe und legt dabei sowohl in der
+                Höhe als auch in der Seitenverzweigung kräftig zu. Wer hier den Platzbedarf falsch einschätzt oder zu
+                früh trainiert, könnte überrascht werden - denn die <strong>Auto Sleep Walker</strong> zeigt gerne, was
+                in ihr steckt, wenn sie sich wohlfühlt.<br><br>
+
+                Eine ausreichende Versorgung mit Makro- und Mikronährstoffen ist in dieser Phase entscheidend. Besonders
+                in der Stretch- und frühen Blütephase zeigt sie sich äußerst dankbar für eine gut abgestimmte
+                Nährstoffzufuhr. Stickstoff darf zu Beginn der Blüte noch moderat vorhanden sein, sollte aber zur
+                richtigen Zeit zurückgefahren werden, damit die Energie in die Blütenbildung statt ins Blattwachstum
+                fließt. Kalium und Phosphor werden ab Woche 3-4 nach Keimung zunehmend wichtiger und sorgen für dichte,
+                harzreiche Blütenstände.<br><br>
+
+                Wenn du ihre Bedürfnisse gut triffst, belohnt sie dich mit einer beeindruckenden Blütenentwicklung -
+                dicht, aromatisch und voller Trichome. Ihre Blüten wachsen schnell und gleichmäßig, bilden kompakte Buds
+                aus und entwickeln mit der Zeit ein intensives Aroma, das sich während des Grows immer stärker
+                entfaltet.<br><br>
+
+                Kurz gesagt: Die <strong>Auto Sleep Walker</strong> ist keine Sorte für Grobmotoriker, sondern für
+                Grower mit Gespür - wer sie gut behandelt, bekommt eine kraftvolle, schnell wachsende Pflanze mit hohem
+                Ertragspotenzial. Sie ist die perfekte Wahl für alle, die in kurzer Zeit viel Qualität erwarten -
+                vorausgesetzt, du gehst mit Aufmerksamkeit und Hingabe an die Sache heran.
+            </p>
+        </section>
+
+        <section class="container my-5">
+            <h2 class="display-7 display-md-2 fw-bold text-center text-decoration-underline">Empfohlene Bedingungen</h2>
+            <p class="mb-3">
+                Damit die <strong>Auto Sleep Walker</strong> ihr volles Potenzial entfalten kann, lohnt es sich, schon
+                beim Setup auf die passenden Bedingungen zu achten. Bewährt haben sich vor allem <strong>Airpots mit
+                    einem Volumen von 12,5 bis 15 Litern</strong> - sie fördern die Wurzelentwicklung durch optimale
+                Belüftung und helfen dabei, Staunässe zu vermeiden.<br><br>
+
+                Bei der Wahl des Düngers solltest du bedenken, dass diese Automatic schnell wächst und direkt in die
+                Blüte übergeht.<br>
+                <strong>Organische Dünger auf Kompostbasis</strong> brauchen oft zu lange, um die Nährstoffe
+                pflanzenverfügbar zu machen - sie kommen bei dieser Sorte häufig „zu spät“. Daher empfiehlt sich
+                entweder ein gut abgestimmtes <strong>Living Soil Setup</strong> mit vorbereiteter Super-Erde oder ein
+                <strong>mineralisches Düngeschema</strong> wie z.B. von <strong>Hesi</strong> oder vergleichbaren
+                Herstellern.<br><br>
+
+                Wichtig ist in jedem Fall eine gute Abstimmung:<br>
+                Die <strong>Auto Sleep Walker</strong> reagiert sehr positiv auf durchdachte Nährstoffgaben - ist aber
+                auch sensibel gegenüber Überfütterung. Ein gutes Drainageverhalten, ein stabiler pH-Wert und konstante
+                Umweltbedingungen sorgen für stressfreies Wachstum und aromatische, harzreiche Blüten.<br><br>
+
+                <strong>Luftfeuchtigkeit:</strong><br>
+                Keimlingsphase: 50-60%<br>
+                Wachstumsphase: 70-80%<br>
+                Blütephase: 55-60%<br><br>
+
+                <strong>Temperatur:</strong><br>
+                Am liebsten hat sie es bei <strong>25°C</strong>, kommt aber auch mit <strong>30-35°C</strong> gut
+                klar - vorausgesetzt, die Wasserzufuhr stimmt. <em>(Nicht in der Keimlingsphase!)</em><br><br>
+
+                <strong>pH-Wert:</strong><br>
+                5,8-6,2 <em>in Erde</em>
+
+                <strong>Dünger:</strong><br>
+                Hesi oder Living Soil<br><br>
+
+                <strong>Topf:</strong><br>
+                Airpots <em>(12,5 bis 15 Liter)</em>
+            </p>
         </section>
     </main>
 
