@@ -147,7 +147,7 @@ function renderCart() {
     let gesamtpreis = 0;
 
     const cartData = localStorage.getItem("Warenkorb");
-    if (!cartData) {
+    if (!cartData | cartData === "{}") {
         cartItemsContainer.innerHTML = "<p>Der Warenkorb ist leer.</p>";
         cartTotalElement.textContent = "0.00 €";
         return;
@@ -247,15 +247,12 @@ document.getElementById("kasseButton").addEventListener("click", () => {
     const warenkorb = localStorage.getItem("Warenkorb");
 
     if (!warenkorb || warenkorb === "{}") {
-        // Inhalt zwischenspeichern
-        const originalContent = cartItemsContainer.innerHTML;
-
         // Hinweis anzeigen
         cartItemsContainer.innerHTML = `<p style="color: red; font-weight: bold;">Lege bitte zuerst etwas in deinen Warenkorb</p>`;
 
         // Nach 3 Sekunden zurücksetzen
         setTimeout(() => {
-            cartItemsContainer.innerHTML = originalContent;
+            renderCart();
         }, 3000);
     } else {
         // Weiter zur Kasse
