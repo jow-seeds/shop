@@ -241,3 +241,24 @@ document.getElementById("clearCartBtn").addEventListener("click", () => {
     renderCart();
     changeAmount();
 });
+
+document.getElementById("kasseButton").addEventListener("click", () => {
+    const cartItemsContainer = document.getElementById("cartItems");
+    const warenkorb = localStorage.getItem("Warenkorb");
+
+    if (!warenkorb || warenkorb === "{}") {
+        // Inhalt zwischenspeichern
+        const originalContent = cartItemsContainer.innerHTML;
+
+        // Hinweis anzeigen
+        cartItemsContainer.innerHTML = `<p style="color: red; font-weight: bold;">Lege bitte zuerst etwas in deinen Warenkorb</p>`;
+
+        // Nach 3 Sekunden zurücksetzen
+        setTimeout(() => {
+            cartItemsContainer.innerHTML = originalContent;
+        }, 3000);
+    } else {
+        // Weiter zur Kasse
+        window.location.href = "kasse.html";
+    }
+});
