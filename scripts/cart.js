@@ -242,20 +242,19 @@ document.getElementById("clearCartBtn").addEventListener("click", () => {
     changeAmount();
 });
 
-document.getElementById("kasseButton").addEventListener("click", () => {
+document.getElementById("kasseButton").addEventListener("click", (event) => {
     const cartItemsContainer = document.getElementById("cartItems");
     const warenkorb = localStorage.getItem("Warenkorb");
 
     if (!warenkorb || warenkorb === "{}") {
+        event.preventDefault();
+
         // Hinweis anzeigen
         cartItemsContainer.innerHTML = `<p style="color: red; font-weight: bold;">Lege bitte zuerst etwas in deinen Warenkorb</p>`;
 
-        // Nach 3 Sekunden zurücksetzen
+        // Inhalt zurückholen nach 3 Sekunden
         setTimeout(() => {
             renderCart();
         }, 3000);
-    } else {
-        // Weiter zur Kasse
-        window.location.href = "kasse.html";
     }
 });
