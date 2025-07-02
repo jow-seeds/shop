@@ -122,38 +122,39 @@
             <div
                 class="container px-3 position-relative z-2 d-flex align-items-center justify-content-center h-100 text-white">
                 <div>
-                    <h1 class="display-4 display-md-2 fw-bold">Bestellbestätigung</h1>
-                    <a href="#bestell-infos" class="btn btn-success btn-lg mt-4">Zur Bestätigung</a>
+                    <h1 class="display-4 display-md-2 fw-bold">Abbruchbestätigung</h1>
+                    <a href="#abbruch" class="btn btn-success btn-lg mt-4">Zur Bestätigung</a>
                 </div>
             </div>
         </section>
 
-        <section id="bestätigung" class="container py-5 text-center">
+        <section id="abbruch" class="container py-5 text-center">
             <div class="checkmark-circle" style="
-                    width: 100px;
-                    height: 100px;
-                    border-radius: 50%;
-                    background: #28a745;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    margin: 2rem auto;
-                    ">
-                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" width="52" height="52"
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                background: #dc3545; /* Bootstrap danger red */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 2rem auto;
+            ">
+                <svg class="crossmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" width="52" height="52"
                     fill="none" style="
                         stroke-width: 8;
                         stroke: white;
                         stroke-miterlimit: 10;
-                        stroke-dasharray: 48;
-                        stroke-dashoffset: 48;
-                        animation: dash 0.5s ease forwards;
                     ">
-                    <path d="M14 27l10 10 14-20" />
+                    <line x1="16" y1="16" x2="36" y2="36"
+                        style="stroke-dasharray: 28.28; stroke-dashoffset: 28.28; animation: dash 0.3s ease forwards 0.1s;" />
+                    <line x1="36" y1="16" x2="16" y2="36"
+                        style="stroke-dasharray: 28.28; stroke-dashoffset: 28.28; animation: dash 0.3s ease forwards 0.4s;" />
                 </svg>
             </div>
-            <h2>Bestellung erfolgreich!</h2>
-            <p>Danke für deinen Einkauf bei JoW Seeds.</p>
+            <h2>Bestellung abgebrochen!</h2>
+            <p>Schade, hast du was vergessen?</p>
             <a href="shop.html" class="btn btn-success mt-3">Weiter einkaufen</a>
+
             <style>
                 @keyframes dash {
                     to {
@@ -161,77 +162,6 @@
                     }
                 }
             </style>
-        </section>
-
-        <hr id="bestell-infos" class="my-4 border-dark border-5">
-
-        <section class="container py-5">
-            <h2 class="text-center text-decoration-underline mb-4">Bestellbestätigung</h2>
-
-            <!-- Fehlerbox -->
-            <div id="error-message" class="alert alert-danger text-center d-none" role="alert">
-                Beim Laden der Bestellung ist ein Fehler aufgetreten. Bitte versuche es später erneut.
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <h4 class="mb-3">Kontaktinformationen:</h4>
-                    <ul class="list-group text-start">
-                        <li class="list-group-item d-flex justify-content-between">
-                            <strong>Vorname:</strong> <span id="kunde-vorname">-</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <strong>Nachname:</strong> <span id="kunde-nachname">-</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <strong>Straße / Nr.:</strong> <span id="kunde-strasse">-</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <strong>PLZ:</strong> <span id="kunde-plz">-</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <strong>Ort:</strong> <span id="kunde-ort">-</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            <strong>Email:</strong> <span id="kunde-email">-</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <h4 class="mb-3">Warenkorb:</h4>
-                    <table class="table table-bordered text-center align-middle">
-                        <thead class="table-light">
-                            <tr>
-                                <th>Ware</th>
-                                <th>Option</th>
-                                <th>Menge</th>
-                                <th>Einzelpreis</th>
-                                <th>Gesamt</th>
-                            </tr>
-                        </thead>
-                        <tbody id="warenkorb-body">
-                            <!-- Dynamisch gefüllte Zeilen per JS -->
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="4" class="text-end fw-bold">Zwischensumme:</td>
-                                <td id="zwischensumme">-</td>
-                            </tr>
-                            <tr>
-                                <td colspan="4" class="text-end fw-bold">Versandkosten:</td>
-                                <td>6,50€</td>
-                            </tr>
-                            <tr class="table-success">
-                                <td colspan="4" class="text-end fw-bold">Gesamtpreis:</td>
-                                <td id="gesamtpreis">-</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
         </section>
     </main>
 
@@ -282,7 +212,6 @@
     </div>
 
     <script src="scripts/cart.js"></script>
-    <script src="scripts/checkout.js"></script>
     <script src="scripts/changeOrder.js"></script>
 </body>
 
