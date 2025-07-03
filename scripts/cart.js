@@ -108,21 +108,39 @@ document.addEventListener("click", (event) => {
 });
 
 const mengeSelect = document.getElementById('dropdown-menge');
+
 document.addEventListener("click", (event) => {
     if (event.target.classList.contains("addToCartBtn2")) {
-        const name = document.getElementById("sortenName")?.textContent.trim() || "Unbekannt";
-        const optionSelect = document.getElementById("dropdown-samenmenge");
-        const selectedOption = optionSelect.options[optionSelect.selectedIndex].text;
+        if (mengeSelect.value !== "") {
+            // Alte Warnung entfernen, wenn vorhanden
+            document.getElementById("menge-alert")?.remove();
 
-        const optionMatch = selectedOption.match(/(\d+)\s+Samen/);
-        const preisMatch = selectedOption.match(/(\d+,\d{2})€/);
+            const name = document.getElementById("sortenName")?.textContent.trim() || "Unbekannt";
+            const optionSelect = document.getElementById("dropdown-samenmenge");
+            const selectedOption = optionSelect.options[optionSelect.selectedIndex].text;
 
-        const option = optionMatch ? optionMatch[0] : "Unbekannt";
-        const preis = preisMatch ? parseFloat(preisMatch[1].replace(",", ".")) : 0.0;
+            const optionMatch = selectedOption.match(/(\d+)\s+Samen/);
+            const preisMatch = selectedOption.match(/(\d+,\d{2})€/);
 
-        const menge = parseInt(mengeSelect.value, 10);
+            const option = optionMatch ? optionMatch[0] : "Unbekannt";
+            const preis = preisMatch ? parseFloat(preisMatch[1].replace(",", ".")) : 0.0;
 
-        addToCart(name, option, menge, preis);
+            const menge = parseInt(mengeSelect.value, 10);
+
+            addToCart(name, option, menge, preis);
+        } else {
+            const alertDiv = document.createElement("div");
+            alertDiv.id = "menge-alert";
+            alertDiv.className = "alert alert-danger mt-2 py-2 px-3";
+            alertDiv.textContent = "Bitte erst die Menge wählen";
+
+            mengeSelect.insertAdjacentElement("afterend", alertDiv);
+
+            // Automatisch nach 3 Sekunden entfernen
+            setTimeout(() => alertDiv.remove(), 3000);
+
+            return;
+        }
     }
 });
 
