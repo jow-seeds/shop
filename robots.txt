@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jow-seeds.github.io/shop/sitemap.xml
