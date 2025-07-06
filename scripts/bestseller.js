@@ -36,7 +36,7 @@ async function loadBestseller() {
                             ${optionsHTML}
                         </select>
                         <button class="btn btn-primary w-100 addToCartBtn">In den Warenkorb</button>
-                        <a href=${`produkte/${sorte.Name.replace(/\s+/g, '')}/${sorte.Name.toLowerCase().replace(/\s+/g, '_')}.html`} class="btn btn-outline-secondary w-100 mt-2">Details</a>
+                        <a href=${`https://jow-seeds.github.io/shop/produkte/${sorte.Name.replace(/\s+/g, '')}/${sorte.Name.toLowerCase().replace(/\s+/g, '_')}.html`} class="btn btn-outline-secondary w-100 mt-2">Details</a>
                     </div>
                 </div>
                 </div>

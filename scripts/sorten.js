@@ -30,7 +30,7 @@ async function loadSorten() {
                             <li>Ertrag Outdoor: ${sorte.ErtragOutdoor}</li>
                             <li>${label}: ${sorte.Blütezeit}</li>
                             </ul>
-                            <a href=${`produkte/${sorte.Name.replace(/\s+/g, '')}/${sorte.Name.toLowerCase().replace(/\s+/g, '_')}.html`} class="btn btn-primary w-100 mt-2">Details</a>
+                            <a href=${`https://jow-seeds.github.io/shop/produkte/${sorte.Name.replace(/\s+/g, '')}/${sorte.Name.toLowerCase().replace(/\s+/g, '_')}.html`} class="btn btn-primary w-100 mt-2">Details</a>
                         </div>
                     </div>
                 </div>
