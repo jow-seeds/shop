@@ -8,6 +8,14 @@
   <url>
     <loc>https://jow-seeds.github.io/shop/shop.html</loc>
   </url>
+  
+  <url>
+    <loc>https://jow-seeds.github.io/shop/kontakt.html</loc>
+  </url>
+
+  <url>
+    <loc>https://jow-seeds.github.io/shop/impressum.html</loc>
+  </url>
 
   <url>
     <loc>https://jow-seeds.github.io/shop/produkte/AutoSleepWalker/auto_sleep_walker.html</loc>
@@ -15,14 +23,6 @@
 
   <url>
     <loc>https://jow-seeds.github.io/shop/produkte/SleepWalker/sleep_walker.html</loc>
-  </url>
-
-  <url>
-    <loc>https://jow-seeds.github.io/shop/kontakt.html</loc>
-  </url>
-
-  <url>
-    <loc>https://jow-seeds.github.io/shop/impressum.html</loc>
   </url>
 
 </urlset>
