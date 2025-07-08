@@ -21,6 +21,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (newStatus) {
         try {
+            const resBestellnummer = await fetch(`https://jow-api.onrender.com/api/get-order?session_id=${sessionID}`);
+            const data = await resBestellnummer.json();
+            const bestellNummer = data.bestellNummer || "Unbekannt";
+            document.getElementById('bestellNummer').textContent = bestellNummer;
+
             const res = await fetch('https://jow-api.onrender.com/api/change-order', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
