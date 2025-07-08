@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('kunde-plz').textContent = 'Unbekannt';
         document.getElementById('kunde-ort').textContent = 'Unbekannt';
         document.getElementById('kunde-email').textContent = 'Unbekannt';
+        document.getElementById('bestellNummer').textContent = 'Unbekannt';
 
         const tbody = document.getElementById('warenkorb-body');
         if (tbody) {
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const data = await res.json();
         const kunde = data.kunde || {};
         const warenkorb = data.warenkorb || [];
+        const bestellNummer = data.bestellNummer || "Unbekannt";
 
         // Kundendaten anzeigen
         document.getElementById('kunde-vorname').textContent = kunde.vorname || 'Unbekannt';
@@ -42,6 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('kunde-plz').textContent = kunde.plz || 'Unbekannt';
         document.getElementById('kunde-ort').textContent = kunde.ort || 'Unbekannt';
         document.getElementById('kunde-email').textContent = kunde.email || 'Unbekannt';
+        document.getElementById('bestellNummer').textContent = bestellNummer;
 
         // Warenkorb eintragen
         const tbody = document.getElementById('warenkorb-body');
@@ -86,6 +89,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('kunde-plz').textContent = 'Unbekannt';
         document.getElementById('kunde-ort').textContent = 'Unbekannt';
         document.getElementById('kunde-email').textContent = 'Unbekannt';
+        document.getElementById('bestellNummer').textContent = 'Unbekannt';
 
         const tbody = document.getElementById('warenkorb-body');
         if (tbody) {
