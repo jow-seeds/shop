@@ -33,8 +33,21 @@ document.addEventListener('DOMContentLoaded', async () => {
                 window.location.href = `/shop/abbruch.html?session_id=${sessionID}`;
             }
         }
+        else if (pathname.endsWith('/abbruch.html')) {
+            try {
+                await fetch('https://jow-api.onrender.com/api/mark-order-canceled', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ session_id: sessionID })
+                });
+                console.log(`🔁 Bestellung ${sessionID} auf 'canceled' gesetzt.`);
+            } catch (err) {
+                console.error('❌ Fehler beim Abbruch-Update an Server:', err);
+            }
+        }
 
-        // abbruch.html muss nichts weiter tun → keine Weiterleitung
     } catch (err) {
         console.error('Fehler beim Abrufen der Bestellung:', err);
 
