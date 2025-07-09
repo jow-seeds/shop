@@ -8,37 +8,39 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    let newStatus = null;
+    try {
+        const res = await fetch(`https://jow-api.onrender.com/api/get-order?session_id=${sessionID}`);
+        const data = await res.json();
 
-    if (pathname.endsWith('/erfolg.html')) {
-        newStatus = 'payed';
+        if (!data || !data.status) {
+            throw new Error("Keine gültige Bestellung gefunden.");
+        }
 
-        // 🧹 Warenkorb leeren
-        localStorage.setItem('Warenkorb', JSON.stringify({}));
-    } else if (pathname.endsWith('/abbruch.html')) {
-        newStatus = 'canceled';
-    }
+        const bestellNummer = data.bestellNummer || "Unbekannt";
+        const status = data.status;
+        const bestellfeld = document.getElementById('bestellNummer');
 
-    if (newStatus) {
-        try {
-            const resBestellnummer = await fetch(`https://jow-api.onrender.com/api/get-order?session_id=${sessionID}`);
-            const data = await resBestellnummer.json();
-            const bestellNummer = data.bestellNummer || "Unbekannt";
-            document.getElementById('bestellNummer').textContent = bestellNummer;
+        if (bestellfeld) {
+            bestellfeld.textContent = bestellNummer;
+        }
 
-            const res = await fetch('https://jow-api.onrender.com/api/change-order', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    session_id: sessionID,
-                    status: newStatus
-                })
-            });
+        // Reagieren je nach Seite
+        if (pathname.endsWith('/erfolg.html')) {
+            if (status === 'payed') {
+                localStorage.setItem('Warenkorb', JSON.stringify({}));
+            } else {
+                // ❌ Zahlung NICHT erfolgreich → zurück auf Abbruchseite (nur von erfolg.html aus!)
+                window.location.href = `/shop/abbruch.html?session_id=${sessionID}`;
+            }
+        }
 
-            const result = await res.json();
-            console.log('Status-Update erfolgreich:', result);
-        } catch (err) {
-            console.error('Fehler beim Senden des Status-Updates:', err);
+        // abbruch.html muss nichts weiter tun → keine Weiterleitung
+    } catch (err) {
+        console.error('Fehler beim Abrufen der Bestellung:', err);
+
+        // Nur von erfolg.html aus redirecten
+        if (pathname.endsWith('/erfolg.html')) {
+            window.location.href = `/shop/abbruch.html?session_id=${sessionID}`;
         }
     }
 });
