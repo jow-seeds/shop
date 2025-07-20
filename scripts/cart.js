@@ -78,8 +78,8 @@ function addToCart(name, option, menge, preis) {
     const newItemsTotalPrice = menge * preis;
 
     // Wenn der neue Gesamtpreis 100€ überschreitet, abbrechen
-    if (totalPrice + newItemsTotalPrice > 100) {
-        alert("Maximaler Gesamtpreis von 100 € überschritten!");
+    if (totalPrice + newItemsTotalPrice > 1000) {
+        alert("Maximaler Gesamtpreis von 1000€ überschritten!");
         return;
     }
 
