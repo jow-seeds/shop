@@ -73,12 +73,32 @@ function changeAmount() {
 }
 
 function addToCart(name, option, menge, preis) {
+    // Berechne den aktuelle Gesamtpreis im Warenkorb
+    const totalPrice = cart.reduce((sum, item) => sum + (item.menge * item.preis), 0);
+    const newItemsTotalPrice = menge * preis;
+
+    // Wenn der neue Gesamtpreis 100€ überschreitet, abbrechen
+    if (totalPrice + newItemsTotalPrice > 100) {
+        alert("Maximaler Gesamtpreis von 100 € überschritten!");
+        return;
+    }
+
     // Prüfe, ob das Produkt mit derselben Option bereits existiert
     const existing = cart.find(item => item.name === name && item.option === option);
 
     if (existing) {
+        // Wenn die neue Menge > 10 wird, abbrechen
+        if (existing.menge + menge > 10) {
+            alert("Maximal 10 Stück pro Produkt erlaubt!");
+            return;
+        }
         existing.menge += menge;
     } else {
+        // Wenn mehr als 10 Stück auf einmal hinzugefügt werden sollen, abbrechen
+        if (menge > 10) {
+            alert("Maximal 10 Stück pro Produkt erlaubt!");
+            return;
+        }
         cart.push({ name, option, menge, preis });
     }
 
